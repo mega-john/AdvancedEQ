@@ -16,7 +16,7 @@
         android:background="@drawable/sound_style_box_bg"
         android:orientation="horizontal">
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:thumb="@drawable/sound_style_db"
             android:thumbOffset="20.0dip" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:thumb="@drawable/sound_style_db"
             android:thumbOffset="20.0dip" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_loud_vseekbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             android:thumb="@drawable/sound_style_db"
             android:thumbOffset="20.0dip" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
             android:thumbOffset="20.0dip"
             android:visibility="invisible" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
             android:thumbOffset="20.0dip"
             android:visibility="invisible" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

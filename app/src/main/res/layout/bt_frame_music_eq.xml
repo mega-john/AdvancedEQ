@@ -15,7 +15,7 @@
         android:background="@drawable/sound_style_box_bg"
         android:orientation="horizontal">
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:thumb="@drawable/sound_style_db"
             android:thumbOffset="28dp" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:thumb="@drawable/sound_style_db"
             android:thumbOffset="26dp" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_music_vseekbar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <cs2c.EQ.VerticalSeekBar
+        <cs2c.EQ.Controls.VerticalSeekBar
             android:id="@id/bt_loud_vseekbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

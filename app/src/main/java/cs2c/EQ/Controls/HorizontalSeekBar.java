@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ.Controls;
 
 /**
  * Created by john on 07.11.2017.

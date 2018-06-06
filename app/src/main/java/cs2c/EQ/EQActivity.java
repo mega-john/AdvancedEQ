@@ -21,7 +21,8 @@ import android.widget.PopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import cs2c.EQ.VerticalSeekBar.OnSeekBarChangeListener;
+import cs2c.EQ.Controls.VerticalSeekBar;
+import cs2c.EQ.Controls.VerticalSeekBar.OnSeekBarChangeListener;
 
 public class EQActivity extends Activity implements OnClickListener, OnSeekBarChangeListener {
     private static int eqValue = 6;

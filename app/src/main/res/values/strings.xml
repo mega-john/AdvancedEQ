@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, EQActivity!</string>
+    <string name="eq_label_preamp">Preamp</string>
+    <string name="eq_label_plus_20db" translatable="false">+20</string>
+    <string name="eq_label_0db" translatable="false">0</string>
+    <string name="eq_label_frequency">Frequency</string>
+    <string name="eq_label_q_hicut">Q / HiCut</string>
+    <string name="eq_label_bass">Bass</string>
+    <string name="eq_label_zero" translatable="false">0</string>
+    <string name="eq_label_minus_20db" translatable="false">-20</string>
+    <string name="eq_bass_f1" translatable="false">60</string>
+    <string name="eq_bass_f2" translatable="false">80</string>
+    <string name="eq_bass_f3" translatable="false">100</string>
+    <string name="eq_bass_f4" translatable="false">120</string>
+    <string name="eq_bass_q1" translatable="false">0.5</string>
+    <string name="eq_bass_q2" translatable="false">1.0</string>
+    <string name="eq_bass_q3" translatable="false">1.5</string>
+    <string name="eq_bass_q4" translatable="false">2.0</string>
+    <string name="eq_label_middle">Middle</string>
+    <string name="eq_middle_f1" translatable="false">0k5</string>
+    <string name="eq_middle_f2" translatable="false">1k0</string>
+    <string name="eq_middle_f3" translatable="false">1k5</string>
+    <string name="eq_middle_f4" translatable="false">2k5</string>
+    <string name="eq_middle_q1" translatable="false">0.75</string>
+    <string name="eq_middle_q2" translatable="false">1.0</string>
+    <string name="eq_middle_q3" translatable="false">1.25</string>
+    <string name="eq_middle_q4" translatable="false">1.5</string>
+    <string name="eq_label_treble">Treble</string>
+    <string name="eq_treble_f1" translatable="false">7k5</string>
+    <string name="eq_treble_f2" translatable="false">10k</string>
+    <string name="eq_treble_f3" translatable="false">12k5</string>
+    <string name="eq_trenle_f4" translatable="false">15k</string>
+    <string name="eq_treble_q1" translatable="false">0.75</string>
+    <string name="eq_treble_q2" translatable="false">1.25</string>
+    <string name="eq_label_loud">Loud</string>
+    <string name="eq_loud_f1" translatable="false">250</string>
+    <string name="eq_loud_f2" translatable="false">400</string>
+    <string name="eq_loud_f3" translatable="false">800</string>
+    <string name="eq_loud_h1" translatable="false">1</string>
+    <string name="eq_loud_h2" translatable="false">2</string>
+    <string name="eq_loud_h3" translatable="false">3</string>
+    <string name="eq_loud_h4" translatable="false">4</string>
+    <string name="eq_button_mute">Mute</string>
+    <string name="eq_button_loud">Loud</string>
+    <string name="eq_button_equalizer">Equalizer</string>
+    <string name="eq_current_input_label">Input</string>
+
     <string name="app_name">EQ</string>
     <string name="low_voice">BASS</string>
     <string name="middle_voice">MID</string>

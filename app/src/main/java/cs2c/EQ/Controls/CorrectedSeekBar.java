@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ.Controls;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

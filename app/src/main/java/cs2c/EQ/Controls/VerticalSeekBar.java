@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ.Controls;
 
 
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
+
+import cs2c.EQ.EQActivity;
 
 public class VerticalSeekBar extends SeekBar {
     private int height;
