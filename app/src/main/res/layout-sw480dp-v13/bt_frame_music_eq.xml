@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/activity_background_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@id/above_frame_bt_music_eq"
+        android:layout_width="wrap_content"
+        android:layout_height="272.0dip"
+        android:layout_marginLeft="54.0dip"
+        android:layout_marginTop="68.0dip"
+        android:background="@drawable/sound_style_box_bg"
+        android:orientation="horizontal">
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13.0dip"
+            android:layout_marginTop="15.0dip"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="60"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_db1"
+            android:secondaryProgress="30"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="124.0dip"
+            android:layout_marginTop="15.0dip"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="50"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_db2"
+            android:secondaryProgress="0"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="236.0dip"
+            android:layout_marginTop="15.0dip"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="40"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_db3"
+            android:secondaryProgress="0"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip" />
+
+        <ImageView
+            android:id="@id/music_eq_seekbar_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_loud_vseekbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="409.0dip"
+            android:layout_marginTop="15.0dip"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="30"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_2"
+            android:secondaryProgress="0"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="409.0dip"
+            android:layout_marginTop="15.0dip"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="30"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_2"
+            android:secondaryProgress="0"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip"
+            android:visibility="invisible" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70.0dip"
+            android:layout_marginTop="15.0dip"
+            android:layout_toRightOf="@id/bt_music_vseekbar4"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="60"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_2"
+            android:secondaryProgress="0"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip"
+            android:visibility="invisible" />
+
+        <cs2c.EQ.VerticalSeekBar
+            android:id="@id/bt_music_vseekbar6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="69.0dip"
+            android:layout_marginTop="15.0dip"
+            android:layout_toRightOf="@id/bt_music_vseekbar5"
+            android:max="100"
+            android:maxHeight="9.0dip"
+            android:maxWidth="9.0dip"
+            android:minHeight="9.0dip"
+            android:minWidth="9.0dip"
+            android:paddingRight="35.0dip"
+            android:progress="50"
+            android:progressDrawable="@drawable/bt_music_seekbar_style_2"
+            android:secondaryProgress="40"
+            android:thumb="@drawable/sound_style_db"
+            android:thumbOffset="20.0dip"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@id/bt_loud_text_top"
+        android:layout_width="200.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="383.0dip"
+        android:layout_marginTop="16.0dip"
+        android:gravity="center_horizontal"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="@string/subwoofer"
+        android:textColor="@color/white"
+        android:textSize="20.0sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@id/bt_loud_text_tottom"
+        android:layout_width="200.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="383.0dip"
+        android:layout_marginTop="345.0dip"
+        android:gravity="center_horizontal"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="@string/subwoofer_value"
+        android:textColor="@color/white"
+        android:textSize="20.0sp"
+        android:visibility="visible" />
+
+    <Switch
+        android:id="@id/loud_sw"
+        android:layout_width="117.0dip"
+        android:layout_height="72.0dip"
+        android:layout_marginLeft="560.0dip"
+        android:layout_marginTop="190.0dip"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="@string/loud"
+        android:textColor="@color/white"
+        android:textSize="20.0sp" />
+
+    <RelativeLayout
+        android:id="@id/text_frame_bt_music_eq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16.0dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="35.0dip"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@id/bt_music_text_low_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/low_voice"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@id/bt_music_text_middle_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/middle_voice"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@id/bt_music_text_high_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/high_voice"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80.0dip"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@id/bt_music_text_low_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/low_f"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@id/bt_music_text_middle_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/middle_f"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@id/bt_music_text_high_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#b0000000"
+                    android:shadowRadius="2.0"
+                    android:text="@string/high_f"
+                    android:textColor="@color/white"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="35.0dip"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/text_frame_bt_music_eq_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35.0dip"
+        android:layout_marginTop="348.0dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@id/bt_music_text_low_voice_value"
+            android:layout_width="39.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="31.0dip"
+            android:gravity="center_horizontal"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/low_voice_value"
+            android:textColor="@color/white"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/bt_music_text_middle_voice_value"
+            android:layout_width="39.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="71.0dip"
+            android:layout_toRightOf="@id/bt_music_text_low_voice_value"
+            android:gravity="center_horizontal"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/middle_voice_value"
+            android:textColor="@color/white"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/bt_music_text_high_voice_value"
+            android:layout_width="39.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="74.0dip"
+            android:layout_toRightOf="@id/bt_music_text_middle_voice_value"
+            android:gravity="center_horizontal"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/high_voice_value"
+            android:textColor="@color/white"
+            android:textSize="16.0sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/below_frame_bt_music_eq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_frame_bt_music_eq_value"
+        android:layout_marginLeft="-8.0dip"
+        android:layout_marginTop="4.0dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@id/bt_music_rock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:background="@drawable/sound_style_button"
+            android:gravity="center"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/rock"
+            android:textColor="@drawable/button_font_style"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/bt_music_balancer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@id/bt_music_rock"
+            android:background="@drawable/sound_style_button"
+            android:gravity="center"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/balancer"
+            android:textColor="@drawable/button_font_style"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/bt_music_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@id/bt_music_balancer"
+            android:background="@drawable/sound_style_button"
+            android:gravity="center"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="@string/reset"
+            android:textColor="@drawable/button_font_style"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@id/bt_music_advanced"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@id/bt_music_reset"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/sound_style_button"
+            android:gravity="center"
+            android:shadowColor="#b0000000"
+            android:shadowRadius="2.0"
+            android:text="Advanced"
+            android:textColor="@drawable/button_font_style"
+            android:textSize="16.0sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/activity_background_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:layout_marginLeft="25dip"
+    >
+
+    <TextView
+        android:id="@+id/txtBassQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:layout_marginTop="10dip"
+        android:background="@android:color/transparent"
+        android:text="Bass Q - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbBassQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="3"
+        android:progress="0"
+        android:secondaryProgress="3"
+        android:thumb="@drawable/sound_style_db" />
+
+    <TextView
+        android:id="@+id/txtBassF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:background="@android:color/transparent"
+        android:text="Bass Fo - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbBassF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="3"
+        android:progress="0"
+        android:secondaryProgress="3"
+        android:thumb="@drawable/sound_style_db" />
+
+    <TextView
+        android:id="@+id/txtMiddleQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:background="@android:color/transparent"
+        android:text="Middle Q - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbMiddleQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="3"
+        android:progress="0"
+        android:secondaryProgress="3"
+        android:thumb="@drawable/sound_style_db" />
+
+    <TextView
+        android:id="@+id/txtMiddleF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:background="@android:color/transparent"
+        android:text="Middle Fo - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbMiddleF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="3"
+        android:progress="0"
+        android:secondaryProgress="3"
+        android:thumb="@drawable/sound_style_db" />
+
+    <TextView
+        android:id="@+id/txtTrebleQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:background="@android:color/transparent"
+        android:text="Treble Q - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbTrebleQ"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="1"
+        android:progress="0"
+        android:secondaryProgress="1"
+        android:thumb="@drawable/sound_style_db" />
+
+    <TextView
+        android:id="@+id/txtTrebleF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:background="@android:color/transparent"
+        android:text="Treble Fo - "
+        android:textSize="30sp" />
+
+    <SeekBar
+        android:id="@+id/sbTrebleF"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:background="@android:color/transparent"
+        android:max="3"
+        android:progress="0"
+        android:secondaryProgress="3"
+        android:thumb="@drawable/sound_style_db" />
+
+</LinearLayout>

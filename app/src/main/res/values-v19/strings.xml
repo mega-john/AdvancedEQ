@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="BassQ">Bass Q -</string>
+    <string name="BassFo">Bass Fo -</string>
+    <string name="MiddleQ">Middle Q -</string>
+    <string name="MiddleFo">Middle Fo -</string>
+    <string name="TrebleQ">Treble Q -</string>
+    <string name="TrebleFo">Treble Fo -</string>
+</resources>
