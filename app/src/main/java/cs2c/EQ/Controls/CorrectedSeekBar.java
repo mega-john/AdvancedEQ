@@ -1,6 +1,5 @@
 package cs2c.EQ.Controls;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
@@ -12,19 +11,10 @@ import java.lang.reflect.Method;
  * Created by john on 07.11.2017.
  */
 
-@SuppressLint("AppCompatCustomView")
 public class CorrectedSeekBar extends SeekBar {
-    public CorrectedSeekBar(Context context) {
-        super(context);
-    }
-
-    public CorrectedSeekBar(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public CorrectedSeekBar(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
+    public CorrectedSeekBar(Context context) { super(context); }
+    public CorrectedSeekBar(Context context, AttributeSet attrs) { super(context, attrs); }
+    public CorrectedSeekBar(Context context, AttributeSet attrs, int defStyle) { super(context, attrs, defStyle); }
 
     protected void setProgressPatch(int progress, boolean fromUser) {
         try {

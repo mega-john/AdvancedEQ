@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.cs2c.IEQService;
+//import android.cs2c.IEQService;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,13 +18,14 @@ import android.view.View.OnLongClickListener;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.PopupWindow;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import cs2c.EQ.Controls.VerticalSeekBar;
-import cs2c.EQ.Controls.VerticalSeekBar.OnSeekBarChangeListener;
+//import cs2c.EQ.Controls.VerticalSeekBar.OnSeekBarChangeListener;
 
-public class EQActivity extends Activity implements OnClickListener, OnSeekBarChangeListener {
+public class EQActivity extends Activity implements OnClickListener, SeekBar.OnSeekBarChangeListener {
     private static int eqValue = 6;
     public static int height = 0;
     private static boolean isSystemWallperSettings = false;
@@ -110,6 +111,21 @@ public class EQActivity extends Activity implements OnClickListener, OnSeekBarCh
     private SharedPreferences preferences;
     private PopupWindow window;
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+
     class DispearA extends Handler {
         DispearA() {
         }
@@ -129,7 +145,13 @@ public class EQActivity extends Activity implements OnClickListener, OnSeekBarCh
         super.onCreate(paramBundle);
         setContentView(R.layout.bt_frame_music_eq);
         if (this.mEQService == null) {
-            this.mEQService = (IEQService) getSystemService("eq");
+            try {
+                this.mEQService = (IEQService) getSystemService("eq");
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                Log.e("LoadAndSetAdvancedValue", ex.getMessage() + " ");
+            }
             System.out.println("------------------------------------------------");
         }
         Display display = getWindowManager().getDefaultDisplay();
@@ -564,9 +586,13 @@ public class EQActivity extends Activity implements OnClickListener, OnSeekBarCh
                 return;
             case R.id.bt_music_advanced:
                 Intent advancedIntent = new Intent();
-                advancedIntent.setClass(this, Advanced.class);
+                advancedIntent.setClass(this, EqualizerFragment.class);
                 startActivity(advancedIntent);
                 return;
+//                Intent advancedIntent = new Intent();
+//                advancedIntent.setClass(this, Advanced.class);
+//                startActivity(advancedIntent);
+//                return;
             case R.id.bt_music_reset:
                 eqValue = 6;
                 Editor editor = this.preferences.edit();

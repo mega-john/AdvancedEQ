@@ -1,5 +1,6 @@
 package cs2c.EQ;
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,37 +13,41 @@ import android.widget.TextView;
 
 import cs2c.EQ.Controls.AfcChart;
 
-public class EqualizerFragment extends BaseFragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
+public class EqualizerFragment extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
     private CheckBox muteOn, loudOn, equalizerOn;
     private SeekBar preampG, bassG, bassF, bassQ, middleG, middleF, middleQ, trebleG, trebleF, trebleQ, loudG, loudF, loudHC;
     private TextView preampV, bassV, middleV, trebleV, loudV, inputV;
     private AfcChart chart;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_equalizer, container, false);
 
-        muteOn = (CheckBox) view.findViewById(R.id.mute_on);
-        loudOn = (CheckBox) view.findViewById(R.id.loud_on);
-        equalizerOn = (CheckBox) view.findViewById(R.id.equalizer_on);
+    protected void onCreate(Bundle paramBundle) {
+        super.onCreate(paramBundle);
+
+        setContentView(R.layout.fragment_equalizer);
+
+//        View view = inflater.inflate(R.layout.fragment_equalizer, container, false);
+
+        muteOn = (CheckBox) findViewById(R.id.mute_on);
+        loudOn = (CheckBox) findViewById(R.id.loud_on);
+        equalizerOn = (CheckBox) findViewById(R.id.equalizer_on);
 
         muteOn.setOnClickListener(this);
         loudOn.setOnClickListener(this);
         equalizerOn.setOnClickListener(this);
 
-        preampG = (SeekBar)view.findViewById(R.id.seekBarPreamp);
-        bassG = (SeekBar)view.findViewById(R.id.seekBarBassG);
-        bassF = (SeekBar)view.findViewById(R.id.seekBarBassF);
-        bassQ = (SeekBar)view.findViewById(R.id.seekBarBassQ);
-        middleG = (SeekBar)view.findViewById(R.id.seekBarMiddleG);
-        middleF = (SeekBar)view.findViewById(R.id.seekBarMiddleF);
-        middleQ = (SeekBar)view.findViewById(R.id.seekBarMiddleQ);
-        trebleG = (SeekBar)view.findViewById(R.id.seekBarTrebleG);
-        trebleF = (SeekBar)view.findViewById(R.id.seekBarTrebleF);
-        trebleQ = (SeekBar)view.findViewById(R.id.seekBarTrebleQ);
-        loudG = (SeekBar)view.findViewById(R.id.seekBarLoudG);
-        loudF = (SeekBar)view.findViewById(R.id.seekBarLoudF);
-        loudHC = (SeekBar)view.findViewById(R.id.seekBarLoudHC);
+        preampG = (SeekBar)findViewById(R.id.seekBarPreamp);
+        bassG = (SeekBar)findViewById(R.id.seekBarBassG);
+        bassF = (SeekBar)findViewById(R.id.seekBarBassF);
+        bassQ = (SeekBar)findViewById(R.id.seekBarBassQ);
+        middleG = (SeekBar)findViewById(R.id.seekBarMiddleG);
+        middleF = (SeekBar)findViewById(R.id.seekBarMiddleF);
+        middleQ = (SeekBar)findViewById(R.id.seekBarMiddleQ);
+        trebleG = (SeekBar)findViewById(R.id.seekBarTrebleG);
+        trebleF = (SeekBar)findViewById(R.id.seekBarTrebleF);
+        trebleQ = (SeekBar)findViewById(R.id.seekBarTrebleQ);
+        loudG = (SeekBar)findViewById(R.id.seekBarLoudG);
+        loudF = (SeekBar)findViewById(R.id.seekBarLoudF);
+        loudHC = (SeekBar)findViewById(R.id.seekBarLoudHC);
 
         preampG.setOnSeekBarChangeListener(this);
         bassG.setOnSeekBarChangeListener(this);
@@ -68,17 +73,17 @@ public class EqualizerFragment extends BaseFragment implements View.OnClickListe
         trebleF.setOnTouchListener(this);
         trebleQ.setOnTouchListener(this);
 
-        preampV = (TextView)view.findViewById(R.id.preamp_v);
-        bassV = (TextView)view.findViewById(R.id.bass_v);
-        middleV = (TextView)view.findViewById(R.id.middle_v);
-        trebleV = (TextView)view.findViewById(R.id.treble_v);
-        loudV = (TextView)view.findViewById(R.id.loud_v);
-        inputV = (TextView)view.findViewById(R.id.current_input);
+        preampV = (TextView)findViewById(R.id.preamp_v);
+        bassV = (TextView)findViewById(R.id.bass_v);
+        middleV = (TextView)findViewById(R.id.middle_v);
+        trebleV = (TextView)findViewById(R.id.treble_v);
+        loudV = (TextView)findViewById(R.id.loud_v);
+        inputV = (TextView)findViewById(R.id.current_input);
 
-        chart = (AfcChart)view.findViewById(R.id.afcChart);
+        chart = (AfcChart)findViewById(R.id.afcChart);
         chart.setGrid(false);
 
-        return view;
+//        return view;
     }
 
     public void update()
@@ -91,8 +96,8 @@ public class EqualizerFragment extends BaseFragment implements View.OnClickListe
     private void updateInput() {
         Resources resources = getResources();
 
-        String phone = audioManager.getParameters("av_phone=");
-        String input = audioManager.getParameters("av_channel=");
+//        String phone = audioManager.getParameters("av_phone=");
+//        String input = audioManager.getParameters("av_channel=");
         String result;
 
 //        if ("answer".equalsIgnoreCase(phone)) {
@@ -122,44 +127,44 @@ public class EqualizerFragment extends BaseFragment implements View.OnClickListe
     }
 
     private void updateOnSwitches() {
-        muteOn.setChecked("true".equalsIgnoreCase(audioManager.getParameters("av_mute=")));
-        loudOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_lud=")));
-        equalizerOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_eq_on=")));
+//        muteOn.setChecked("true".equalsIgnoreCase(audioManager.getParameters("av_mute=")));
+//        loudOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_lud=")));
+//        equalizerOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_eq_on=")));
     }
 
     private void updateBars() {
-        int[] params = parseList(audioManager.getParameters("av_gain="));
-        if (params.length == 1) {
-            preampG.setProgress(params[0]);
-        }
-
-        params = parseList(audioManager.getParameters("av_eq_bass="));
-        if (params.length == 3) {
-            bassG.setProgress(params[0] + 20);
-            bassF.setProgress(params[1]);
-            bassQ.setProgress(params[2]);
-        }
-
-        params = parseList(audioManager.getParameters("av_eq_middle="));
-        if (params.length == 3) {
-            middleG.setProgress(params[0] + 20);
-            middleF.setProgress(params[1]);
-            middleQ.setProgress(params[2]);
-        }
-
-        params = parseList(audioManager.getParameters("av_eq_treble="));
-        if (params.length == 3) {
-            trebleG.setProgress(params[0] + 20);
-            trebleF.setProgress(params[1]);
-            trebleQ.setProgress(params[2]);
-        }
-
-        params = parseList(audioManager.getParameters("av_loudness="));
-        if (params.length == 3) {
-            loudG.setProgress(params[0]);
-            loudF.setProgress(params[1]);
-            loudHC.setProgress(params[2]);
-        }
+//        int[] params = parseList(audioManager.getParameters("av_gain="));
+//        if (params.length == 1) {
+//            preampG.setProgress(params[0]);
+//        }
+//
+//        params = parseList(audioManager.getParameters("av_eq_bass="));
+//        if (params.length == 3) {
+//            bassG.setProgress(params[0] + 20);
+//            bassF.setProgress(params[1]);
+//            bassQ.setProgress(params[2]);
+//        }
+//
+//        params = parseList(audioManager.getParameters("av_eq_middle="));
+//        if (params.length == 3) {
+//            middleG.setProgress(params[0] + 20);
+//            middleF.setProgress(params[1]);
+//            middleQ.setProgress(params[2]);
+//        }
+//
+//        params = parseList(audioManager.getParameters("av_eq_treble="));
+//        if (params.length == 3) {
+//            trebleG.setProgress(params[0] + 20);
+//            trebleF.setProgress(params[1]);
+//            trebleQ.setProgress(params[2]);
+//        }
+//
+//        params = parseList(audioManager.getParameters("av_loudness="));
+//        if (params.length == 3) {
+//            loudG.setProgress(params[0]);
+//            loudF.setProgress(params[1]);
+//            loudHC.setProgress(params[2]);
+//        }
 
         updateValues();
         updateChart();
@@ -281,13 +286,13 @@ public class EqualizerFragment extends BaseFragment implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.mute_on:
-                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
+//                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
                 break;
             case R.id.loud_on:
-                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
+//                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
                 break;
             case R.id.equalizer_on:
-                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
+//                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
                 break;
         }
     }
@@ -300,30 +305,30 @@ public class EqualizerFragment extends BaseFragment implements View.OnClickListe
         switch (seekBar.getId())
         {
             case R.id.seekBarPreamp:
-                audioManager.setParameters(String.format("av_gain=%d", preampG.getProgress()));
+//                audioManager.setParameters(String.format("av_gain=%d", preampG.getProgress()));
                 break;
             case R.id.seekBarBassG:
             case R.id.seekBarBassF:
             case R.id.seekBarBassQ:
-                audioManager.setParameters(String.format("av_eq_bass=%d,%d,%d", bassG.getProgress()-20, bassF.getProgress(), bassQ.getProgress()));
+//                audioManager.setParameters(String.format("av_eq_bass=%d,%d,%d", bassG.getProgress()-20, bassF.getProgress(), bassQ.getProgress()));
                 updateChartBass();
                 break;
             case R.id.seekBarMiddleG:
             case R.id.seekBarMiddleF:
             case R.id.seekBarMiddleQ:
-                audioManager.setParameters(String.format("av_eq_middle=%d,%d,%d", middleG.getProgress()-20, middleF.getProgress(), middleQ.getProgress()));
+//                audioManager.setParameters(String.format("av_eq_middle=%d,%d,%d", middleG.getProgress()-20, middleF.getProgress(), middleQ.getProgress()));
                 updateChartMiddle();
                 break;
             case R.id.seekBarTrebleG:
             case R.id.seekBarTrebleF:
             case R.id.seekBarTrebleQ:
-                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
+//                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
                 updateChartTreble();
                 break;
             case R.id.seekBarLoudG:
             case R.id.seekBarLoudF:
             case R.id.seekBarLoudHC:
-                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
+//                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
                 break;
         }
         updateValues();

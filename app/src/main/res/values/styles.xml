@@ -15,7 +15,8 @@
         <item name="android:paddingBottom">@dimen/seekbar_paddind_vertical</item>
     </style>
     <style name="seek_bar_v" parent="seek_bar_h">
-    </style>    <style name="label">
+    </style>
+    <style name="label">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>

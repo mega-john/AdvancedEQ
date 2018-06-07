@@ -6,12 +6,12 @@
     <dimen name="round_controls_fixed_size">32px</dimen>
     <dimen name="round_controls_interior_delta">4px</dimen>
     <dimen name="seekbar_paddind_horizontal">8px</dimen>
-    <dimen name="seekbar_paddind_vertical">4px</dimen>
+    <dimen name="seekbar_paddind_vertical">24px</dimen>
     <dimen name="label_large_size">17.6px</dimen>
     <dimen name="label_medium_size">12.8px</dimen>
     <dimen name="label_small_size">9.6px</dimen>
     <dimen name="nav_button_size">64px</dimen>
-    <dimen name="fragment_padding">16px</dimen>
+    <dimen name="fragment_padding">10px</dimen>
     <dimen name="checkbox_top_margin">24px</dimen>
     <dimen name="eq_gain_db_padding">14.4px</dimen>
     <dimen name="balance_cross_size">216px</dimen>

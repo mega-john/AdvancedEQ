@@ -26,6 +26,10 @@
             android:name=".Advanced"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
 
+        <activity
+            android:name=".EqualizerFragment"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
+
         <receiver android:name=".EQBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
