@@ -40,9 +40,9 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
     private static int vbProgressValue1 = 0;
     private static int vbProgressValue2 = 0;
     private static int vbProgressValue3 = 0;
-    private static int vbProgressVariable1 = 0;
-    private static int vbProgressVariable2 = 0;
-    private static int vbProgressVariable3 = 0;
+    private static int vbProgressBass = 0;
+    private static int vbProgressMiddle = 0;
+    private static int vbProgressTreble = 0;
     private static int vbProgressVariable4 = 0;
     private static int vbProgressVariable5 = 0;
     private static int vbProgressVariable6 = 0;
@@ -293,9 +293,9 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                     this.mEQService.setSound(11, 1);
                     return;
                 case 6:
-                    vbProgressVariable1 = this.preferences.getInt("lowFreqSBProgressValue", 1);
-                    vbProgressVariable2 = this.preferences.getInt("middleFreqSBProgressValue", 1);
-                    vbProgressVariable3 = this.preferences.getInt("highFreqSBProgressValue", 0);
+                    vbProgressBass = this.preferences.getInt(Constants.sb_lowFreqSBProgressValue, 1);
+                    vbProgressMiddle = this.preferences.getInt(Constants.sb_middleFreqSBProgressValue, 1);
+                    vbProgressTreble = this.preferences.getInt(Constants.sb_highFreqSBProgressValue, 0);
                     vbProgressVariable4 = this.preferences.getInt("lowVoiceSBProgressValue", 7);
                     vbProgressVariable5 = this.preferences.getInt("middleVoiceSBProgressValue", 7);
                     vbProgressVariable6 = this.preferences.getInt("highVoiceSBProgressValue", 7);
@@ -305,9 +305,9 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                     this.mEQService.setSound(3, vbProgressVariable6);
                     this.mEQService.setSound(2, vbProgressVariable5);
                     this.mEQService.setSound(1, vbProgressVariable4);
-                    this.mEQService.setSound(13, vbProgressVariable3);
-                    this.mEQService.setSound(12, vbProgressVariable2);
-                    this.mEQService.setSound(11, vbProgressVariable1);
+                    this.mEQService.setSound(13, vbProgressTreble);
+                    this.mEQService.setSound(12, vbProgressMiddle);
+                    this.mEQService.setSound(11, vbProgressBass);
                     return;
                 default:
                     Log.d("lzc", "eqValue=" + eqValue);

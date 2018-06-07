@@ -11,7 +11,12 @@ public final class Constants {
     public static String sbFo_middleProgressValue = "sbFo_middleProgressValue";
     public static String sbQ_trebleProgressValue = "sbQ_trebleProgressValue";
     public static String sbFo_trebleProgressValue = "sbFo_trebleProgressValue";
+
+    public static String sb_lowFreqSBProgressValue = "lowFreqSBProgressValue";
+    public static String sb_middleFreqSBProgressValue = "middleFreqSBProgressValue";
+    public static String sb_highFreqSBProgressValue = "highFreqSBProgressValue";
     public static int cBassCommand = 23;
     public static int cMiddleCommand = 24;
     public static int cTrebleCommand = 25;
+    public static String EQInterfaceName = "eq";
 }

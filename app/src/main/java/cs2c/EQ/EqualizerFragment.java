@@ -1,8 +1,11 @@
 package cs2c.EQ;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.cs2c.IEQService;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +21,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     private SeekBar preampG, bassG, bassF, bassQ, middleG, middleF, middleQ, trebleG, trebleF, trebleQ, loudG, loudF, loudHC;
     private TextView preampV, bassV, middleV, trebleV, loudV, inputV;
     private AfcChart chart;
+    private IEQService mEQService;
+    private SharedPreferences preferences;
 
 
     protected void onCreate(Bundle paramBundle) {
@@ -25,7 +30,15 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         setContentView(R.layout.fragment_equalizer);
 
-//        View view = inflater.inflate(R.layout.fragment_equalizer, container, false);
+        if (mEQService == null) {
+            //noinspection WrongConstant
+            mEQService = (IEQService) getSystemService(Constants.EQInterfaceName);
+            Log.i("this.mEQService == null", String.valueOf(mEQService == null));
+        }
+
+        if (preferences == null) {
+            preferences = getSharedPreferences("musicEQ", MODE_PRIVATE);
+        }
 
         muteOn = (CheckBox) findViewById(R.id.mute_on);
         loudOn = (CheckBox) findViewById(R.id.loud_on);
@@ -35,19 +48,19 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         loudOn.setOnClickListener(this);
         equalizerOn.setOnClickListener(this);
 
-        preampG = (SeekBar)findViewById(R.id.seekBarPreamp);
-        bassG = (SeekBar)findViewById(R.id.seekBarBassG);
-        bassF = (SeekBar)findViewById(R.id.seekBarBassF);
-        bassQ = (SeekBar)findViewById(R.id.seekBarBassQ);
-        middleG = (SeekBar)findViewById(R.id.seekBarMiddleG);
-        middleF = (SeekBar)findViewById(R.id.seekBarMiddleF);
-        middleQ = (SeekBar)findViewById(R.id.seekBarMiddleQ);
-        trebleG = (SeekBar)findViewById(R.id.seekBarTrebleG);
-        trebleF = (SeekBar)findViewById(R.id.seekBarTrebleF);
-        trebleQ = (SeekBar)findViewById(R.id.seekBarTrebleQ);
-        loudG = (SeekBar)findViewById(R.id.seekBarLoudG);
-        loudF = (SeekBar)findViewById(R.id.seekBarLoudF);
-        loudHC = (SeekBar)findViewById(R.id.seekBarLoudHC);
+        preampG = (SeekBar) findViewById(R.id.seekBarPreamp);
+        bassG = (SeekBar) findViewById(R.id.seekBarBassG);
+        bassF = (SeekBar) findViewById(R.id.seekBarBassF);
+        bassQ = (SeekBar) findViewById(R.id.seekBarBassQ);
+        middleG = (SeekBar) findViewById(R.id.seekBarMiddleG);
+        middleF = (SeekBar) findViewById(R.id.seekBarMiddleF);
+        middleQ = (SeekBar) findViewById(R.id.seekBarMiddleQ);
+        trebleG = (SeekBar) findViewById(R.id.seekBarTrebleG);
+        trebleF = (SeekBar) findViewById(R.id.seekBarTrebleF);
+        trebleQ = (SeekBar) findViewById(R.id.seekBarTrebleQ);
+        loudG = (SeekBar) findViewById(R.id.seekBarLoudG);
+        loudF = (SeekBar) findViewById(R.id.seekBarLoudF);
+        loudHC = (SeekBar) findViewById(R.id.seekBarLoudHC);
 
         preampG.setOnSeekBarChangeListener(this);
         bassG.setOnSeekBarChangeListener(this);
@@ -73,21 +86,87 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         trebleF.setOnTouchListener(this);
         trebleQ.setOnTouchListener(this);
 
-        preampV = (TextView)findViewById(R.id.preamp_v);
-        bassV = (TextView)findViewById(R.id.bass_v);
-        middleV = (TextView)findViewById(R.id.middle_v);
-        trebleV = (TextView)findViewById(R.id.treble_v);
-        loudV = (TextView)findViewById(R.id.loud_v);
-        inputV = (TextView)findViewById(R.id.current_input);
+        preampV = (TextView) findViewById(R.id.preamp_v);
+        bassV = (TextView) findViewById(R.id.bass_v);
+        middleV = (TextView) findViewById(R.id.middle_v);
+        trebleV = (TextView) findViewById(R.id.treble_v);
+        loudV = (TextView) findViewById(R.id.loud_v);
+        inputV = (TextView) findViewById(R.id.current_input);
 
-        chart = (AfcChart)findViewById(R.id.afcChart);
+        chart = (AfcChart) findViewById(R.id.afcChart);
         chart.setGrid(false);
 
-//        return view;
+        loadEQValues();
     }
 
-    public void update()
-    {
+    private void loadEQValues() {
+
+        int storedValue = 0;
+
+        storedValue = this.preferences.getInt(Constants.sb_lowFreqSBProgressValue, 20);
+        bassG.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sb_middleFreqSBProgressValue, 20);
+        middleG.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sb_highFreqSBProgressValue, 20);
+        trebleG.setProgress(storedValue);
+
+
+
+        storedValue = this.preferences.getInt(Constants.sbQ_bassProgressValue, 0);
+        bassQ.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sbFo_bassProgressValue, 0);
+        bassF.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sbQ_middleProgressValue, 0);
+        middleQ.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sbFo_middleProgressValue, 0);
+        middleF.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sbQ_trebleProgressValue, 0);
+        trebleQ.setProgress(storedValue);
+
+        storedValue = this.preferences.getInt(Constants.sbFo_trebleProgressValue, 0);
+        trebleF.setProgress(storedValue);
+
+        updateChart();
+    }
+
+    private void saveEQValues() {
+        SharedPreferences.Editor e = this.preferences.edit();
+        if (e != null) {
+            try {
+                e.putInt(Constants.sb_lowFreqSBProgressValue, bassG.getProgress());
+                e.apply();
+                e.putInt(Constants.sb_middleFreqSBProgressValue, middleG.getProgress());
+                e.apply();
+                e.putInt(Constants.sb_highFreqSBProgressValue, trebleG.getProgress());
+                e.apply();
+
+                e.putInt(Constants.sbQ_bassProgressValue, bassQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_bassProgressValue, bassF.getProgress());
+                e.apply();
+                e.putInt(Constants.sbQ_middleProgressValue, middleQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_middleProgressValue, middleF.getProgress());
+                e.apply();
+                e.putInt(Constants.sbQ_trebleProgressValue, trebleQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_trebleProgressValue, trebleF.getProgress());
+                e.apply();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                Log.e("saveEQValues", ex.getMessage());
+            }
+        }
+    }
+
+    public void update() {
         updateInput();
         updateOnSwitches();
         updateBars();
@@ -283,8 +362,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.mute_on:
 //                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
                 break;
@@ -302,8 +380,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         if (!fromUser) return;
 
-        switch (seekBar.getId())
-        {
+        switch (seekBar.getId()) {
             case R.id.seekBarPreamp:
 //                audioManager.setParameters(String.format("av_gain=%d", preampG.getProgress()));
                 break;
@@ -332,6 +409,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
                 break;
         }
         updateValues();
+        saveEQValues();
     }
 
     @Override
@@ -344,8 +422,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (SeekBar.class.isInstance(v))
-        {
+        if (SeekBar.class.isInstance(v)) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     chart.setGrid(true);

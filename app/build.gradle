@@ -12,20 +12,20 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         applicationVariants.all { variant ->
             variant.outputs.all { output ->
                 outputFileName = new File("EQ.apk");
             }
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
