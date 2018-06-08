@@ -3,13 +3,11 @@ package cs2c.EQ;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.cs2c.IEQService;
+//import android.cs2c.IEQService;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -18,12 +16,17 @@ import cs2c.EQ.Controls.AfcChart;
 
 public class EqualizerFragment extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
     private CheckBox muteOn, loudOn, equalizerOn;
-    private SeekBar preampG, bassG, bassF, bassQ, middleG, middleF, middleQ, trebleG, trebleF, trebleQ, loudG, loudF, loudHC;
+
+    private SeekBar sbPreampG;
+    private SeekBar sbBassG, sbBassF, sbBassQ;
+    private SeekBar sbMiddleG, sbMiddleF, sbMiddleQ;
+    private SeekBar sbTrebleG, sbTrebleF, sbTrebleQ;
+    private SeekBar sbLoudG, sbLoudF, sbLoudHC;
+
     private TextView preampV, bassV, middleV, trebleV, loudV, inputV;
     private AfcChart chart;
     private IEQService mEQService;
     private SharedPreferences preferences;
-
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
@@ -48,43 +51,43 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         loudOn.setOnClickListener(this);
         equalizerOn.setOnClickListener(this);
 
-        preampG = (SeekBar) findViewById(R.id.seekBarPreamp);
-        bassG = (SeekBar) findViewById(R.id.seekBarBassG);
-        bassF = (SeekBar) findViewById(R.id.seekBarBassF);
-        bassQ = (SeekBar) findViewById(R.id.seekBarBassQ);
-        middleG = (SeekBar) findViewById(R.id.seekBarMiddleG);
-        middleF = (SeekBar) findViewById(R.id.seekBarMiddleF);
-        middleQ = (SeekBar) findViewById(R.id.seekBarMiddleQ);
-        trebleG = (SeekBar) findViewById(R.id.seekBarTrebleG);
-        trebleF = (SeekBar) findViewById(R.id.seekBarTrebleF);
-        trebleQ = (SeekBar) findViewById(R.id.seekBarTrebleQ);
-        loudG = (SeekBar) findViewById(R.id.seekBarLoudG);
-        loudF = (SeekBar) findViewById(R.id.seekBarLoudF);
-        loudHC = (SeekBar) findViewById(R.id.seekBarLoudHC);
+        sbPreampG = (SeekBar) findViewById(R.id.seekBarPreamp);
+        sbBassG = (SeekBar) findViewById(R.id.seekBarBassG);
+        sbBassF = (SeekBar) findViewById(R.id.seekBarBassF);
+        sbBassQ = (SeekBar) findViewById(R.id.seekBarBassQ);
+        sbMiddleG = (SeekBar) findViewById(R.id.seekBarMiddleG);
+        sbMiddleF = (SeekBar) findViewById(R.id.seekBarMiddleF);
+        sbMiddleQ = (SeekBar) findViewById(R.id.seekBarMiddleQ);
+        sbTrebleG = (SeekBar) findViewById(R.id.seekBarTrebleG);
+        sbTrebleF = (SeekBar) findViewById(R.id.seekBarTrebleF);
+        sbTrebleQ = (SeekBar) findViewById(R.id.seekBarTrebleQ);
+        sbLoudG = (SeekBar) findViewById(R.id.seekBarLoudG);
+        sbLoudF = (SeekBar) findViewById(R.id.seekBarLoudF);
+        sbLoudHC = (SeekBar) findViewById(R.id.seekBarLoudHC);
 
-        preampG.setOnSeekBarChangeListener(this);
-        bassG.setOnSeekBarChangeListener(this);
-        bassF.setOnSeekBarChangeListener(this);
-        bassQ.setOnSeekBarChangeListener(this);
-        middleG.setOnSeekBarChangeListener(this);
-        middleF.setOnSeekBarChangeListener(this);
-        middleQ.setOnSeekBarChangeListener(this);
-        trebleG.setOnSeekBarChangeListener(this);
-        trebleF.setOnSeekBarChangeListener(this);
-        trebleQ.setOnSeekBarChangeListener(this);
-        loudG.setOnSeekBarChangeListener(this);
-        loudF.setOnSeekBarChangeListener(this);
-        loudHC.setOnSeekBarChangeListener(this);
+        sbPreampG.setOnSeekBarChangeListener(this);
+        sbBassG.setOnSeekBarChangeListener(this);
+        sbBassF.setOnSeekBarChangeListener(this);
+        sbBassQ.setOnSeekBarChangeListener(this);
+        sbMiddleG.setOnSeekBarChangeListener(this);
+        sbMiddleF.setOnSeekBarChangeListener(this);
+        sbMiddleQ.setOnSeekBarChangeListener(this);
+        sbTrebleG.setOnSeekBarChangeListener(this);
+        sbTrebleF.setOnSeekBarChangeListener(this);
+        sbTrebleQ.setOnSeekBarChangeListener(this);
+        sbLoudG.setOnSeekBarChangeListener(this);
+        sbLoudF.setOnSeekBarChangeListener(this);
+        sbLoudHC.setOnSeekBarChangeListener(this);
 
-        bassG.setOnTouchListener(this);
-        bassF.setOnTouchListener(this);
-        bassQ.setOnTouchListener(this);
-        middleG.setOnTouchListener(this);
-        middleF.setOnTouchListener(this);
-        middleQ.setOnTouchListener(this);
-        trebleG.setOnTouchListener(this);
-        trebleF.setOnTouchListener(this);
-        trebleQ.setOnTouchListener(this);
+        sbBassG.setOnTouchListener(this);
+        sbBassF.setOnTouchListener(this);
+        sbBassQ.setOnTouchListener(this);
+        sbMiddleG.setOnTouchListener(this);
+        sbMiddleF.setOnTouchListener(this);
+        sbMiddleQ.setOnTouchListener(this);
+        sbTrebleG.setOnTouchListener(this);
+        sbTrebleF.setOnTouchListener(this);
+        sbTrebleQ.setOnTouchListener(this);
 
         preampV = (TextView) findViewById(R.id.preamp_v);
         bassV = (TextView) findViewById(R.id.bass_v);
@@ -103,62 +106,70 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         int storedValue = 0;
 
+        storedValue = this.preferences.getInt(Constants.sb_PreampGProgressValue, 0);
+        sbPreampG.setProgress(storedValue);
+
         storedValue = this.preferences.getInt(Constants.sb_lowFreqSBProgressValue, 20);
-        bassG.setProgress(storedValue);
+        sbBassG.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sb_middleFreqSBProgressValue, 20);
-        middleG.setProgress(storedValue);
+        sbMiddleG.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sb_highFreqSBProgressValue, 20);
-        trebleG.setProgress(storedValue);
+        sbTrebleG.setProgress(storedValue);
 
+        storedValue = this.preferences.getInt(Constants.sb_LoudGProgressValue, 0);
+        sbLoudG.setProgress(storedValue);
 
 
         storedValue = this.preferences.getInt(Constants.sbQ_bassProgressValue, 0);
-        bassQ.setProgress(storedValue);
+        sbBassQ.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbFo_bassProgressValue, 0);
-        bassF.setProgress(storedValue);
+        sbBassF.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbQ_middleProgressValue, 0);
-        middleQ.setProgress(storedValue);
+        sbMiddleQ.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbFo_middleProgressValue, 0);
-        middleF.setProgress(storedValue);
+        sbMiddleF.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbQ_trebleProgressValue, 0);
-        trebleQ.setProgress(storedValue);
+        sbTrebleQ.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbFo_trebleProgressValue, 0);
-        trebleF.setProgress(storedValue);
+        sbTrebleF.setProgress(storedValue);
 
-        updateChart();
+        update();
     }
 
     private void saveEQValues() {
         SharedPreferences.Editor e = this.preferences.edit();
         if (e != null) {
             try {
-                e.putInt(Constants.sb_lowFreqSBProgressValue, bassG.getProgress());
+                e.putInt(Constants.sb_PreampGProgressValue, sbPreampG.getProgress());
                 e.apply();
-                e.putInt(Constants.sb_middleFreqSBProgressValue, middleG.getProgress());
+                e.putInt(Constants.sb_lowFreqSBProgressValue, sbBassG.getProgress());
                 e.apply();
-                e.putInt(Constants.sb_highFreqSBProgressValue, trebleG.getProgress());
+                e.putInt(Constants.sb_middleFreqSBProgressValue, sbMiddleG.getProgress());
                 e.apply();
-
-                e.putInt(Constants.sbQ_bassProgressValue, bassQ.getProgress());
+                e.putInt(Constants.sb_highFreqSBProgressValue, sbTrebleG.getProgress());
                 e.apply();
-                e.putInt(Constants.sbFo_bassProgressValue, bassF.getProgress());
-                e.apply();
-                e.putInt(Constants.sbQ_middleProgressValue, middleQ.getProgress());
-                e.apply();
-                e.putInt(Constants.sbFo_middleProgressValue, middleF.getProgress());
-                e.apply();
-                e.putInt(Constants.sbQ_trebleProgressValue, trebleQ.getProgress());
-                e.apply();
-                e.putInt(Constants.sbFo_trebleProgressValue, trebleF.getProgress());
+                e.putInt(Constants.sb_LoudGProgressValue, sbLoudG.getProgress());
                 e.apply();
 
+                e.putInt(Constants.sbQ_bassProgressValue, sbBassQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_bassProgressValue, sbBassF.getProgress());
+                e.apply();
+                e.putInt(Constants.sbQ_middleProgressValue, sbMiddleQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_middleProgressValue, sbMiddleF.getProgress());
+                e.apply();
+                e.putInt(Constants.sbQ_trebleProgressValue, sbTrebleQ.getProgress());
+                e.apply();
+                e.putInt(Constants.sbFo_trebleProgressValue, sbTrebleF.getProgress());
+                e.apply();
             } catch (Exception ex) {
                 ex.printStackTrace();
                 Log.e("saveEQValues", ex.getMessage());
@@ -250,11 +261,11 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     private void updateValues() {
-        preampV.setText(formatGain(preampG.getProgress()));
-        bassV.setText(formatGain(bassG.getProgress() - 20));
-        middleV.setText(formatGain(middleG.getProgress() - 20));
-        trebleV.setText(formatGain(trebleG.getProgress() - 20));
-        loudV.setText(formatGain(loudG.getProgress()));
+        preampV.setText(formatGain(sbPreampG.getProgress()));
+        bassV.setText(formatGain(sbBassG.getProgress() - 20));
+        middleV.setText(formatGain(sbMiddleG.getProgress() - 20));
+        trebleV.setText(formatGain(sbTrebleG.getProgress() - 20));
+        loudV.setText(formatGain(sbLoudG.getProgress()));
     }
 
     private void updateChart() {
@@ -264,21 +275,21 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     private void updateChartBass() {
-        chart.bass.setG(bassG.getProgress() - 20);
-        chart.bass.setF(bassF(bassF.getProgress()));
-        chart.bass.setQ(bassQ(bassQ.getProgress()));
+        chart.bass.setG(sbBassG.getProgress() - 20);
+        chart.bass.setF(bassF(sbBassF.getProgress()));
+        chart.bass.setQ(bassQ(sbBassQ.getProgress()));
     }
 
     private void updateChartMiddle() {
-        chart.middle.setG(middleG.getProgress() - 20);
-        chart.middle.setF(middleF(middleF.getProgress()));
-        chart.middle.setQ(middleQ(middleQ.getProgress()));
+        chart.middle.setG(sbMiddleG.getProgress() - 20);
+        chart.middle.setF(middleF(sbMiddleF.getProgress()));
+        chart.middle.setQ(middleQ(sbMiddleQ.getProgress()));
     }
 
     private void updateChartTreble() {
-        chart.treble.setG(trebleG.getProgress() - 20);
-        chart.treble.setF(trebleF(trebleF.getProgress()));
-        chart.treble.setQ(trebleQ(trebleQ.getProgress()));
+        chart.treble.setG(sbTrebleG.getProgress() - 20);
+        chart.treble.setF(trebleF(sbTrebleF.getProgress()));
+        chart.treble.setQ(trebleQ(sbTrebleQ.getProgress()));
     }
 
     private String formatGain(int gain) {

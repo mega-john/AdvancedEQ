@@ -91,7 +91,7 @@ public class Advanced extends Activity implements OnClickListener, SeekBar.OnSee
 
     private void loadEQValues() {
 
-        int storedValue =  0;
+        int storedValue = 0;
 
         storedValue = this.preferences.getInt(Constants.sbQ_bassProgressValue, 0);
         sbBassQ.setProgress(storedValue);

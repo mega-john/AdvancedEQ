@@ -15,6 +15,10 @@ public final class Constants {
     public static String sb_lowFreqSBProgressValue = "lowFreqSBProgressValue";
     public static String sb_middleFreqSBProgressValue = "middleFreqSBProgressValue";
     public static String sb_highFreqSBProgressValue = "highFreqSBProgressValue";
+
+    public static String sb_PreampGProgressValue = "sb_PreampGProgressValue";
+    public static String sb_LoudGProgressValue = "sb_LoudGProgressValue";
+
     public static int cBassCommand = 23;
     public static int cMiddleCommand = 24;
     public static int cTrebleCommand = 25;

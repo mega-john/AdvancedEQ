@@ -206,8 +206,7 @@ public class Balancer extends Activity implements OnClickListener {
         System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
         sbProgress = this.preferences.getInt("seekbar_progress_key", 3);
         try {
-            if(this.mEQService!=null)
-            {
+            if (this.mEQService != null) {
                 this.mEQService.setSound(32, increaseValue);
             }
         } catch (Exception e) {

@@ -12,9 +12,17 @@ import java.lang.reflect.Method;
  */
 
 public class CorrectedSeekBar extends SeekBar {
-    public CorrectedSeekBar(Context context) { super(context); }
-    public CorrectedSeekBar(Context context, AttributeSet attrs) { super(context, attrs); }
-    public CorrectedSeekBar(Context context, AttributeSet attrs, int defStyle) { super(context, attrs, defStyle); }
+    public CorrectedSeekBar(Context context) {
+        super(context);
+    }
+
+    public CorrectedSeekBar(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CorrectedSeekBar(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
 
     protected void setProgressPatch(int progress, boolean fromUser) {
         try {
