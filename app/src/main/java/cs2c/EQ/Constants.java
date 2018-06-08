@@ -19,8 +19,14 @@ public final class Constants {
     public static String sb_PreampGProgressValue = "sb_PreampGProgressValue";
     public static String sb_LoudGProgressValue = "sb_LoudGProgressValue";
 
-    public static int cBassCommand = 23;
-    public static int cMiddleCommand = 24;
-    public static int cTrebleCommand = 25;
+    public static int cBassQFCommand = 23;
+    public static int cMiddleQFCommand = 24;
+    public static int cTrebleQFCommand = 25;
+    public static int cLoudQFCommand = 26;
+
+    public static int cBassCommand = 11;
+    public static int cMiddleCommand = 12;
+    public static int cTrebleCommand = 13;
+    public static int cLoudCommand = 6;
     public static String EQInterfaceName = "eq";
 }

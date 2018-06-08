@@ -113,16 +113,94 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        vbProgress = progress;
+        Log.i("royu", String.valueOf(vbProgress));
+        onStopTrackingTouch(seekBar);
 
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+//        seekBar.setMax(100);
+//        seekBar.setProgress(vbProgress);
+        Log.i("EQ", "onStopTrackingTouch: " + String.valueOf(vbProgress));
+        Editor editor;
+        switch (seekBar.getId()) {
+            case R.id.bt_music_vseekbar1:
+                vbProgressValue = (vbProgress * 14) / 100;
+                Log.i("EQ", "R.id.bt_music_vseekbar1:" + String.valueOf(vbProgressValue));
+                editor = this.preferences.edit();
+                editor.putInt("lowVoiceSBProgress", vbProgress);
+                editor.putInt("lowVoiceSBProgressValue", vbProgressValue);
+                editor.apply();
+                break;
+            case R.id.bt_music_vseekbar2:
+                vbProgressValue = (vbProgress * 14) / 100;
+                Log.i("vbProgressValue=", String.valueOf(vbProgressValue));
+                Editor editor1 = this.preferences.edit();
+                editor1.putInt("middleVoiceSBProgress", vbProgress);
+                editor1.putInt("middleVoiceSBProgressValue", vbProgressValue);
+                editor1.apply();
+                break;
+            case R.id.bt_music_vseekbar3:
+                vbProgressValue = (vbProgress * 14) / 100;
+                Editor editor2 = this.preferences.edit();
+                editor2.putInt("highVoiceSBProgress", vbProgress);
+                editor2.putInt("highVoiceSBProgressValue", vbProgressValue);
+                editor2.apply();
+                break;
+            case R.id.bt_music_vseekbar4:
+                vbProgress = swapToFV(vbProgress);
+                vbProgressValue = vbProgress / 25;
+                if (vbProgressValue > 3) {
+                    vbProgressValue = 3;
+                }
+                Editor editor3 = this.preferences.edit();
+                editor3.putInt("lowFreqSBProgress", vbProgress);
+                editor3.putInt("lowFreqSBProgressValue", vbProgressValue);
+                editor3.apply();
+                break;
+            case R.id.bt_music_vseekbar5:
+                vbProgress = swapToFV(vbProgress);
+                vbProgressValue = vbProgress / 25;
+                if (vbProgressValue > 3) {
+                    vbProgressValue = 3;
+                }
+                Editor editor4 = this.preferences.edit();
+                editor4.putInt("middleFreqSBProgress", vbProgress);
+                editor4.putInt("middleFreqSBProgressValue", vbProgressValue);
+                editor4.apply();
+                break;
+            case R.id.bt_music_vseekbar6:
+                vbProgress = swapToFV(vbProgress);
+                vbProgressValue = vbProgress / 25;
+                if (vbProgressValue > 3) {
+                    vbProgressValue = 3;
+                }
+                Editor editor5 = this.preferences.edit();
+                editor5.putInt("highFreqSBProgress", vbProgress);
+                editor5.putInt("highFreqSBProgressValue", vbProgressValue);
+                editor5.apply();
+                break;
+            case R.id.bt_loud_vseekbar:
+                vbProgressValue = ((vbProgress * 14) / 100) - 7;
+                editor = this.preferences.edit();
+                this.mLoudValue.setText(String.valueOf(vbProgressValue));
+                try {
+                    this.mEQService.set_volume(6, vbProgressValue + 7);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                editor.putInt("loud_bar", vbProgress);
+                editor.commit();
+                Log.i("EQ", "R.id.bt_loud_vseekbar" + vbProgressValue);
+                return;
+        }
+        jumpUserEQ();
 
     }
 
@@ -248,7 +326,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
 
     private void setEQValue() {
         if (this.mEQService == null) {
-            return;
+//            return;
         }
         try {
             switch (eqValue) {

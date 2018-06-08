@@ -100,6 +100,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         chart.setGrid(false);
 
         loadEQValues();
+        update();
+
     }
 
     private void loadEQValues() {
@@ -139,8 +141,6 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         storedValue = this.preferences.getInt(Constants.sbFo_trebleProgressValue, 0);
         sbTrebleF.setProgress(storedValue);
-
-        update();
     }
 
     private void saveEQValues() {
@@ -178,86 +178,15 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     public void update() {
-        updateInput();
         updateOnSwitches();
-        updateBars();
-    }
-
-    private void updateInput() {
-        Resources resources = getResources();
-
-//        String phone = audioManager.getParameters("av_phone=");
-//        String input = audioManager.getParameters("av_channel=");
-        String result;
-
-//        if ("answer".equalsIgnoreCase(phone)) {
-//            result = resources.getString(R.string.input_phone);
-//        } else {
-//            if ("sys".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_sys);
-//            } else if ("fm".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_fm);
-//            } else if ("ipod".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_ipod);
-//            } else if ("line".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_line);
-//            } else if ("gsm_bt".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_gsm_bt);
-//            } else if ("dvd".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_dvd);
-//            } else if ("dtv".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_dtv);
-//            } else if ("dvr".equalsIgnoreCase(input)) {
-//                result = resources.getString(R.string.input_dvr);
-//            } else {
-//                result = "?";
-//            }
-//        }
-//        inputV.setText(result);
+        updateValues();
+        updateChart();
     }
 
     private void updateOnSwitches() {
 //        muteOn.setChecked("true".equalsIgnoreCase(audioManager.getParameters("av_mute=")));
 //        loudOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_lud=")));
 //        equalizerOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_eq_on=")));
-    }
-
-    private void updateBars() {
-//        int[] params = parseList(audioManager.getParameters("av_gain="));
-//        if (params.length == 1) {
-//            preampG.setProgress(params[0]);
-//        }
-//
-//        params = parseList(audioManager.getParameters("av_eq_bass="));
-//        if (params.length == 3) {
-//            bassG.setProgress(params[0] + 20);
-//            bassF.setProgress(params[1]);
-//            bassQ.setProgress(params[2]);
-//        }
-//
-//        params = parseList(audioManager.getParameters("av_eq_middle="));
-//        if (params.length == 3) {
-//            middleG.setProgress(params[0] + 20);
-//            middleF.setProgress(params[1]);
-//            middleQ.setProgress(params[2]);
-//        }
-//
-//        params = parseList(audioManager.getParameters("av_eq_treble="));
-//        if (params.length == 3) {
-//            trebleG.setProgress(params[0] + 20);
-//            trebleF.setProgress(params[1]);
-//            trebleQ.setProgress(params[2]);
-//        }
-//
-//        params = parseList(audioManager.getParameters("av_loudness="));
-//        if (params.length == 3) {
-//            loudG.setProgress(params[0]);
-//            loudF.setProgress(params[1]);
-//            loudHC.setProgress(params[2]);
-//        }
-
-        updateValues();
-        updateChart();
     }
 
     private void updateValues() {
@@ -399,24 +328,32 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarBassF:
             case R.id.seekBarBassQ:
 //                audioManager.setParameters(String.format("av_eq_bass=%d,%d,%d", bassG.getProgress()-20, bassF.getProgress(), bassQ.getProgress()));
+                mEQService.setSound(Constants.cBassCommand, sbBassG.getProgress()-20);
+                mEQService.set_volume(Constants.cBassQFCommand, (sbBassF.getProgress() << 4) + sbBassQ.getProgress());
                 updateChartBass();
                 break;
             case R.id.seekBarMiddleG:
             case R.id.seekBarMiddleF:
             case R.id.seekBarMiddleQ:
 //                audioManager.setParameters(String.format("av_eq_middle=%d,%d,%d", middleG.getProgress()-20, middleF.getProgress(), middleQ.getProgress()));
+                mEQService.setSound(Constants.cMiddleCommand, sbMiddleG.getProgress()-20);
+                mEQService.set_volume(Constants.cMiddleQFCommand, (sbMiddleF.getProgress() << 4) + sbMiddleQ.getProgress());
                 updateChartMiddle();
                 break;
             case R.id.seekBarTrebleG:
             case R.id.seekBarTrebleF:
             case R.id.seekBarTrebleQ:
 //                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
+                mEQService.setSound(Constants.cTrebleCommand, sbBassG.getProgress()-20);
+                mEQService.set_volume(Constants.cTrebleQFCommand, (sbBassF.getProgress() << 4) + sbBassQ.getProgress());
                 updateChartTreble();
                 break;
             case R.id.seekBarLoudG:
             case R.id.seekBarLoudF:
             case R.id.seekBarLoudHC:
 //                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
+                mEQService.set_volume(Constants.cLoudCommand, sbLoudG.getProgress());
+                mEQService.set_volume(Constants.cLoudQFCommand, (sbLoudF.getProgress() << 4) + sbLoudHC.getProgress());
                 break;
         }
         updateValues();
