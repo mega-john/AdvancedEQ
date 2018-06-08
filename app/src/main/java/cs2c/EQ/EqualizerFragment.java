@@ -1,5 +1,6 @@
 package cs2c.EQ;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -28,13 +29,13 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     private IEQService mEQService;
     private SharedPreferences preferences;
 
+    @SuppressLint("WrongConstant")
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
 
         setContentView(R.layout.fragment_equalizer);
 
         if (mEQService == null) {
-            //noinspection WrongConstant
             mEQService = (IEQService) getSystemService(Constants.EQInterfaceName);
             Log.i("this.mEQService == null", String.valueOf(mEQService == null));
         }
