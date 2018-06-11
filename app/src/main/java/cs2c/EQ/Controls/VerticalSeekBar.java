@@ -81,4 +81,9 @@ public class VerticalSeekBar extends CorrectedSeekBar {
         return true;
     }
 
+    @Override
+    public boolean performClick() {
+        // do what you want
+        return true;
+    }
 }

@@ -3,6 +3,7 @@
     <string name="hello">Hello World, EQActivity!</string>
     <string name="eq_label_preamp">Preamp</string>
     <string name="eq_label_plus_20db" translatable="false">+20</string>
+    <string name="eq_label_plus_15db" translatable="false">+15</string>
     <string name="eq_label_0db" translatable="false">0</string>
     <string name="eq_label_frequency">Frequency</string>
     <string name="eq_label_q_hicut">Q / HiCut</string>

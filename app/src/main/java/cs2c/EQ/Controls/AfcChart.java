@@ -12,8 +12,7 @@ import android.view.View;
 
 public class AfcChart extends View {
     private final int startFreqFactor = 1, endFreqFactor = 5;
-    private final int minGain = -30;
-    private final int maxGain = +30;
+    private final int minGain = -30, maxGain = +30, gainStep = 5, gainPadding = 10;
     private final int chartSteps = 100;
     private int w, h;
     private boolean gridOn;
@@ -40,7 +39,7 @@ public class AfcChart extends View {
         initialize();
     }
 
-    public void setGrid(boolean on) {
+    public void setGrid(boolean on){
         this.gridOn = on;
         invalidate();
     }
@@ -68,23 +67,18 @@ public class AfcChart extends View {
         chartPath = new Path();
 
         initFrequencies();
-        bass.setF(100);
-        bass.setQ(1);
+        bass.setF(100); bass.setQ(1);
         bass.setG(0);
-        middle.setF(1000);
-        middle.setQ(1);
-        middle.setG(0);
-        treble.setF(10000);
-        treble.setQ(1);
-        treble.setG(0);
+        middle.setF(1000); middle.setQ(1); middle.setG(0);
+        treble.setF(10000); treble.setQ(1); treble.setG(0);
 
         gridOn = false;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        this.w = w - 1;
-        this.h = h - 1;
+        this.w = w-1;
+        this.h = h-1;
         invalidate();
     }
 
@@ -99,7 +93,6 @@ public class AfcChart extends View {
 
     private void drawGrid(Canvas canvas) {
         final String[] texts = {"10", "100", "1k", "10k", "100k"};
-        int gainPadding = 10;
         float y1 = h - (gainPadding) * h / (maxGain - minGain);
         float y2 = h - (maxGain - gainPadding - minGain) * h / (maxGain - minGain);
         for (int i = startFreqFactor; i <= endFreqFactor; i++) {
@@ -126,8 +119,7 @@ public class AfcChart extends View {
             }
         }
 
-        int gainStep = 5;
-        for (int i = minGain + gainPadding; i <= maxGain - gainPadding; i += gainStep) {
+        for (int i = minGain+gainPadding; i <= maxGain-gainPadding; i+=gainStep) {
             float y = h - (i - minGain) * h / (maxGain - minGain);
             canvas.drawLine(0, y, w, y, gridLine);
         }
@@ -136,7 +128,7 @@ public class AfcChart extends View {
     private void drawChart(Canvas canvas) {
         chartPath.reset();
         float[] g1 = bass.getPoints(), g2 = middle.getPoints(), g3 = treble.getPoints();
-        for (int i = 0; i < chartSteps; i++) {
+        for (int i = 0; i < chartSteps; i ++) {
             float x = i * w / (chartSteps - 1);
             float g = g1[i] + g2[i] + g3[i];
             float y = h - (g - minGain) * h / (maxGain - minGain);
@@ -155,7 +147,8 @@ public class AfcChart extends View {
         }
     }
 
-    float posToFreq(float x) {
+    float posToFreq(float x)
+    {
         float r = x * (endFreqFactor - startFreqFactor) + startFreqFactor;
         return (float) Math.pow(10, r);
     }
@@ -182,10 +175,12 @@ public class AfcChart extends View {
             invalidate();
         }
 
-        private float[] getPoints() {
-            if (points == null) {
+        public float[] getPoints() {
+            if (points == null)
+            {
                 points = new float[chartSteps];
-                for (int i = 0; i < chartSteps; i++) {
+                for (int i = 0; i < chartSteps; i++)
+                {
                     points[i] = g(frequencies[i], f, q, g);
                 }
             }
