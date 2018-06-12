@@ -39,7 +39,7 @@ public class AfcChart extends View {
         initialize();
     }
 
-    public void setGrid(boolean on){
+    public void setGrid(boolean on) {
         this.gridOn = on;
         invalidate();
     }
@@ -67,18 +67,20 @@ public class AfcChart extends View {
         chartPath = new Path();
 
         initFrequencies();
-        bass.setF(100); bass.setQ(1);
-        bass.setG(0);
-        middle.setF(1000); middle.setQ(1); middle.setG(0);
-        treble.setF(10000); treble.setQ(1); treble.setG(0);
+        bass.setFQG(100, 1, 0);
+        middle.setFQG(1000, 1, 0);
+        treble.setFQG(10000, 1, 0);
+//        bass.setF(100); bass.setQ(1);bass.setG(0);
+//        middle.setF(1000); middle.setQ(1); middle.setG(0);
+//        treble.setF(10000); treble.setQ(1); treble.setG(0);
 
         gridOn = false;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        this.w = w-1;
-        this.h = h-1;
+        this.w = w - 1;
+        this.h = h - 1;
         invalidate();
     }
 
@@ -119,7 +121,7 @@ public class AfcChart extends View {
             }
         }
 
-        for (int i = minGain+gainPadding; i <= maxGain-gainPadding; i+=gainStep) {
+        for (int i = minGain + gainPadding; i <= maxGain - gainPadding; i += gainStep) {
             float y = h - (i - minGain) * h / (maxGain - minGain);
             canvas.drawLine(0, y, w, y, gridLine);
         }
@@ -128,14 +130,15 @@ public class AfcChart extends View {
     private void drawChart(Canvas canvas) {
         chartPath.reset();
         float[] g1 = bass.getPoints(), g2 = middle.getPoints(), g3 = treble.getPoints();
-        for (int i = 0; i < chartSteps; i ++) {
+        for (int i = 0; i < chartSteps; i++) {
             float x = i * w / (chartSteps - 1);
             float g = g1[i] + g2[i] + g3[i];
             float y = h - (g - minGain) * h / (maxGain - minGain);
-            if (x == 0)
+            if (x == 0) {
                 chartPath.moveTo(x, y);
-            else
+            } else {
                 chartPath.lineTo(x, y);
+            }
         }
         canvas.drawPath(chartPath, chartLine);
     }
@@ -147,8 +150,7 @@ public class AfcChart extends View {
         }
     }
 
-    float posToFreq(float x)
-    {
+    float posToFreq(float x) {
         float r = x * (endFreqFactor - startFreqFactor) + startFreqFactor;
         return (float) Math.pow(10, r);
     }
@@ -157,30 +159,18 @@ public class AfcChart extends View {
         private float[] points;
         private float g = 0, q = 1, f = 1000;
 
-        public void setF(float value) {
-            f = value;
-            points = null;
-            invalidate();
-        }
-
-        public void setQ(float value) {
-            q = value;
-            points = null;
-            invalidate();
-        }
-
-        public void setG(float value) {
-            g = value;
+        public void setFQG(float f, float q, float g) {
+            this.f = f;
+            this.q = q;
+            this.g = g*2.0f;
             points = null;
             invalidate();
         }
 
         public float[] getPoints() {
-            if (points == null)
-            {
+            if (points == null) {
                 points = new float[chartSteps];
-                for (int i = 0; i < chartSteps; i++)
-                {
+                for (int i = 0; i < chartSteps; i++) {
                     points[i] = g(frequencies[i], f, q, g);
                 }
             }

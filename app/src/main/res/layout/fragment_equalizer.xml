@@ -83,11 +83,15 @@
             <FrameLayout android:layout_width="match_parent" android:layout_height="0px" android:layout_weight="1">
                 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center|end" android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/round_controls_fixed_size" android:paddingTop="@dimen/eq_gain_db_padding" android:paddingBottom="@dimen/eq_gain_db_padding">
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_20db" />
+                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_15db" />
+                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
+
+                    <TextView
+                        style="@style/medium_label"
+                        android:layout_width="wrap_content"
+                        android:text="@string/eq_label_center_value" />
                     <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
                     <TextView style="@style/medium_label" android:text="@string/eq_label_0db" />
-                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_minus_20db" />
                 </LinearLayout>
                 <cs2c.EQ.Controls.VerticalSeekBar
                     style="@style/seek_bar_v"
@@ -95,8 +99,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:progress="20"
-                    android:max="40"/>
+                    android:progress="@integer/eq_gain_default_progress"
+                    android:max="@integer/eq_gain_max"/>
             </FrameLayout>
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="@dimen/seekbar_paddind_horizontal" android:paddingRight="@dimen/seekbar_paddind_horizontal" android:gravity="center">
                 <TextView
@@ -164,11 +168,11 @@
             <FrameLayout android:layout_width="match_parent" android:layout_height="0px" android:layout_weight="1">
                 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center|end" android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/round_controls_fixed_size" android:paddingTop="@dimen/eq_gain_db_padding" android:paddingBottom="@dimen/eq_gain_db_padding">
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_20db" />
+                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_15db" />
+                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
+                    <TextView style="@style/medium_label" android:text="@string/eq_label_center_value" />
                     <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
                     <TextView style="@style/medium_label" android:text="@string/eq_label_0db" />
-                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_minus_20db" />
                 </LinearLayout>
                 <cs2c.EQ.Controls.VerticalSeekBar
                     style="@style/seek_bar_v"
@@ -176,8 +180,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:progress="20"
-                    android:max="40"/>
+                    android:progress="@integer/eq_gain_default_progress"
+                    android:max="@integer/eq_gain_max"/>
             </FrameLayout>
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="@dimen/seekbar_paddind_horizontal" android:paddingRight="@dimen/seekbar_paddind_horizontal" android:gravity="center">
                 <TextView
@@ -245,11 +249,11 @@
             <FrameLayout android:layout_width="match_parent" android:layout_height="0px" android:layout_weight="1">
                 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center|end" android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/round_controls_fixed_size" android:paddingTop="@dimen/eq_gain_db_padding" android:paddingBottom="@dimen/eq_gain_db_padding">
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_20db" />
+                    <TextView style="@style/medium_label" android:text="@string/eq_label_plus_15db" />
+                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
+                    <TextView style="@style/medium_label" android:text="@string/eq_label_center_value" />
                     <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
                     <TextView style="@style/medium_label" android:text="@string/eq_label_0db" />
-                    <Space android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="0px"/>
-                    <TextView style="@style/medium_label" android:text="@string/eq_label_minus_20db" />
                 </LinearLayout>
                 <cs2c.EQ.Controls.VerticalSeekBar
                     style="@style/seek_bar_v"
@@ -257,8 +261,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:progress="20"
-                    android:max="40"/>
+                    android:progress="@integer/eq_gain_default_progress"
+                    android:max="@integer/eq_gain_max"/>
             </FrameLayout>
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="@dimen/seekbar_paddind_horizontal" android:paddingRight="@dimen/seekbar_paddind_horizontal" android:gravity="center">
                 <TextView

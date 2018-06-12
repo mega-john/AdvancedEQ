@@ -1,5 +1,5 @@
 <resources>
-    <integer name="eq_gain_max">40</integer>
-    <integer name="eq_gain_default_progress">20</integer>
+    <integer name="eq_gain_max">20</integer>
+    <integer name="eq_gain_default_progress">10</integer>
     <integer name="eq_gain_min">0</integer>
 </resources>
