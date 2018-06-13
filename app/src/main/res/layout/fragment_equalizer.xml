@@ -723,43 +723,85 @@
             android:gravity="center_horizontal|top"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/large_label"
-                android:layout_width="match_parent"
-                android:text="@string/eq_current_input_label" />
+            <!--<TextView-->
+                <!--style="@style/large_label"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:text="@string/eq_current_input_label"-->
+                <!--android:visibility="invisible"/>-->
 
-            <TextView
-                android:id="@+id/current_input"
-                style="@style/large_label"
-                android:layout_width="match_parent"
-                android:text="@string/eq_label_zero" />
+            <!--<TextView-->
+                <!--android:id="@+id/current_input"-->
+                <!--style="@style/large_label"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:text="@string/eq_label_zero"-->
+                <!--android:visibility="invisible"/>-->
 
-            <CheckBox
-                android:id="@+id/mute_on"
-                style="@style/medium_label"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/checkbox_top_margin"
-                android:button="@null"
-                android:drawableTop="@drawable/radiobutton"
-                android:text="@string/eq_button_mute" />
+            <!--<Space-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="0px"-->
+                <!--android:layout_weight="1" />-->
 
+            <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
             <CheckBox
                 android:id="@+id/loud_on"
                 style="@style/medium_label"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/checkbox_top_margin"
                 android:button="@null"
                 android:drawableTop="@drawable/radiobutton"
+                android:paddingTop="60dp"
                 android:text="@string/eq_button_loud" />
 
-            <CheckBox
-                android:id="@+id/equalizer_on"
-                style="@style/medium_label"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/checkbox_top_margin"
-                android:button="@null"
-                android:drawableTop="@drawable/radiobutton"
-                android:text="@string/eq_button_equalizer" />
+            <!--<CheckBox-->
+                <!--android:id="@+id/mute_on"-->
+                <!--style="@style/medium_label"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
+                <!--android:button="@null"-->
+                <!--android:drawableTop="@drawable/radiobutton"-->
+                <!--android:text="@string/eq_button_mute"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/equalizer_on"-->
+                <!--style="@style/medium_label"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
+                <!--android:button="@null"-->
+                <!--android:drawableTop="@drawable/radiobutton"-->
+                <!--android:text="@string/eq_button_equalizer"-->
+                <!--android:visibility="invisible"/>-->
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
+
+            <TextView
+                android:id="@+id/bt_balancer"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20px"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
+                android:text="@string/eq_button_balancer" />
+
+            <TextView
+                android:id="@+id/bt_defaults"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20px"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
+                android:text="@string/eq_button_defaults" />
         </LinearLayout>
         <!-- right controls end -->
 

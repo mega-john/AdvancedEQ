@@ -127,12 +127,12 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
     public void onStopTrackingTouch(SeekBar seekBar) {
 //        seekBar.setMax(100);
 //        seekBar.setProgress(vbProgress);
-        Log.i("EQ", "onStopTrackingTouch: " + String.valueOf(vbProgress));
+        Log.i(Constants.EQInterfaceName, "onStopTrackingTouch: " + String.valueOf(vbProgress));
         Editor editor;
         switch (seekBar.getId()) {
             case R.id.bt_music_vseekbar1:
                 vbProgressValue = (vbProgress * 14) / 100;
-                Log.i("EQ", "R.id.bt_music_vseekbar1:" + String.valueOf(vbProgressValue));
+                Log.i(Constants.EQInterfaceName, "R.id.bt_music_vseekbar1:" + String.valueOf(vbProgressValue));
                 editor = this.preferences.edit();
                 editor.putInt("lowVoiceSBProgress", vbProgress);
                 editor.putInt("lowVoiceSBProgressValue", vbProgressValue);
@@ -197,7 +197,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                 }
                 editor.putInt("loud_bar", vbProgress);
                 editor.commit();
-                Log.i("EQ", "R.id.bt_loud_vseekbar" + vbProgressValue);
+                Log.i(Constants.EQInterfaceName, "R.id.bt_loud_vseekbar" + vbProgressValue);
                 return;
         }
         jumpUserEQ();
@@ -224,7 +224,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         setContentView(R.layout.bt_frame_music_eq);
         if (this.mEQService == null) {
             try {
-                this.mEQService = (IEQService) getSystemService("eq");
+                this.mEQService = (IEQService) getSystemService(Constants.EQInterfaceName);
 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -235,7 +235,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         Display display = getWindowManager().getDefaultDisplay();
         width = display.getWidth();
         height = display.getHeight();
-        this.preferences = getSharedPreferences("musicEQ", 2);
+        this.preferences = getSharedPreferences(Constants.EQSettingsFileName, 2);
         initCommonent();
         setOnClick();
         initSeekBarMax();
@@ -249,7 +249,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
 
     protected void onResume() {
         super.onResume();
-        @SuppressLint("WrongConstant") SharedPreferences settings = getApplicationContext().getSharedPreferences("musicEQ", 2);
+        @SuppressLint("WrongConstant") SharedPreferences settings = getApplicationContext().getSharedPreferences(Constants.EQSettingsFileName, 2);
         if (this.preferences.getInt("eq_loud", 0) == 1) {
             this.mSwitch.setChecked(true);
         } else {
@@ -258,7 +258,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         int progress = this.preferences.getInt("loud_bar", 50);
         this.mLoudValue.setText(String.valueOf(((progress * 14) / 100) - 7));
         this.mLoudSeekBar.setProgress(progress);
-        isSystemWallperSettings = settings.getBoolean("musicEQ", false);
+        isSystemWallperSettings = settings.getBoolean(Constants.EQSettingsFileName, false);
         Log.d("lzc", "Mode=2");
         Log.d("lzc", "isSystemWallperSettings=" + isSystemWallperSettings);
     }
@@ -439,7 +439,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                         }
                         editor.putInt("eq_loud", 1);
                         editor.apply();
-                        Log.d("EQ", "switch LOUD 1");
+                        Log.d(Constants.EQInterfaceName, "switch LOUD 1");
                         return;
                     }
                     try {
@@ -449,12 +449,12 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                     }
                     editor.putInt("eq_loud", 0);
                     editor.commit();
-                    Log.d("EQ", "switch LOUD 0");
+                    Log.d(Constants.EQInterfaceName, "switch LOUD 0");
                 }
             });
         } catch (Exception ex) {
             ex.printStackTrace();
-            Log.d("EQ", ex.getMessage() + " ");
+            Log.d(Constants.EQInterfaceName, ex.getMessage() + " ");
         }
     }
 
@@ -746,12 +746,12 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
     public void onStopTrackingTouch(VerticalSeekBar VerticalSeekBar) {
         VerticalSeekBar.setMax(100);
         VerticalSeekBar.setProgress(vbProgress);
-        Log.i("EQ", "onStopTrackingTouch: " + String.valueOf(vbProgress));
+        Log.i(Constants.EQInterfaceName, "onStopTrackingTouch: " + String.valueOf(vbProgress));
         Editor editor;
         switch (VerticalSeekBar.getId()) {
             case R.id.bt_music_vseekbar1:
                 vbProgressValue = (vbProgress * 14) / 100;
-                Log.i("EQ", "R.id.bt_music_vseekbar1:" + String.valueOf(vbProgressValue));
+                Log.i(Constants.EQInterfaceName, "R.id.bt_music_vseekbar1:" + String.valueOf(vbProgressValue));
                 editor = this.preferences.edit();
                 editor.putInt("lowVoiceSBProgress", vbProgress);
                 editor.putInt("lowVoiceSBProgressValue", vbProgressValue);
@@ -816,7 +816,7 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
                 }
                 editor.putInt("loud_bar", vbProgress);
                 editor.commit();
-                Log.i("EQ", "R.id.bt_loud_vseekbar" + vbProgressValue);
+                Log.i(Constants.EQInterfaceName, "R.id.bt_loud_vseekbar" + vbProgressValue);
                 return;
         }
         jumpUserEQ();

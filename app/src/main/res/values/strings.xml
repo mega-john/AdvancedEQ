@@ -45,6 +45,8 @@
     <string name="eq_loud_h3" translatable="false">3</string>
     <string name="eq_loud_h4" translatable="false">4</string>
     <string name="eq_button_mute">Mute</string>
+    <string name="eq_button_balancer">Balancer</string>
+    <string name="eq_button_defaults">Defaults</string>
     <string name="eq_button_loud">Loud</string>
     <string name="eq_button_equalizer">Equalizer</string>
     <string name="eq_current_input_label">Input</string>

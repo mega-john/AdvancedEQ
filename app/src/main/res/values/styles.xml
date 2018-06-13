@@ -33,4 +33,9 @@
     <style name="large_label" parent="label">
         <item name="android:textSize">@dimen/label_large_size</item>
     </style>
+    <style name="button" parent="large_label">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">@dimen/round_controls_fixed_size</item>
+        <item name="android:background">@drawable/button</item>
+    </style>
 </resources>

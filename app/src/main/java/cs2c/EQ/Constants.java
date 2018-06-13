@@ -29,5 +29,7 @@ public final class Constants {
     public static int cTrebleCommand = 3;
     public static int cLoudGainCommand = 6;
     public static int cLoudOnOffCommand = 22;
+
     public static String EQInterfaceName = "eq";
+    public static String EQSettingsFileName = "musicEQ";
 }

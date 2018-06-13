@@ -2,6 +2,7 @@ package cs2c.EQ;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,8 @@ import cs2c.EQ.Controls.HorizontalSeekBar;
 import cs2c.EQ.Controls.VerticalSeekBar;
 
 public class EqualizerFragment extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
-    private CheckBox muteOn, loudOn, equalizerOn;
+//    private CheckBox muteOn, equalizerOn;
+    private CheckBox loudOn;
 
     private VerticalSeekBar sbPreampG, sbBassG, sbMiddleG, sbTrebleG, sbLoudG;
     private HorizontalSeekBar sbBassF, sbBassQ;
@@ -25,7 +27,9 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     private HorizontalSeekBar sbTrebleF, sbTrebleQ;
     private HorizontalSeekBar sbLoudF, sbLoudHC;
 
-    private TextView preampV, bassV, middleV, trebleV, loudV, inputV;
+    private TextView preampV, bassV, middleV, trebleV, loudV, balancer;
+//    private TextView inputV;
+
     private AfcChart chart;
     private EQServiceProxy mEQProxy;
     private SharedPreferences preferences;
@@ -39,16 +43,18 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         mEQProxy = new EQServiceProxy(this);
 
         if (preferences == null) {
-            preferences = getSharedPreferences("musicEQ", MODE_PRIVATE);
+            preferences = getSharedPreferences(Constants.EQSettingsFileName, MODE_PRIVATE);
         }
 
-        muteOn = (CheckBox) findViewById(R.id.mute_on);
+        balancer = (TextView) findViewById(R.id.bt_balancer);
+//        muteOn = (CheckBox) findViewById(R.id.mute_on);
         loudOn = (CheckBox) findViewById(R.id.loud_on);
-        equalizerOn = (CheckBox) findViewById(R.id.equalizer_on);
+//        equalizerOn = (CheckBox) findViewById(R.id.equalizer_on);
 
-        muteOn.setOnClickListener(this);
+        balancer.setOnClickListener(this);
+//        muteOn.setOnClickListener(this);
         loudOn.setOnClickListener(this);
-        equalizerOn.setOnClickListener(this);
+//        equalizerOn.setOnClickListener(this);
 
         sbPreampG = (VerticalSeekBar) findViewById(R.id.seekBarPreamp);
         sbBassG = (VerticalSeekBar) findViewById(R.id.seekBarBassG);
@@ -95,7 +101,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         middleV = (TextView) findViewById(R.id.middle_v);
         trebleV = (TextView) findViewById(R.id.treble_v);
         loudV = (TextView) findViewById(R.id.loud_v);
-        inputV = (TextView) findViewById(R.id.current_input);
+//        inputV = (TextView) findViewById(R.id.current_input);
 
         chart = (AfcChart) findViewById(R.id.afcChart);
         chart.setGrid(false);
@@ -306,17 +312,24 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.mute_on:
+            case R.id.bt_balancer:
 //                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
-                break;
+                Intent advancedIntent = new Intent();
+                advancedIntent.setClass(this, Balancer.class);
+                startActivity(advancedIntent);
+                return;
+//                break;
+//            case R.id.mute_on:
+////                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
+//                break;
             case R.id.loud_on:
 //                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
                 sbLoudG.setEnabled(loudOn.isChecked());
                 mEQProxy.set_volume(Constants.cLoudOnOffCommand, loudOn.isChecked() ? 1 : 0);
                 break;
-            case R.id.equalizer_on:
-//                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
-                break;
+//            case R.id.equalizer_on:
+////                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
+//                break;
         }
     }
 

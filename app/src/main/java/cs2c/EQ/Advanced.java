@@ -49,7 +49,7 @@ public class Advanced extends Activity implements OnClickListener, SeekBar.OnSee
         setContentView(R.layout.music_advanced);
 
         if (preferences == null) {
-            preferences = getSharedPreferences("musicEQ", MODE_PRIVATE);
+            preferences = getSharedPreferences(Constants.EQSettingsFileName, MODE_PRIVATE);
         }
 
         GetEQInterface();
@@ -61,7 +61,7 @@ public class Advanced extends Activity implements OnClickListener, SeekBar.OnSee
     private void GetEQInterface() {
         if (mEQService == null) {
             //noinspection WrongConstant
-            mEQService = (IEQService) getSystemService("eq");
+            mEQService = (IEQService) getSystemService(Constants.EQInterfaceName);
             Log.i("this.mEQService == null", String.valueOf(mEQService == null));
         }
     }

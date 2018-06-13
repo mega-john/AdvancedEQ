@@ -148,7 +148,7 @@ public class Balancer extends Activity implements OnClickListener {
         super.onCreate(paramBundle);
         requestWindowFeature(1);
         setContentView(R.layout.music_balancer);
-        this.mEQService = (IEQService) getSystemService("eq");
+        this.mEQService = (IEQService) getSystemService(Constants.EQInterfaceName);
         initLimitValue();
         initCompoment();
         displayView();
@@ -217,7 +217,7 @@ public class Balancer extends Activity implements OnClickListener {
     }
 
     private void initCompoment() {
-        this.preferences = getSharedPreferences("musicEQ", 0);
+        this.preferences = getSharedPreferences(Constants.EQSettingsFileName, 0);
         this.mImageView = (ImageView) findViewById(R.id.music_balancer_dot);
         this.mAddValueTextView = (TextView) findViewById(R.id.music_balancer_add);
         this.mEQTextView = (TextView) findViewById(R.id.music_equalizer);
@@ -281,7 +281,7 @@ public class Balancer extends Activity implements OnClickListener {
         switch (v.getId()) {
             case R.id.music_equalizer:
                 Intent equalizerIntent = new Intent();
-                equalizerIntent.setClass(this, EQActivity.class);
+                equalizerIntent.setClass(this, EqualizerFragment.class);
                 startActivity(equalizerIntent);
                 return;
             case R.id.music_reset:

@@ -28,8 +28,8 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        this.preferences = context.getSharedPreferences("musicEQ", 2);
-        this.mEQService = (IEQService) context.getSystemService("eq");
+        this.preferences = context.getSharedPreferences(Constants.EQSettingsFileName, 2);
+        this.mEQService = (IEQService) context.getSystemService(Constants.EQInterfaceName);
         if (action.equals("android.intent.action.BOOT_COMPLETED")) {
             int diffX;
             int diffY;
