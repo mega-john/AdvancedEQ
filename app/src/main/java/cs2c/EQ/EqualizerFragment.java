@@ -64,6 +64,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         sbLoudF = (HorizontalSeekBar) findViewById(R.id.seekBarLoudF);
         sbLoudHC = (HorizontalSeekBar) findViewById(R.id.seekBarLoudHC);
 
+        sbLoudG.setEnabled(loudOn.isChecked());
+
         sbPreampG.setOnSeekBarChangeListener(this);
         sbBassG.setOnSeekBarChangeListener(this);
         sbBassF.setOnSeekBarChangeListener(this);
@@ -309,7 +311,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
                 break;
             case R.id.loud_on:
 //                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
-                mEQProxy.set_volume(22, loudOn.isChecked() ? 1 : 0);
+                sbLoudG.setEnabled(loudOn.isChecked());
+                mEQProxy.set_volume(Constants.cLoudOnOffCommand, loudOn.isChecked() ? 1 : 0);
                 break;
             case R.id.equalizer_on:
 //                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
@@ -348,7 +351,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarTrebleF:
             case R.id.seekBarTrebleQ:
 //                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
-                mEQProxy.setSound(Constants.cTrebleCommand, sbBassG.getProgress() - eqGain);
+                mEQProxy.setSound(Constants.cTrebleCommand, sbTrebleG.getProgress() - eqGain);
 //                mEQProxy.set_volume(Constants.cTrebleQFCommand, (sbBassF.getProgress() << 4) + sbBassQ.getProgress());
                 updateChartTreble();
                 break;
@@ -356,7 +359,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarLoudF:
             case R.id.seekBarLoudHC:
 //                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
-                mEQProxy.set_volume(Constants.cLoudCommand, sbLoudG.getProgress());
+                mEQProxy.set_volume(Constants.cLoudGainCommand, sbLoudG.getProgress());
 //                mEQProxy.set_volume(Constants.cLoudQFCommand, (sbLoudF.getProgress() << 4) + sbLoudHC.getProgress());
                 break;
         }

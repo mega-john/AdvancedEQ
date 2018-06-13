@@ -2,12 +2,12 @@ package cs2c.EQ.Controls;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.cs2c.IEQService;
-import android.os.RemoteException;
 import android.util.Log;
-
 import cs2c.EQ.Constants;
-//import cs2c.EQ.IEQService;
+
+import cs2c.EQ.IEQService;
+//import android.cs2c.IEQService;
+//import android.os.RemoteException;
 
 public class EQServiceProxy {
 

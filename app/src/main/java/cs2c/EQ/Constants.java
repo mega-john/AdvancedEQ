@@ -27,6 +27,7 @@ public final class Constants {
     public static int cBassCommand = 1;
     public static int cMiddleCommand = 2;
     public static int cTrebleCommand = 3;
-    public static int cLoudCommand = 6;
+    public static int cLoudGainCommand = 6;
+    public static int cLoudOnOffCommand = 22;
     public static String EQInterfaceName = "eq";
 }
