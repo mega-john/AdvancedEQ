@@ -18,6 +18,7 @@ public final class Constants {
 
     public static String sb_PreampGProgressValue = "sb_PreampGProgressValue";
     public static String sb_LoudGProgressValue = "sb_LoudGProgressValue";
+    public static String sb_LoudOn = "sb_LoudOn";
 
     public static int cBassQFCommand = 23;
     public static int cMiddleQFCommand = 24;

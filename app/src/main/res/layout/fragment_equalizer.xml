@@ -84,7 +84,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_20db" />
+                        android:text="@string/eq_label_plus_15db" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -776,7 +776,7 @@
                 android:layout_height="12dp" />
 
             <TextView
-                android:id="@+id/bt_balancer"
+                android:id="@+id/bt_balance"
                 android:layout_width="@dimen/balance_button_width"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
@@ -787,7 +787,10 @@
                 android:shadowRadius="2.0"
                 android:textColor="@drawable/button_font_style"
                 android:textSize="20.0sp"
-                android:text="@string/eq_button_balancer" />
+                android:text="@string/eq_button_balance" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
 
             <TextView
                 android:id="@+id/bt_defaults"

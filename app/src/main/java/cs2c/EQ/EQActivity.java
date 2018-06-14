@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-//import android.cs2c.IEQService;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,11 +22,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import cs2c.EQ.Controls.VerticalSeekBar;
+
+//import android.cs2c.IEQService;
 //import cs2c.EQ.Controls.VerticalSeekBar.OnSeekBarChangeListener;
 
 public class EQActivity extends Activity implements OnClickListener, SeekBar.OnSeekBarChangeListener {
-    private static int eqValue = 6;
     public static int height = 0;
+    public static int width = 0;
+    private static int eqValue = 6;
     private static boolean isSystemWallperSettings = false;
     private static int vbProgress = 0;
     private static int vbProgress1 = 0;
@@ -46,9 +48,9 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
     private static int vbProgressVariable4 = 0;
     private static int vbProgressVariable5 = 0;
     private static int vbProgressVariable6 = 0;
-    public static int width = 0;
-    private TextView mBalancerTextView;
     DispearA mDispearA;
+    Switch mSwitch;
+    private TextView mBalancerTextView;
     private IEQService mEQService;
     private VerticalSeekBar mHighFVSB;
     private VerticalSeekBar mHighVoiceVSB;
@@ -61,6 +63,17 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
     private VerticalSeekBar mMiddleFVSB;
     private VerticalSeekBar mMiddleVoiceVSB;
     private TextView mMiddleVoiceValue;
+    private TextView mPWClasses;
+    private TextView mPWFashion;
+    private TextView mPWFlat;
+    private TextView mPWJazz;
+    private TextView mPWRock;
+    private TextView mPWUser;
+    private TextView mResetTextView;
+    private TextView mAdvancedTextView;
+    private TextView mRockTextView;
+    private SharedPreferences preferences;
+    private PopupWindow window;
     private OnClickListener mOnClickListener = new OnClickListener() {
         public void onClick(View v) {
             Editor editor = EQActivity.this.preferences.edit();
@@ -98,18 +111,6 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
             return true;
         }
     };
-    private TextView mPWClasses;
-    private TextView mPWFashion;
-    private TextView mPWFlat;
-    private TextView mPWJazz;
-    private TextView mPWRock;
-    private TextView mPWUser;
-    private TextView mResetTextView;
-    private TextView mAdvancedTextView;
-    private TextView mRockTextView;
-    Switch mSwitch;
-    private SharedPreferences preferences;
-    private PopupWindow window;
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -202,20 +203,6 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         }
         jumpUserEQ();
 
-    }
-
-    class DispearA extends Handler {
-        DispearA() {
-        }
-
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 1:
-                    EQActivity.this.window.dismiss();
-                    return;
-                default:
-            }
-        }
     }
 
     @SuppressLint("WrongConstant")
@@ -835,7 +822,6 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         return 66;
     }
 
-
     public void LoadAndSetAdvancedValues() {
         int var2;
         int v1 = this.preferences.getInt(Constants.sbQ_bassProgressValue, 0);
@@ -869,6 +855,20 @@ public class EQActivity extends Activity implements OnClickListener, SeekBar.OnS
         } catch (Exception ex) {
             ex.printStackTrace();
             Log.e("LoadAndSetAdvancedValue", ex.getMessage() + " ");
+        }
+    }
+
+    class DispearA extends Handler {
+        DispearA() {
+        }
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    EQActivity.this.window.dismiss();
+                    return;
+                default:
+            }
         }
     }
 }

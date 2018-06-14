@@ -18,8 +18,8 @@ import cs2c.EQ.Controls.HorizontalSeekBar;
 import cs2c.EQ.Controls.VerticalSeekBar;
 
 public class EqualizerFragment extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
-//    private CheckBox muteOn, equalizerOn;
-    private CheckBox loudOn;
+    //    private CheckBox muteOn, equalizerOn;
+    private CheckBox cbLoudOn;
 
     private VerticalSeekBar sbPreampG, sbBassG, sbMiddleG, sbTrebleG, sbLoudG;
     private HorizontalSeekBar sbBassF, sbBassQ;
@@ -27,7 +27,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     private HorizontalSeekBar sbTrebleF, sbTrebleQ;
     private HorizontalSeekBar sbLoudF, sbLoudHC;
 
-    private TextView preampV, bassV, middleV, trebleV, loudV, balancer;
+    private TextView preampV, bassV, middleV, trebleV, loudV, btBalance, btDefaults;
 //    private TextView inputV;
 
     private AfcChart chart;
@@ -46,14 +46,16 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             preferences = getSharedPreferences(Constants.EQSettingsFileName, MODE_PRIVATE);
         }
 
-        balancer = (TextView) findViewById(R.id.bt_balancer);
+        btBalance = (TextView) findViewById(R.id.bt_balance);
+        btDefaults = (TextView) findViewById(R.id.bt_defaults);
 //        muteOn = (CheckBox) findViewById(R.id.mute_on);
-        loudOn = (CheckBox) findViewById(R.id.loud_on);
+        cbLoudOn= (CheckBox) findViewById(R.id.loud_on);
 //        equalizerOn = (CheckBox) findViewById(R.id.equalizer_on);
 
-        balancer.setOnClickListener(this);
+        btBalance.setOnClickListener(this);
+        btDefaults.setOnClickListener(this);
 //        muteOn.setOnClickListener(this);
-        loudOn.setOnClickListener(this);
+        cbLoudOn.setOnClickListener(this);
 //        equalizerOn.setOnClickListener(this);
 
         sbPreampG = (VerticalSeekBar) findViewById(R.id.seekBarPreamp);
@@ -69,8 +71,6 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         sbLoudG = (VerticalSeekBar) findViewById(R.id.seekBarLoudG);
         sbLoudF = (HorizontalSeekBar) findViewById(R.id.seekBarLoudF);
         sbLoudHC = (HorizontalSeekBar) findViewById(R.id.seekBarLoudHC);
-
-        sbLoudG.setEnabled(loudOn.isChecked());
 
         sbPreampG.setOnSeekBarChangeListener(this);
         sbBassG.setOnSeekBarChangeListener(this);
@@ -108,7 +108,6 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         loadEQValues();
         update();
-
     }
 
     private void loadEQValues() {
@@ -118,16 +117,16 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         storedValue = this.preferences.getInt(Constants.sb_PreampGProgressValue, 0);
         sbPreampG.setProgress(storedValue);
 
-        storedValue = this.preferences.getInt(Constants.sb_lowFreqSBProgressValue, 8);
+        storedValue = this.preferences.getInt(Constants.sb_lowFreqSBProgressValue, 10);
         sbBassG.setProgress(storedValue);
 
-        storedValue = this.preferences.getInt(Constants.sb_middleFreqSBProgressValue, 8);
+        storedValue = this.preferences.getInt(Constants.sb_middleFreqSBProgressValue, 10);
         sbMiddleG.setProgress(storedValue);
 
-        storedValue = this.preferences.getInt(Constants.sb_highFreqSBProgressValue, 8);
+        storedValue = this.preferences.getInt(Constants.sb_highFreqSBProgressValue, 10);
         sbTrebleG.setProgress(storedValue);
 
-        storedValue = this.preferences.getInt(Constants.sb_LoudGProgressValue, 0);
+        storedValue = this.preferences.getInt(Constants.sb_LoudGProgressValue, 10);
         sbLoudG.setProgress(storedValue);
 
         storedValue = this.preferences.getInt(Constants.sbQ_bassProgressValue, 0);
@@ -147,6 +146,11 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         storedValue = this.preferences.getInt(Constants.sbFo_trebleProgressValue, 0);
         sbTrebleF.setProgress(storedValue);
+
+        boolean b = this.preferences.getBoolean(Constants.sb_LoudOn, true);
+        cbLoudOn.setChecked(b);
+
+        SetEnabled();
     }
 
     private void saveEQValues() {
@@ -176,6 +180,9 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
                 e.apply();
                 e.putInt(Constants.sbFo_trebleProgressValue, sbTrebleF.getProgress());
                 e.apply();
+
+                e.putBoolean(Constants.sb_LoudOn, cbLoudOn.isChecked());
+                e.apply();
             } catch (Exception ex) {
                 ex.printStackTrace();
                 Log.e("saveEQValues", ex.getMessage());
@@ -187,6 +194,12 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         updateOnSwitches();
         updateValues();
         updateChart();
+        SetEnabled();
+    }
+
+    private void SetEnabled()
+    {
+        sbLoudG.setEnabled(cbLoudOn.isChecked());
     }
 
     private void updateOnSwitches() {
@@ -312,11 +325,16 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_balancer:
+            case R.id.bt_balance:
 //                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
                 Intent advancedIntent = new Intent();
-                advancedIntent.setClass(this, Balancer.class);
+                advancedIntent.setClass(this, BalanceFragment.class);
                 startActivity(advancedIntent);
+                return;
+//                break;
+            case R.id.bt_defaults:
+//                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
+                ResetToDefault();
                 return;
 //                break;
 //            case R.id.mute_on:
@@ -324,13 +342,30 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 //                break;
             case R.id.loud_on:
 //                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
-                sbLoudG.setEnabled(loudOn.isChecked());
-                mEQProxy.set_volume(Constants.cLoudOnOffCommand, loudOn.isChecked() ? 1 : 0);
+                SetEnabled();
+                mEQProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn.isChecked() ? 1 : 0);
                 break;
 //            case R.id.equalizer_on:
 ////                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
 //                break;
         }
+    }
+
+    private void ResetToDefault() {
+        sbPreampG.setProgress(10);
+        sbBassG.setProgress(10);
+        sbMiddleG.setProgress(10);
+        sbTrebleG.setProgress(10);
+        sbLoudG.setProgress(10);
+        sbBassQ.setProgress(0);
+        sbBassF.setProgress(0);
+        sbMiddleQ.setProgress(0);
+        sbMiddleF.setProgress(0);
+        sbTrebleQ.setProgress(0);
+        sbTrebleF.setProgress(0);
+        cbLoudOn.setChecked(true);
+        saveEQValues();
+        update();
     }
 
     @Override

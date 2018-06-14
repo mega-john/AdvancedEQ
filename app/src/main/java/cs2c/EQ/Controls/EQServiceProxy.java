@@ -3,10 +3,10 @@ package cs2c.EQ.Controls;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.util.Log;
-import cs2c.EQ.Constants;
 
-//import cs2c.EQ.IEQService;
-import android.cs2c.IEQService;
+import cs2c.EQ.Constants;
+import cs2c.EQ.IEQService;
+//import android.cs2c.IEQService;
 //import android.os.RemoteException;
 
 public class EQServiceProxy {
@@ -34,11 +34,10 @@ public class EQServiceProxy {
         try {
             Log.d(Constants.EQInterfaceName, String.format("setSurround(%d, %d)", var1, var2));
 //            mEQService.setSurround(var1, var2);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(Constants.EQInterfaceName, String.format("setSurround exception:", e.toString()));
         }
-         catch (Exception e) {
-                e.printStackTrace();
-                Log.e(Constants.EQInterfaceName, String.format("setSurround exception:", e.toString()));
-            }
     }
 
     public void set_volume(int var1, int var2) {

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mtcsound="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/balance"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:gravity="start"
+    android:orientation="horizontal">
+
+    <!--image-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0px"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/car_interior"
+                tools:ignore="ContentDescription" />
+
+            <cs2c.EQ.Controls.BalanceCross
+                android:id="@+id/balanceCross"
+                android:layout_width="@dimen/balance_cross_size"
+                android:layout_height="@dimen/balance_cross_size"
+                android:layout_gravity="center"
+                mtcsound:balanceX="14"
+                mtcsound:balanceY="14"
+                mtcsound:max="28" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#80000000">
+
+            <Button
+                android:id="@+id/balanceReset"
+                style="@style/button"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/round_controls_fixed_size"
+                android:text="@string/balance_button_reset" />
+        </FrameLayout>
+    </LinearLayout>
+    <!--image end-->
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/balanceFront"
+                style="@style/button"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/round_controls_fixed_size"
+                android:text="@string/balance_button_front" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/balanceLeft"
+                style="@style/button"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/round_controls_fixed_size"
+                android:text="@string/balance_button_left" />
+
+            <Button
+                android:id="@+id/balanceRight"
+                style="@style/button"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/round_controls_fixed_size"
+                android:text="@string/balance_button_right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/balanceRear"
+                style="@style/button"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/round_controls_fixed_size"
+                android:text="@string/balance_button_rear" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

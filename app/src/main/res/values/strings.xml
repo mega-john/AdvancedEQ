@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, EQActivity!</string>
+    <string name="balance_button_front">Front</string>
+    <string name="balance_button_left">Left</string>
+    <string name="balance_button_right">Right</string>
+    <string name="balance_button_rear">Rear</string>
+    <string name="balance_button_reset">Reset</string>
     <string name="eq_label_preamp">Preamp</string>
     <string name="eq_label_plus_20db" translatable="false">+20</string>
     <string name="eq_label_plus_15db" translatable="false">+15</string>
@@ -45,7 +50,7 @@
     <string name="eq_loud_h3" translatable="false">3</string>
     <string name="eq_loud_h4" translatable="false">4</string>
     <string name="eq_button_mute">Mute</string>
-    <string name="eq_button_balancer">Balancer</string>
+    <string name="eq_button_balance">Balance</string>
     <string name="eq_button_defaults">Defaults</string>
     <string name="eq_button_loud">Loud</string>
     <string name="eq_button_equalizer">Equalizer</string>

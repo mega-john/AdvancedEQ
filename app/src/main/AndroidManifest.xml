@@ -30,6 +30,10 @@
             android:name=".EQActivity"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
 
+        <activity
+            android:name=".BalanceFragment"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
+
         <receiver android:name=".EQBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

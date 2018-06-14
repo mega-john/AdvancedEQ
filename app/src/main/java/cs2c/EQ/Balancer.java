@@ -34,6 +34,9 @@ public class Balancer extends Activity implements OnClickListener {
     private IEQService mEQService;
     private TextView mEQTextView;
     private ImageView mImageView;
+    private TextView mResetTextView;
+    private SeekBar mSeekBar;
+    private SharedPreferences preferences;
     private OnSeekBarChangeListener mOnSeekBarChangeListener = new OnSeekBarChangeListener() {
         public void onProgressChanged(SeekBar sb, int progress, boolean arg2) {
             Balancer.sbProgress = progress;
@@ -64,6 +67,7 @@ public class Balancer extends Activity implements OnClickListener {
             editor.apply();
         }
     };
+    private int topY;
     OnTouchListener mOnTouchListener = new OnTouchListener() {
         int downX = 0;
         int downY = 0;
@@ -138,10 +142,6 @@ public class Balancer extends Activity implements OnClickListener {
             return true;
         }
     };
-    private TextView mResetTextView;
-    private SeekBar mSeekBar;
-    private SharedPreferences preferences;
-    private int topY;
 
     @SuppressLint("WrongConstant")
     protected void onCreate(Bundle paramBundle) {

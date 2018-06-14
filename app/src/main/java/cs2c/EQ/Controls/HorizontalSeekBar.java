@@ -9,13 +9,17 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 public class HorizontalSeekBar extends CorrectedSeekBar {
-    public HorizontalSeekBar(Context context) { super(context); }
+    public HorizontalSeekBar(Context context) {
+        super(context);
+    }
 
     public HorizontalSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public HorizontalSeekBar(Context context, AttributeSet attrs, int defStyle) { super(context, attrs, defStyle); }
+    public HorizontalSeekBar(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -29,7 +33,7 @@ public class HorizontalSeekBar extends CorrectedSeekBar {
             case MotionEvent.ACTION_UP:
                 int realWidth = getWidth() - getPaddingLeft() - getPaddingRight();
                 int realStart = getPaddingLeft();
-                if (isPaddingOffsetRequired()){
+                if (isPaddingOffsetRequired()) {
                     realWidth -= (getLeftPaddingOffset() + getRightPaddingOffset());
                     realStart += (getLeftPaddingOffset());
                 }
@@ -38,7 +42,7 @@ public class HorizontalSeekBar extends CorrectedSeekBar {
                 realStart += thumbOffsetCorrection;
 
                 float touchPos = (event.getX() - realStart) / (realWidth);
-                int progress = Math.round((float)getMax() * touchPos);
+                int progress = Math.round((float) getMax() * touchPos);
                 setProgressPatch(progress, true);
 
                 onSizeChanged(getWidth(), getHeight(), 0, 0);

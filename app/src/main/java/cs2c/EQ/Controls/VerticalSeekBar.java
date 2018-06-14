@@ -3,14 +3,8 @@ package cs2c.EQ.Controls;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.widget.SeekBar;
-
-import cs2c.EQ.EQActivity;
 
 
 public class VerticalSeekBar extends CorrectedSeekBar {

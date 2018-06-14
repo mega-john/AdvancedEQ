@@ -11,6 +11,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class AfcChart extends View {
+    public final FilterData bass = new FilterData();
+    public final FilterData middle = new FilterData();
+    public final FilterData treble = new FilterData();
     private final int startFreqFactor = 1, endFreqFactor = 5;
     private final int minGain = -30, maxGain = +30, gainStep = 5, gainPadding = 10;
     private final int chartSteps = 100;
@@ -19,10 +22,6 @@ public class AfcChart extends View {
     private Paint gridLine, chartLine, gridText;
     private Path chartPath;
     private float[] frequencies;
-
-    public final FilterData bass = new FilterData();
-    public final FilterData middle = new FilterData();
-    public final FilterData treble = new FilterData();
 
     public AfcChart(Context context) {
         super(context);
@@ -162,7 +161,7 @@ public class AfcChart extends View {
         public void setFQG(float f, float q, float g) {
             this.f = f;
             this.q = q;
-            this.g = g*2.0f;
+            this.g = g * 2.0f;
             points = null;
             invalidate();
         }
