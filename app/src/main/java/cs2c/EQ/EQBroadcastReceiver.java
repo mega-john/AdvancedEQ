@@ -1,5 +1,6 @@
 package cs2c.EQ;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +27,7 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
     private int vbProgressVariable5 = 0;
     private int vbProgressVariable6 = 0;
 
+    @SuppressLint("WrongConstant")
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         this.preferences = context.getSharedPreferences(Constants.EQSettingsFileName, 2);

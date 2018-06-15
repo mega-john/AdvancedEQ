@@ -21,14 +21,12 @@ public class BalanceCross extends View {
     private int screenpy;
     private int thmbw;
     private Paint foreground, background;
+
     public BalanceCross(Context context, AttributeSet attributeset) {
         super(context, attributeset);
         thmbw = 50;
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(
-                attributeset,
-                R.styleable.BalanceCross,
-                0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeset, R.styleable.BalanceCross, 0, 0);
 
         try {
             max = a.getInt(R.styleable.BalanceCross_max, 28);

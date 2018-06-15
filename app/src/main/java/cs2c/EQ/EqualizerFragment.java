@@ -13,7 +13,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import cs2c.EQ.Controls.AfcChart;
-import cs2c.EQ.Controls.EQServiceProxy;
 import cs2c.EQ.Controls.HorizontalSeekBar;
 import cs2c.EQ.Controls.VerticalSeekBar;
 

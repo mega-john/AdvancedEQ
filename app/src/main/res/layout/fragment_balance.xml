@@ -44,12 +44,25 @@
             android:layout_height="wrap_content"
             android:background="#80000000">
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/balanceReset"-->
+                <!--style="@style/button"-->
+                <!--android:layout_width="@dimen/balance_button_width"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="@dimen/round_controls_fixed_size"-->
+                <!--android:text="@string/balance_button_reset" />-->
+            <TextView
                 android:id="@+id/balanceReset"
-                style="@style/button"
                 android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/round_controls_fixed_size"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
                 android:text="@string/balance_button_reset" />
         </FrameLayout>
     </LinearLayout>
@@ -68,12 +81,25 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/balanceFront"-->
+                <!--style="@style/button"-->
+                <!--android:layout_width="@dimen/balance_button_width"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="@dimen/round_controls_fixed_size"-->
+                <!--android:text="@string/balance_button_front" />-->
+            <TextView
                 android:id="@+id/balanceFront"
-                style="@style/button"
                 android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/round_controls_fixed_size"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
                 android:text="@string/balance_button_front" />
         </LinearLayout>
 
@@ -83,20 +109,46 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/balanceLeft"-->
+                <!--style="@style/button"-->
+                <!--android:layout_width="@dimen/balance_button_width"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="@dimen/round_controls_fixed_size"-->
+                <!--android:text="@string/balance_button_left" />-->
+            <TextView
                 android:id="@+id/balanceLeft"
-                style="@style/button"
                 android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/round_controls_fixed_size"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
                 android:text="@string/balance_button_left" />
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/balanceRight"-->
+                <!--style="@style/button"-->
+                <!--android:layout_width="@dimen/balance_button_width"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="@dimen/round_controls_fixed_size"-->
+                <!--android:text="@string/balance_button_right" />-->
+            <TextView
                 android:id="@+id/balanceRight"
-                style="@style/button"
                 android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/round_controls_fixed_size"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
                 android:text="@string/balance_button_right" />
         </LinearLayout>
 
@@ -106,12 +158,25 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <!--<Button-->
+                <!--android:id="@+id/balanceRear"-->
+                <!--style="@style/button"-->
+                <!--android:layout_width="@dimen/balance_button_width"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_margin="@dimen/round_controls_fixed_size"-->
+                <!--android:text="@string/balance_button_rear" />-->
+            <TextView
                 android:id="@+id/balanceRear"
-                style="@style/button"
                 android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/round_controls_fixed_size"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
                 android:text="@string/balance_button_rear" />
         </LinearLayout>
     </LinearLayout>
