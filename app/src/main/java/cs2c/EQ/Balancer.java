@@ -207,7 +207,7 @@ public class Balancer extends Activity implements OnClickListener {
         sbProgress = this.preferences.getInt("seekbar_progress_key", 3);
         try {
             if (this.mEQService != null) {
-                this.mEQService.setSound(32, increaseValue);
+                this.mEQService.setSound(Constants.cIncreaseValueCommand, increaseValue);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -305,7 +305,7 @@ public class Balancer extends Activity implements OnClickListener {
                     diffY = (205 - this.coordinateY) / balanceDivisorY;
                 }
                 try {
-                    this.mEQService.setSound(32, increaseValue);
+                    this.mEQService.setSound(Constants.cIncreaseValueCommand, increaseValue);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

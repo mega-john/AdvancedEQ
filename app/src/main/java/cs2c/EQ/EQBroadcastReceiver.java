@@ -17,30 +17,30 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
     private int backLight = 0;
     private int coordinateX;
     private int coordinateY;
-    private IEQService mEQService;
     private int mainVolume = 0;
     private SharedPreferences preferences;
-    private int vbProgressVariable1 = 0;
-    private int vbProgressVariable2 = 0;
-    private int vbProgressVariable3 = 0;
-    private int vbProgressVariable4 = 0;
-    private int vbProgressVariable5 = 0;
-    private int vbProgressVariable6 = 0;
+    private int lowFreqSBProgressValue = 0;
+    private int middleFreqSBProgressValue = 0;
+    private int highFreqSBProgressValue = 0;
+    private int lowVoiceSBProgressValue = 0;
+    private int middleVoiceSBProgressValue = 0;
+    private int highVoiceSBProgressValue = 0;
 
     @SuppressLint("WrongConstant")
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         this.preferences = context.getSharedPreferences(Constants.EQSettingsFileName, 2);
-        this.mEQService = (IEQService) context.getSystemService(Constants.EQInterfaceName);
+        EQServiceProxy.Initialize(context);
+
         if (action.equals("android.intent.action.BOOT_COMPLETED")) {
             int diffX;
             int diffY;
-            this.vbProgressVariable1 = this.preferences.getInt("lowFreqSBProgressValue", 1);
-            this.vbProgressVariable2 = this.preferences.getInt("middleFreqSBProgressValue", 1);
-            this.vbProgressVariable3 = this.preferences.getInt("highFreqSBProgressValue", 0);
-            this.vbProgressVariable4 = this.preferences.getInt("lowVoiceSBProgressValue", 7);
-            this.vbProgressVariable5 = this.preferences.getInt("middleVoiceSBProgressValue", 7);
-            this.vbProgressVariable6 = this.preferences.getInt("highVoiceSBProgressValue", 7);
+            this.lowFreqSBProgressValue = this.preferences.getInt("lowFreqSBProgressValue", 1);
+            this.middleFreqSBProgressValue = this.preferences.getInt("middleFreqSBProgressValue", 1);
+            this.highFreqSBProgressValue = this.preferences.getInt("highFreqSBProgressValue", 0);
+            this.lowVoiceSBProgressValue = this.preferences.getInt("lowVoiceSBProgressValue", 7);
+            this.middleVoiceSBProgressValue = this.preferences.getInt("middleVoiceSBProgressValue", 7);
+            this.highVoiceSBProgressValue = this.preferences.getInt("highVoiceSBProgressValue", 7);
             initLimitValue();
             if (EQActivity.width > 800) {
                 this.coordinateX = this.preferences.getInt("CoordinateX", 155);
@@ -59,16 +59,16 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
             }
             setXY(diffX, diffY);
             try {
-                this.mEQService.setSound(3, this.vbProgressVariable6);
-                this.mEQService.setSound(2, this.vbProgressVariable5);
-                this.mEQService.setSound(1, this.vbProgressVariable4);
-                this.mEQService.setSound(13, this.vbProgressVariable3);
-                this.mEQService.setSound(12, this.vbProgressVariable2);
-                this.mEQService.setSound(11, this.vbProgressVariable1);
+                EQServiceProxy.setSound(Constants.cTrebleCommand, this.highVoiceSBProgressValue);
+                EQServiceProxy.setSound(Constants.cMiddleCommand, this.middleVoiceSBProgressValue);
+                EQServiceProxy.setSound(Constants.cBassCommand, this.lowVoiceSBProgressValue);
+                EQServiceProxy.setSound(Constants.cHighFreqSB, this.highFreqSBProgressValue);
+                EQServiceProxy.setSound(Constants.cMiddleFreqSB, this.middleFreqSBProgressValue);
+                EQServiceProxy.setSound(Constants.cLowFreqSB, this.lowFreqSBProgressValue);
                 increaseValue = this.preferences.getInt("increase_value_key", 2);
                 System.out.println(increaseValue);
                 System.out.println("preferences.getAll().size()  " + this.preferences.getAll().size());
-                this.mEQService.setSound(32, increaseValue);
+                EQServiceProxy.setSound(Constants.cIncreaseValueCommand, increaseValue);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -103,11 +103,8 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
 
     public void setXY(int x, int y) {
         try {
-            this.mEQService.setSurround(checkItem(x), 24 - checkItem(y));
+            EQServiceProxy.setSurround(checkItem(x), 24 - checkItem(y));
             System.out.println("-------------------------------------------");
-            System.out.println("--------------------------------------------");
-            System.out.println("--------------------------------------------");
-            System.out.println("--------------------------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }

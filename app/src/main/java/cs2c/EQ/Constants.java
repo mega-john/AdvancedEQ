@@ -28,8 +28,12 @@ public final class Constants {
     public static int cBassCommand = 1;
     public static int cMiddleCommand = 2;
     public static int cTrebleCommand = 3;
+    public static int cLowFreqSB = 11;
+    public static int cMiddleFreqSB = 12;
+    public static int cHighFreqSB = 13;
     public static int cLoudGainCommand = 6;
     public static int cLoudOnOffCommand = 22;
+    public static int cIncreaseValueCommand = 32;
 
     public static String EQInterfaceName = "eq";
     public static String EQSettingsFileName = "musicEQ";
