@@ -21,10 +21,6 @@
         <activity
             android:name=".Balancer"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
-			
-        <activity
-            android:name=".Advanced"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
 
         <activity
             android:name=".EQActivity"

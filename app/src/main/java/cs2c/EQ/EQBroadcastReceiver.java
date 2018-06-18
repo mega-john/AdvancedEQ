@@ -74,7 +74,7 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
             }
         } else if (action.equals("cn.com.cs2c.android.vehicle.action.EQ_KEY")) {
             Intent it = new Intent();
-            it.setClass(context, EQActivity.class);
+            it.setClass(context, EqualizerFragment.class);
             it.addFlags(FLAG_CANCEL_CURRENT);
             context.startActivity(it);
             Log.d("lzc", "receiver EQ key");
