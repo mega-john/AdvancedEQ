@@ -41,23 +41,7 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
             this.lowVoiceSBProgressValue = this.preferences.getInt("lowVoiceSBProgressValue", 7);
             this.middleVoiceSBProgressValue = this.preferences.getInt("middleVoiceSBProgressValue", 7);
             this.highVoiceSBProgressValue = this.preferences.getInt("highVoiceSBProgressValue", 7);
-            initLimitValue();
-            if (EQActivity.width > 800) {
-                this.coordinateX = this.preferences.getInt("CoordinateX", 155);
-                this.coordinateY = this.preferences.getInt("CoordinateY", 180);
-                System.out.println("coordinateX  " + this.coordinateX);
-                System.out.println("coordinateY  " + this.coordinateY);
-                diffX = ((this.coordinateX * 10) - 100) / balanceDivisorX;
-                diffY = (345 - this.coordinateY) / balanceDivisorY;
-            } else {
-                this.coordinateX = this.preferences.getInt("CoordinateX", 155);
-                this.coordinateY = this.preferences.getInt("CoordinateY", 180);
-                System.out.println("coordinateX  " + this.coordinateX);
-                System.out.println("coordinateY  " + this.coordinateY);
-                diffX = ((this.coordinateX * 10) - 100) / balanceDivisorX;
-                diffY = (260 - this.coordinateY) / balanceDivisorY;
-            }
-            setXY(diffX, diffY);
+
             try {
                 EQServiceProxy.setSound(Constants.cTrebleCommand, this.highVoiceSBProgressValue);
                 EQServiceProxy.setSound(Constants.cMiddleCommand, this.middleVoiceSBProgressValue);
@@ -79,16 +63,6 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
             context.startActivity(it);
             Log.d("lzc", "receiver EQ key");
         }
-    }
-
-    private void initLimitValue() {
-        if (EQActivity.width > 800) {
-            balanceDivisorX = 116;
-            balanceDivisorY = 13;
-            return;
-        }
-        balanceDivisorX = 88;
-        balanceDivisorY = 10;
     }
 
     public int checkItem(int value) {

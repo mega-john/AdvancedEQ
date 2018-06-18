@@ -18,13 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Balancer"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
-
-        <activity
-            android:name=".EQActivity"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
 
         <activity
             android:name=".BalanceFragment"
