@@ -48,7 +48,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
     @Override
     public void onBalanceChange(int balanceX, int balanceY, int byUser) {
 //        audioManager.setParameters(String.format("av_balance=%d,%d", balanceX, 28 - balanceY));
-        Log.d(Constants.EQInterfaceName, String.format("onBalanceChange(%+d,%+d)", balanceX, balanceX));
+//        Log.d(Constants.EQInterfaceName, String.format("onBalanceChange(%+d,%+d)", balanceX, balanceY));
     }
 
     @Override

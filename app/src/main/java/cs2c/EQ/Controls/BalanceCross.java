@@ -60,7 +60,7 @@ public class BalanceCross extends View {
 
     public void setBalance(int balanceX, int balanceY) {
 
-        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, balanceX));
+        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, balanceY));
 
         this.balanceX = Math.max(Math.min(balanceX, max), 0);
         this.balanceY = Math.max(Math.min(balanceY, max), 0);
