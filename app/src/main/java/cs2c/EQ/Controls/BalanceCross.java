@@ -5,9 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import cs2c.EQ.Constants;
 import cs2c.EQ.R;
 
 public class BalanceCross extends View {
@@ -57,6 +59,9 @@ public class BalanceCross extends View {
     }
 
     public void setBalance(int balanceX, int balanceY) {
+
+        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, balanceX));
+
         this.balanceX = Math.max(Math.min(balanceX, max), 0);
         this.balanceY = Math.max(Math.min(balanceY, max), 0);
 
@@ -135,6 +140,8 @@ public class BalanceCross extends View {
             case MeasureSpec.AT_MOST:
                 width = Math.min(width, widthSize);
                 break;
+            case MeasureSpec.UNSPECIFIED:
+                break;
         }
         switch (heightMode) {
             case MeasureSpec.EXACTLY:
@@ -142,6 +149,8 @@ public class BalanceCross extends View {
                 break;
             case MeasureSpec.AT_MOST:
                 height = Math.min(height, heightSize);
+                break;
+            case MeasureSpec.UNSPECIFIED:
                 break;
         }
 
@@ -154,7 +163,15 @@ public class BalanceCross extends View {
     }
 
     @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        performClick();
+
         int x = (int) event.getX();
         int y = (int) event.getY();
         if (x < thmbw / 2) {

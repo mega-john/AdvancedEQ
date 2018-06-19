@@ -2,6 +2,7 @@ package cs2c.EQ;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import cs2c.EQ.Controls.BalanceCross;
@@ -47,6 +48,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
     @Override
     public void onBalanceChange(int balanceX, int balanceY, int byUser) {
 //        audioManager.setParameters(String.format("av_balance=%d,%d", balanceX, 28 - balanceY));
+        Log.d(Constants.EQInterfaceName, String.format("onBalanceChange(%+d,%+d)", balanceX, balanceX));
     }
 
     @Override
