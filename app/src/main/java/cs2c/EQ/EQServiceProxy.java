@@ -55,5 +55,4 @@ public final class EQServiceProxy {
             Log.e(Constants.EQInterfaceName, String.format("set_volume exception:", e.toString()));
         }
     }
-
 }

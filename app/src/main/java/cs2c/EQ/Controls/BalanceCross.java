@@ -31,9 +31,9 @@ public class BalanceCross extends View {
         TypedArray a = context.getTheme().obtainStyledAttributes(attributeset, R.styleable.BalanceCross, 0, 0);
 
         try {
-            max = a.getInt(R.styleable.BalanceCross_max, 28);
-            balanceX = a.getInt(R.styleable.BalanceCross_balanceX, 14);
-            balanceY = a.getInt(R.styleable.BalanceCross_balanceY, 14);
+            max = a.getInt(R.styleable.BalanceCross_max, 14);
+            balanceX = a.getInt(R.styleable.BalanceCross_balanceX, 7);
+            balanceY = a.getInt(R.styleable.BalanceCross_balanceY, 7);
             if (max < 0) max = 0;
             if (balanceX < 0) balanceX = 0;
             if (balanceX > max) balanceX = max;
@@ -57,6 +57,13 @@ public class BalanceCross extends View {
     public void setOnBalanceChangeListener(OnBalanceChangeListener balancechange) {
         onBalanceChangeListener = balancechange;
     }
+
+    //this.mEQService.setSurround(x, 24 - y);
+    //top left      royu5: ====x=0  y=14
+    //top right     royu5: ====x=14 y=14
+    //bottom right  royu5: ====x=14 y=0
+    //bottom left   royu5: ====x=0  y=0
+    //reset         royu5: ====x=7  y=7
 
     public void setBalance(int balanceX, int balanceY) {
 
