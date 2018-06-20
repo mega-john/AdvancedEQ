@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import cs2c.EQ.Constants;
+import cs2c.EQ.EQServiceProxy;
 import cs2c.EQ.R;
 
 public class BalanceCross extends View {
@@ -34,11 +35,21 @@ public class BalanceCross extends View {
             max = a.getInt(R.styleable.BalanceCross_max, 14);
             balanceX = a.getInt(R.styleable.BalanceCross_balanceX, 7);
             balanceY = a.getInt(R.styleable.BalanceCross_balanceY, 7);
-            if (max < 0) max = 0;
-            if (balanceX < 0) balanceX = 0;
-            if (balanceX > max) balanceX = max;
-            if (balanceY < 0) balanceY = 0;
-            if (balanceY > max) balanceY = max;
+            if (max < 0) {
+                max = 0;
+            }
+            if (balanceX < 0) {
+                balanceX = 0;
+            }
+            if (balanceX > max) {
+                balanceX = max;
+            }
+            if (balanceY < 0) {
+                balanceY = 0;
+            }
+            if (balanceY > max) {
+                balanceY = max;
+            }
         } finally {
             a.recycle();
         }
@@ -67,11 +78,12 @@ public class BalanceCross extends View {
 
     public void setBalance(int balanceX, int balanceY) {
 
-        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, balanceY));
-
         this.balanceX = Math.max(Math.min(balanceX, max), 0);
         this.balanceY = Math.max(Math.min(balanceY, max), 0);
 
+        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, 14 - balanceY));
+
+        EQServiceProxy.setSurround(balanceX, 24 - (14 - balanceY));
         updateThumbView();
         invalidate();
     }

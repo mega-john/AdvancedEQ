@@ -34,9 +34,9 @@
                 android:layout_width="@dimen/balance_cross_size"
                 android:layout_height="@dimen/balance_cross_size"
                 android:layout_gravity="center"
-                mtcsound:balanceX="14"
-                mtcsound:balanceY="14"
-                mtcsound:max="28" />
+                mtcsound:balanceX="@integer/balance_crossX"
+                mtcsound:balanceY="@integer/balance_crossY"
+                mtcsound:max="@integer/balance_max" />
         </FrameLayout>
 
         <FrameLayout

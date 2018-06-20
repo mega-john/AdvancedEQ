@@ -55,7 +55,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.balanceReset:
-                balance.setBalance(14, 14);
+                balance.setBalance(7, 7);
                 break;
             case R.id.balanceFront:
                 balance.balanceYdown();
