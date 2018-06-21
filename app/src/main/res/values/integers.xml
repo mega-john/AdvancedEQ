@@ -1,9 +1,9 @@
 <resources>
     <integer name="eq_gain_max">15</integer>
-    <integer name="eq_gain_default_progress">8</integer>
+    <integer name="eq_gain_default_progress">7</integer>
     <integer name="eq_gain_min">0</integer>
 
     <integer name="balance_crossX">7</integer>
     <integer name="balance_crossY">7</integer>
-    <integer name="balance_max">14</integer>
+    <integer name="balance_max">15</integer>
 </resources>

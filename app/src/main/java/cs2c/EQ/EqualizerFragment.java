@@ -229,7 +229,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     private void updateChartBass() {
-        int eqGain = getResources().getInteger(R.integer.eq_gain_default_progress);
+        float eqGain = getResources().getInteger(R.integer.eq_gain_default_progress) + 0.5f;
         chart.bass.setFQG(bassF(sbBassF.getProgress()), bassQ(sbBassQ.getProgress()), sbBassG.getProgress() - eqGain);
         EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
     }

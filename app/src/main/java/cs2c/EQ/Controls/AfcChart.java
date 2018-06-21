@@ -17,6 +17,7 @@ public class AfcChart extends View {
     private final int startFreqFactor = 1, endFreqFactor = 5;
     private final int minGain = -25, maxGain = +25, gainStep = 5, gainPadding = 10;
     private final int offsetY = 8;
+    private final int offsetX = 8;
     private final int chartSteps = 100;
     private int w, h;
     private boolean gridOn;
@@ -95,8 +96,8 @@ public class AfcChart extends View {
 
     private void drawGrid(Canvas canvas) {
         final String[] texts = {"10", "100", "1k", "10k", "100k"};
-        float y1 = h - (gainPadding) * h / (maxGain - minGain);
-        float y2 = h - (maxGain - gainPadding - minGain) * h / (maxGain - minGain);
+        float y1 = h - (gainPadding) * h / (maxGain - minGain) ;
+        float y2 = h - (maxGain - gainPadding - minGain) * h / (maxGain - minGain) ;
         for (int i = startFreqFactor; i <= endFreqFactor; i++) {
             for (int j = 1; j < 10; j++) {
                 float x = (float) (Math.log10(Math.pow(10, (i - startFreqFactor)) * j) * (w / (endFreqFactor - startFreqFactor)) + 0.5);
@@ -122,7 +123,7 @@ public class AfcChart extends View {
         }
 
         for (int i = minGain + gainPadding; i <= maxGain - gainPadding; i += gainStep) {
-            float y = h - (i - minGain) * h / (maxGain - minGain);
+            float y = h - (i - minGain) * h / (maxGain - minGain) ;
             canvas.drawLine(0, y, w, y, gridLine);
         }
     }
@@ -133,7 +134,7 @@ public class AfcChart extends View {
         for (int i = 0; i < chartSteps; i++) {
             float x = i * w / (chartSteps - 1);
             float g = g1[i] + g2[i] + g3[i];
-            float y = (h - (g - minGain) * h / (maxGain - minGain)) - 8;
+            float y = (h - (g - minGain) * h / (maxGain - minGain)) - offsetY;
             if (x == 0) {
                 chartPath.moveTo(x, y);
             } else {
