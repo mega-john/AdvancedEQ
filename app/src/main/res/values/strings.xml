@@ -5,6 +5,7 @@
     <string name="balance_button_left">Left</string>
     <string name="balance_button_right">Right</string>
     <string name="balance_button_rear">Rear</string>
+    <string name="balance_button_equalizer">Equalizer</string>
     <string name="balance_button_reset">Reset</string>
     <string name="eq_label_preamp">Preamp</string>
     <string name="eq_label_plus_20db" translatable="false">+20</string>

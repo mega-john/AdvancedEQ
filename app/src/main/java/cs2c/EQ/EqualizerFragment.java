@@ -324,28 +324,19 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_balance:
-//                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
-                Intent advancedIntent = new Intent();
-                advancedIntent.setClass(this, BalanceFragment.class);
-                startActivity(advancedIntent);
-                return;
-//                break;
+                Intent intent = new Intent();
+                intent.setClass(this, BalanceFragment.class);
+                startActivity(intent);
+                break;
             case R.id.bt_defaults:
 //                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
                 ResetToDefault();
-                return;
-//                break;
-//            case R.id.mute_on:
-////                audioManager.setParameters("av_mute=" + (muteOn.isChecked() ? "true" : "false"));
-//                break;
+                break;
             case R.id.loud_on:
 //                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
                 SetEnabled();
                 EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn.isChecked() ? 1 : 0);
                 break;
-//            case R.id.equalizer_on:
-////                audioManager.setParameters("av_eq_on=" + (equalizerOn.isChecked() ? "on" : "off"));
-//                break;
         }
     }
 

@@ -1,6 +1,7 @@
 package cs2c.EQ;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -68,6 +69,11 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
                 break;
             case R.id.balanceRear:
                 balance.balanceYup();
+                break;
+            case R.id.bt_equalizer:
+                Intent intent = new Intent();
+                intent.setClass(this, EqualizerFragment.class);
+                startActivity(intent);
                 break;
         }
     }
