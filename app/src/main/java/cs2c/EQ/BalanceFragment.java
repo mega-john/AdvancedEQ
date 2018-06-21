@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import cs2c.EQ.Controls.BalanceCross;
 
 public class BalanceFragment extends Activity implements View.OnClickListener, BalanceCross.OnBalanceChangeListener {
 
     private BalanceCross balance;
+    private TextView btEqualizer;
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
@@ -18,6 +20,8 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
         setContentView(R.layout.fragment_balance);
 
         balance = (BalanceCross) findViewById(R.id.balanceCross);
+        btEqualizer = (TextView) findViewById(R.id.bt_equalizer);
+        btEqualizer.setOnClickListener(this);
 
         balance.setOnBalanceChangeListener(this);
         findViewById(R.id.balanceReset).setOnClickListener(this);

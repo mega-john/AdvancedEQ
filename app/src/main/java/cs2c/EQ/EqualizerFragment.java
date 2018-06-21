@@ -188,6 +188,11 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         }
     }
 
+    private void WriteSettingsToSoundProcessor()
+    {
+
+    }
+
     public void update() {
         updateOnSwitches();
         updateValues();
