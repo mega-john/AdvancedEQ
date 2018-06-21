@@ -241,7 +241,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             return "0";
         }
         if (gain >= 15) {
-            return "+(15)";
+            return "+15";
         }
         return String.format("%+d", gain);
     }
@@ -350,11 +350,12 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     private void ResetToDefault() {
-        sbPreampG.setProgress(10);
-        sbBassG.setProgress(10);
-        sbMiddleG.setProgress(10);
-        sbTrebleG.setProgress(10);
-        sbLoudG.setProgress(10);
+        int value = getResources().getInteger(R.integer.eq_gain_default_progress);
+        sbPreampG.setProgress(value);
+        sbBassG.setProgress(value);
+        sbMiddleG.setProgress(value);
+        sbTrebleG.setProgress(value);
+        sbLoudG.setProgress(value);
         sbBassQ.setProgress(0);
         sbBassF.setProgress(0);
         sbMiddleQ.setProgress(0);

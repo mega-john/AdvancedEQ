@@ -15,7 +15,7 @@ public class AfcChart extends View {
     public final FilterData middle = new FilterData();
     public final FilterData treble = new FilterData();
     private final int startFreqFactor = 1, endFreqFactor = 5;
-    private final int minGain = -30, maxGain = +30, gainStep = 5, gainPadding = 10;
+    private final int minGain = -25, maxGain = +25, gainStep = 5, gainPadding = 10;
     private final int chartSteps = 100;
     private int w, h;
     private boolean gridOn;
@@ -132,7 +132,7 @@ public class AfcChart extends View {
         for (int i = 0; i < chartSteps; i++) {
             float x = i * w / (chartSteps - 1);
             float g = g1[i] + g2[i] + g3[i];
-            float y = h - (g - minGain) * h / (maxGain - minGain);
+            float y = (h - (g - minGain) * h / (maxGain - minGain)) - 8;
             if (x == 0) {
                 chartPath.moveTo(x, y);
             } else {
