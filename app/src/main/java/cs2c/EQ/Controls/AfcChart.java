@@ -16,6 +16,7 @@ public class AfcChart extends View {
     public final FilterData treble = new FilterData();
     private final int startFreqFactor = 1, endFreqFactor = 5;
     private final int minGain = -25, maxGain = +25, gainStep = 5, gainPadding = 10;
+    private final int offsetY = 8;
     private final int chartSteps = 100;
     private int w, h;
     private boolean gridOn;

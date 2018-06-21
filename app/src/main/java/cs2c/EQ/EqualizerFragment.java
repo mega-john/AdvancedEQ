@@ -47,7 +47,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         btBalance = (TextView) findViewById(R.id.bt_balance);
         btDefaults = (TextView) findViewById(R.id.bt_defaults);
 //        muteOn = (CheckBox) findViewById(R.id.mute_on);
-        cbLoudOn= (CheckBox) findViewById(R.id.loud_on);
+        cbLoudOn = (CheckBox) findViewById(R.id.loud_on);
 //        equalizerOn = (CheckBox) findViewById(R.id.equalizer_on);
 
         btBalance.setOnClickListener(this);
@@ -149,9 +149,11 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         cbLoudOn.setChecked(b);
 
         SetEnabled();
+        update();
     }
 
     private void saveEQValues() {
+        Log.e(Constants.EQInterfaceName, "saveEQValues begin");
         SharedPreferences.Editor e = this.preferences.edit();
         if (e != null) {
             try {
@@ -183,13 +185,13 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
                 e.apply();
             } catch (Exception ex) {
                 ex.printStackTrace();
-                Log.e("saveEQValues", ex.getMessage());
+                Log.e(Constants.EQInterfaceName, ex.getMessage());
             }
         }
+        update();
     }
 
-    private void WriteSettingsToSoundProcessor()
-    {
+    private void WriteSettingsToSoundProcessor() {
 
     }
 
@@ -200,14 +202,14 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         SetEnabled();
     }
 
-    private void SetEnabled()
-    {
+    private void SetEnabled() {
         sbLoudG.setEnabled(cbLoudOn.isChecked());
     }
 
     private void updateOnSwitches() {
 //        muteOn.setChecked("true".equalsIgnoreCase(audioManager.getParameters("av_mute=")));
 //        loudOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_lud=")));
+        EQServiceProxy.set_volume(Constants.cLoudGainCommand, sbLoudG.getProgress());
 //        equalizerOn.setChecked("on".equalsIgnoreCase(audioManager.getParameters("av_eq_on=")));
     }
 
@@ -229,16 +231,19 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     private void updateChartBass() {
         int eqGain = getResources().getInteger(R.integer.eq_gain_default_progress);
         chart.bass.setFQG(bassF(sbBassF.getProgress()), bassQ(sbBassQ.getProgress()), sbBassG.getProgress() - eqGain);
+        EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
     }
 
     private void updateChartMiddle() {
         int eqGain = getResources().getInteger(R.integer.eq_gain_default_progress);
         chart.middle.setFQG(middleF(sbMiddleF.getProgress()), middleQ(sbMiddleQ.getProgress()), sbMiddleG.getProgress() - eqGain);
+        EQServiceProxy.setSound(Constants.cMiddleQFCommand, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
     }
 
     private void updateChartTreble() {
         int eqGain = getResources().getInteger(R.integer.eq_gain_default_progress);
         chart.treble.setFQG(trebleF(sbTrebleF.getProgress()), trebleQ(sbTrebleQ.getProgress()), sbTrebleG.getProgress() - eqGain);
+        EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
     }
 
     private String formatGain(int gain) {
