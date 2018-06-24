@@ -31,8 +31,8 @@ public final class EQServiceProxy {
             Log.d(Constants.EQInterfaceName, String.format("setSound(%d, %d)", var1, var2));
             mEQService.setSound(var1, var2);
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(Constants.EQInterfaceName, String.format("setSound exception:", e.toString()));
+//            e.printStackTrace();
+//            Log.e(Constants.EQInterfaceName, String.format("setSound exception:", e.toString()));
         }
     }
 
@@ -41,8 +41,8 @@ public final class EQServiceProxy {
             Log.d(Constants.EQInterfaceName, String.format("setSurround(%d, %d)", var1, var2));
             mEQService.setSurround(var1, var2);
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(Constants.EQInterfaceName, String.format("setSurround exception:", e.toString()));
+//            e.printStackTrace();
+//            Log.e(Constants.EQInterfaceName, String.format("setSurround exception:", e.toString()));
         }
     }
 
@@ -51,8 +51,8 @@ public final class EQServiceProxy {
             Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
             mEQService.set_volume(var1, var2);
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(Constants.EQInterfaceName, String.format("set_volume exception:", e.toString()));
+//            e.printStackTrace();
+//            Log.e(Constants.EQInterfaceName, String.format("set_volume exception:", e.toString()));
         }
     }
 }

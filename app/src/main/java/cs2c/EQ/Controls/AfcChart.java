@@ -10,13 +10,20 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
+import cs2c.EQ.R;
+
 public class AfcChart extends View {
     public final FilterData bass = new FilterData();
     public final FilterData middle = new FilterData();
     public final FilterData treble = new FilterData();
     private final int startFreqFactor = 1, endFreqFactor = 5;
-    private final int minGain = -25, maxGain = +25, gainStep = 5, gainPadding = 10;
-    private final int offsetY = 8;
+    private final int gainStep = 5;
+    private final int gainPadding = 10;
+
+    private final int offsetY = getResources().getInteger(R.integer.green_line_offset_y);
+    private final int minGain = getResources().getInteger(R.integer.chart_min_gain);
+    private final int maxGain = getResources().getInteger(R.integer.chart_max_gain);
+
     private final int offsetX = 8;
     private final int chartSteps = 100;
     private int w, h;
@@ -71,9 +78,6 @@ public class AfcChart extends View {
         bass.setFQG(100, 1, 0);
         middle.setFQG(1000, 1, 0);
         treble.setFQG(10000, 1, 0);
-//        bass.setF(100); bass.setQ(1);bass.setG(0);
-//        middle.setF(1000); middle.setQ(1); middle.setG(0);
-//        treble.setF(10000); treble.setQ(1); treble.setG(0);
 
         gridOn = false;
     }
