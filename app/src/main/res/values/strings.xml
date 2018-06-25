@@ -10,6 +10,7 @@
     <string name="eq_label_preamp">Preamp</string>
     <string name="eq_label_plus_20db" translatable="false">+20</string>
     <string name="eq_label_plus_15db" translatable="false">+15</string>
+    <string name="eq_label_plus_14db" translatable="false">+14</string>
     <string name="eq_label_plus_7db" translatable="false">+7</string>
     <string name="eq_label_0db" translatable="false">0</string>
     <string name="eq_label_center_value" translatable="false">-</string>

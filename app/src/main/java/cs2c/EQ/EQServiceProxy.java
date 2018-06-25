@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
-import android.cs2c.IEQService;
+//import android.cs2c.IEQService;
 //import android.os.RemoteException;
 
 public final class EQServiceProxy {
@@ -48,7 +48,7 @@ public final class EQServiceProxy {
 
     public static void set_volume(int var1, int var2) {
         try {
-            Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
+//            Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
             mEQService.set_volume(var1, var2);
         } catch (Exception e) {
 //            e.printStackTrace();
@@ -56,3 +56,22 @@ public final class EQServiceProxy {
         }
     }
 }
+
+//регулировка низких, средних и высоких частот
+//bass seek:
+//min setSound(1, 0)
+//max setSound(1, 14)
+//middle seek:
+//min setSound(2, 0)
+//max setSound(2, 14)
+//treble seek:
+//min setSound(3, 0)
+//max setSound(3, 14)
+//при любом изменении этих прогресов, так же вызывается:
+//setSound(13, 7)
+//setSound(12, 7)
+//setSound(11, 14)
+//регулировка сабвуфера
+//sub seek
+//min set_volume(6, 0)
+//max set_volume(6, 14)

@@ -69,19 +69,18 @@ public class BalanceCross extends View {
         onBalanceChangeListener = balancechange;
     }
 
+    //in origianl eq, balance activity
     //this.mEQService.setSurround(x, 24 - y);
-    //top left      royu5: ====x=0  y=14
-    //top right     royu5: ====x=14 y=14
-    //bottom right  royu5: ====x=14 y=0
-    //bottom left   royu5: ====x=0  y=0
-    //reset         royu5: ====x=7  y=7
+    //top left      setSurround(0, 10)
+    //top right     setSurround(14, 10)
+    //bottom right  setSurround(14, 24)
+    //bottom left   setSurround(0, 24)
+    //reset         setSurround(7, 17)
 
     public void setBalance(int balanceX, int balanceY) {
 
         this.balanceX = Math.max(Math.min(balanceX, max), 0);
         this.balanceY = Math.max(Math.min(balanceY, max), 0);
-
-        Log.d(Constants.EQInterfaceName, String.format("setBalance(%+d,%+d)", balanceX, 14 - balanceY));
 
         EQServiceProxy.setSurround(balanceX, 24 - (14 - balanceY));
         updateThumbView();

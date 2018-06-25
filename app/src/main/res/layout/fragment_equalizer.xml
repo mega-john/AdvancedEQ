@@ -84,7 +84,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_15db" />
+                        android:text="@string/eq_label_plus_14db" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -188,7 +188,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_15db" />
+                        android:text="@string/eq_label_plus_14db" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -336,7 +336,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_15db" />
+                        android:text="@string/eq_label_plus_14db" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -483,7 +483,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_15db" />
+                        android:text="@string/eq_label_plus_14db" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -618,7 +618,7 @@
 
                     <TextView
                         style="@style/medium_label"
-                        android:text="@string/eq_label_plus_15db" />
+                        android:text="@string/eq_label_plus_14db" />
 
                     <Space
                         android:layout_width="wrap_content"

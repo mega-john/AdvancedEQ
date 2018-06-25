@@ -268,7 +268,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             return "0";
         }
         if (gain >= 15) {
-            return "+15";
+            return "+14";
         }
         return String.format("%+d", gain);
     }
