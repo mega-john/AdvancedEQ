@@ -100,8 +100,8 @@ public class AfcChart extends View {
 
     private void drawGrid(Canvas canvas) {
         final String[] texts = {"10", "100", "1k", "10k", "100k"};
-        float y1 = h - (gainPadding) * h / (maxGain - minGain) ;
-        float y2 = h - (maxGain - gainPadding - minGain) * h / (maxGain - minGain) ;
+        float y1 = h - (gainPadding) * h / (maxGain - minGain);
+        float y2 = h - (maxGain - gainPadding - minGain) * h / (maxGain - minGain);
         for (int i = startFreqFactor; i <= endFreqFactor; i++) {
             for (int j = 1; j < 10; j++) {
                 float x = (float) (Math.log10(Math.pow(10, (i - startFreqFactor)) * j) * (w / (endFreqFactor - startFreqFactor)) + 0.5);
@@ -127,7 +127,7 @@ public class AfcChart extends View {
         }
 
         for (int i = minGain + gainPadding; i <= maxGain - gainPadding; i += gainStep) {
-            float y = h - (i - minGain) * h / (maxGain - minGain) ;
+            float y = h - (i - minGain) * h / (maxGain - minGain);
             canvas.drawLine(0, y, w, y, gridLine);
         }
     }

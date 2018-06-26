@@ -5,11 +5,9 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import cs2c.EQ.Constants;
 import cs2c.EQ.EQServiceProxy;
 import cs2c.EQ.R;
 
