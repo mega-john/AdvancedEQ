@@ -631,7 +631,7 @@
                 </LinearLayout>
 
                 <cs2c.EQ.Controls.VerticalSeekBar
-                    android:id="@+id/seekBarLoudG"
+                    android:id="@+id/seekBarSubG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

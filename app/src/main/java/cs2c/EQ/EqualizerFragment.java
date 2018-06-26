@@ -66,7 +66,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         sbTrebleG = (VerticalSeekBar) findViewById(R.id.seekBarTrebleG);
         sbTrebleF = (HorizontalSeekBar) findViewById(R.id.seekBarTrebleF);
         sbTrebleQ = (HorizontalSeekBar) findViewById(R.id.seekBarTrebleQ);
-        sbLoudG = (VerticalSeekBar) findViewById(R.id.seekBarLoudG);
+        sbLoudG = (VerticalSeekBar) findViewById(R.id.seekBarSubG);
         sbLoudF = (HorizontalSeekBar) findViewById(R.id.seekBarLoudF);
         sbLoudHC = (HorizontalSeekBar) findViewById(R.id.seekBarLoudHC);
 
@@ -210,7 +210,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
         updateChartTreble();
 
-        EQServiceProxy.set_volume(Constants.cLoudGainCommand, sbLoudG.getProgress());
+        EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG.getProgress());
 
         EQServiceProxy.setSound(13, 7);
         EQServiceProxy.setSound(12, 7);
@@ -428,11 +428,11 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
                 EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
                 updateChartTreble();
                 break;
-            case R.id.seekBarLoudG:
+            case R.id.seekBarSubG:
             case R.id.seekBarLoudF:
             case R.id.seekBarLoudHC:
 //                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
-                EQServiceProxy.set_volume(Constants.cLoudGainCommand, sbLoudG.getProgress());
+                EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG.getProgress());
 //                EQServiceProxy.set_volume(Constants.cLoudQFCommand, (sbLoudF.getProgress() << 4) + sbLoudHC.getProgress());
                 break;
         }
