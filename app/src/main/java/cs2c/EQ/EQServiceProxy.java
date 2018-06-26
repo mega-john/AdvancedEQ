@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
-//import android.cs2c.IEQService;
+import android.cs2c.IEQService;
 //import android.os.RemoteException;
 
 public final class EQServiceProxy {
