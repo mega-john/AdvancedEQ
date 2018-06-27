@@ -5,19 +5,19 @@ package cs2c.EQ;
  */
 
 public final class Constants {
-    public static String sbQ_bassProgressValue = "sbQ_bassProgressValue";
-    public static String sbFo_bassProgressValue = "sbFo_bassProgressValue";
-    public static String sbQ_middleProgressValue = "sbQ_middleProgressValue";
-    public static String sbFo_middleProgressValue = "sbFo_middleProgressValue";
-    public static String sbQ_trebleProgressValue = "sbQ_trebleProgressValue";
-    public static String sbFo_trebleProgressValue = "sbFo_trebleProgressValue";
+    public static String sb_bassQProgress = "sb_bassQProgress";
+    public static String sb_bassFoProgress = "sb_bassFoProgress";
+    public static String sb_middleQProgress = "sb_middleQProgress";
+    public static String sb_middleFoProgress = "sb_middleFoProgress";
+    public static String sb_trebleQProgress = "sb_trebleQProgress";
+    public static String sb_trebleFoProgress = "sb_trebleFoProgress";
 
-    public static String sb_lowFreqSBProgressValue = "lowFreqSBProgressValue";
-    public static String sb_middleFreqSBProgressValue = "middleFreqSBProgressValue";
-    public static String sb_highFreqSBProgressValue = "highFreqSBProgressValue";
+    public static String sb_bassGProgress = "sb_lowFreqProgress";
+    public static String sb_middleGProgress = "middleFreqSBProgressValue";
+    public static String sb_trebleGProgress = "highFreqSBProgressValue";
 
-    public static String sb_PreampGProgressValue = "sb_PreampGProgressValue";
-    public static String sb_LoudGProgressValue = "sb_LoudGProgressValue";
+    public static String sb_preampGProgress = "sb_preampGProgress";
+    public static String sb_LoudGProgress = "sb_LoudGProgress";
     public static String sb_LoudOn = "sb_LoudOn";
 
     public static int cBassQFCommand = 23;

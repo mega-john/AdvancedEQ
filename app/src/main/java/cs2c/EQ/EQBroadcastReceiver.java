@@ -11,15 +11,10 @@ import android.util.Log;
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
 
 public class EQBroadcastReceiver extends BroadcastReceiver {
-    private static int balanceDivisorX = 1;
-    private static int balanceDivisorY = 1;
     private static int increaseValue = 0;
-    private int backLight = 0;
-    private int coordinateX;
-    private int coordinateY;
-    private int mainVolume = 0;
+
     private SharedPreferences preferences;
-    private int lowFreqSBProgressValue = 0;
+    private int sb_lowFreqProgress = 0;
     private int middleFreqSBProgressValue = 0;
     private int highFreqSBProgressValue = 0;
     private int lowVoiceSBProgressValue = 0;
@@ -33,9 +28,7 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
         EQServiceProxy.Initialize(context);
 
         if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-            int diffX;
-            int diffY;
-            this.lowFreqSBProgressValue = this.preferences.getInt("lowFreqSBProgressValue", 1);
+            this.sb_lowFreqProgress = this.preferences.getInt("sb_lowFreqProgress", 1);
             this.middleFreqSBProgressValue = this.preferences.getInt("middleFreqSBProgressValue", 1);
             this.highFreqSBProgressValue = this.preferences.getInt("highFreqSBProgressValue", 0);
             this.lowVoiceSBProgressValue = this.preferences.getInt("lowVoiceSBProgressValue", 7);
@@ -48,7 +41,7 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
                 EQServiceProxy.setSound(Constants.cBassCommand, this.lowVoiceSBProgressValue);
                 EQServiceProxy.setSound(Constants.cHighFreqSB, this.highFreqSBProgressValue);
                 EQServiceProxy.setSound(Constants.cMiddleFreqSB, this.middleFreqSBProgressValue);
-                EQServiceProxy.setSound(Constants.cLowFreqSB, this.lowFreqSBProgressValue);
+                EQServiceProxy.setSound(Constants.cLowFreqSB, this.sb_lowFreqProgress);
                 increaseValue = this.preferences.getInt("increase_value_key", 2);
                 System.out.println(increaseValue);
                 System.out.println("preferences.getAll().size()  " + this.preferences.getAll().size());
@@ -62,25 +55,6 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
             it.addFlags(FLAG_CANCEL_CURRENT);
             context.startActivity(it);
             Log.d("lzc", "receiver EQ key");
-        }
-    }
-
-    public int checkItem(int value) {
-        if (value > 24) {
-            return 24;
-        }
-        if (value < 0) {
-            return 0;
-        }
-        return value;
-    }
-
-    public void setXY(int x, int y) {
-        try {
-            EQServiceProxy.setSurround(checkItem(x), 24 - checkItem(y));
-            System.out.println("-------------------------------------------");
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
