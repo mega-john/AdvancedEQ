@@ -13,12 +13,12 @@ public final class Constants {
     public static String sb_trebleFoProgress = "sb_trebleFoProgress";
 
     public static String sb_bassGProgress = "sb_lowFreqProgress";
-    public static String sb_middleGProgress = "middleFreqSBProgressValue";
-    public static String sb_trebleGProgress = "highFreqSBProgressValue";
+    public static String sb_middleGProgress = "sb_middleGProgress";
+    public static String sb_trebleGProgress = "sb_trebleGProgress";
 
     public static String sb_preampGProgress = "sb_preampGProgress";
     public static String sb_LoudGProgress = "sb_LoudGProgress";
-    public static String sb_LoudOn = "sb_LoudOn";
+    public static String cb_LoudOn = "cb_LoudOn";
 
     public static int cBassQFCommand = 23;
     public static int cMiddleQFCommand = 24;

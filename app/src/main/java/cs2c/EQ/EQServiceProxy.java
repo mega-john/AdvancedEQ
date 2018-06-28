@@ -48,7 +48,7 @@ public final class EQServiceProxy {
 
     public static void set_volume(int var1, int var2) {
         try {
-//            Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
+            Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
             mEQService.set_volume(var1, var2);
         } catch (Exception e) {
 //            e.printStackTrace();

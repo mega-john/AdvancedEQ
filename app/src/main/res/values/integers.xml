@@ -6,4 +6,8 @@
     <integer name="balance_crossX">7</integer>
     <integer name="balance_crossY">7</integer>
     <integer name="balance_max">14</integer>
+
+    <integer name="green_line_offset_y">0</integer>
+    <integer name="chart_min_gain">-25</integer>
+    <integer name="chart_max_gain">25</integer>
 </resources>

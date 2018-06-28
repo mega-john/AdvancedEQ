@@ -56,7 +56,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <TextView
                 style="@style/large_label"
@@ -103,7 +104,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress" />
+                    android:progress="@integer/eq_gain_default_progress"
+                    android:visibility="visible" />
             </FrameLayout>
 
             <LinearLayout

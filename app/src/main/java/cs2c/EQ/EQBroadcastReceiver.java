@@ -11,15 +11,8 @@ import android.util.Log;
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
 
 public class EQBroadcastReceiver extends BroadcastReceiver {
-    private static int increaseValue = 0;
 
     private SharedPreferences preferences;
-    private int sb_lowFreqProgress = 0;
-    private int middleFreqSBProgressValue = 0;
-    private int highFreqSBProgressValue = 0;
-    private int lowVoiceSBProgressValue = 0;
-    private int middleVoiceSBProgressValue = 0;
-    private int highVoiceSBProgressValue = 0;
 
     @SuppressLint("WrongConstant")
     public void onReceive(Context context, Intent intent) {
@@ -28,23 +21,43 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
         EQServiceProxy.Initialize(context);
 
         if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-            this.sb_lowFreqProgress = this.preferences.getInt("sb_lowFreqProgress", 1);
-            this.middleFreqSBProgressValue = this.preferences.getInt("middleFreqSBProgressValue", 1);
-            this.highFreqSBProgressValue = this.preferences.getInt("highFreqSBProgressValue", 0);
-            this.lowVoiceSBProgressValue = this.preferences.getInt("lowVoiceSBProgressValue", 7);
-            this.middleVoiceSBProgressValue = this.preferences.getInt("middleVoiceSBProgressValue", 7);
-            this.highVoiceSBProgressValue = this.preferences.getInt("highVoiceSBProgressValue", 7);
+            int defGain = 7;
+            int maxGain = 14;
+            int sbPreampG = this.preferences.getInt(Constants.sb_preampGProgress, defGain);
+            int sbBassG = this.preferences.getInt(Constants.sb_bassGProgress, defGain);
+            int sbMiddleG = this.preferences.getInt(Constants.sb_middleGProgress, defGain);
+            int sbTrebleG = this.preferences.getInt(Constants.sb_trebleGProgress, defGain);
+            int sbLoudG = this.preferences.getInt(Constants.sb_LoudGProgress, defGain);
+            int sbBassQ = this.preferences.getInt(Constants.sb_bassQProgress, 0);
+            int sbBassF = this.preferences.getInt(Constants.sb_bassFoProgress, 0);
+            int sbMiddleQ = this.preferences.getInt(Constants.sb_middleQProgress, 0);
+            int sbMiddleF = this.preferences.getInt(Constants.sb_middleFoProgress, 0);
+            int sbTrebleQ = this.preferences.getInt(Constants.sb_trebleQProgress, 0);
+            int sbTrebleF = this.preferences.getInt(Constants.sb_trebleFoProgress, 0);
+            boolean cbLoudOn = this.preferences.getBoolean(Constants.cb_LoudOn, true);
 
             try {
-                EQServiceProxy.setSound(Constants.cTrebleCommand, this.highVoiceSBProgressValue);
-                EQServiceProxy.setSound(Constants.cMiddleCommand, this.middleVoiceSBProgressValue);
-                EQServiceProxy.setSound(Constants.cBassCommand, this.lowVoiceSBProgressValue);
-                EQServiceProxy.setSound(Constants.cHighFreqSB, this.highFreqSBProgressValue);
-                EQServiceProxy.setSound(Constants.cMiddleFreqSB, this.middleFreqSBProgressValue);
-                EQServiceProxy.setSound(Constants.cLowFreqSB, this.sb_lowFreqProgress);
-                increaseValue = this.preferences.getInt("increase_value_key", 2);
-                System.out.println(increaseValue);
-                System.out.println("preferences.getAll().size()  " + this.preferences.getAll().size());
+                int gainValue = (sbBassG > maxGain ? maxGain : sbBassG);
+                EQServiceProxy.setSound(Constants.cBassCommand, gainValue);
+                EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF << 4 + sbBassQ);
+
+                gainValue = (sbMiddleG > maxGain ? maxGain : sbMiddleG);
+                EQServiceProxy.setSound(Constants.cMiddleCommand, gainValue);
+                EQServiceProxy.setSound(Constants.cMiddleQFCommand, sbMiddleF << 4 + sbMiddleQ);
+
+                gainValue = (sbTrebleG > maxGain ? maxGain : sbTrebleG);
+                EQServiceProxy.setSound(Constants.cTrebleCommand, gainValue);
+                EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF << 4 + sbTrebleQ);
+
+                EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG);
+
+                EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn ? 1 : 0);
+
+                EQServiceProxy.setSound(Constants.cHighFreqSB, 7);
+                EQServiceProxy.setSound(Constants.cMiddleFreqSB, 7);
+                EQServiceProxy.setSound(Constants.cLowFreqSB, 14);
+
+                int increaseValue = this.preferences.getInt("increase_value_key", 2);
                 EQServiceProxy.setSound(Constants.cIncreaseValueCommand, increaseValue);
             } catch (Exception e) {
                 e.printStackTrace();
