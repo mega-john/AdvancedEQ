@@ -5,10 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.cs2c.IEQService;
 import android.util.Log;
 
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
+import static android.content.Context.MODE_WORLD_WRITEABLE;
 
 public class EQBroadcastReceiver extends BroadcastReceiver {
 
@@ -17,12 +17,12 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
     @SuppressLint("WrongConstant")
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        this.preferences = context.getSharedPreferences(Constants.EQSettingsFileName, 2);
+        this.preferences = context.getSharedPreferences(Constants.EQSettingsFileName, MODE_WORLD_WRITEABLE);
         EQServiceProxy.Initialize(context);
 
         if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-            int defGain = 7;
-            int maxGain = 14;
+            int defGain = context.getResources().getInteger(R.integer.eq_gain_default);
+            int maxGain = context.getResources().getInteger(R.integer.eq_gain_max);
             int sbPreampG = this.preferences.getInt(Constants.sb_preampGProgress, defGain);
             int sbBassG = this.preferences.getInt(Constants.sb_bassGProgress, defGain);
             int sbMiddleG = this.preferences.getInt(Constants.sb_middleGProgress, defGain);
@@ -53,9 +53,9 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
 
                 EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn ? 1 : 0);
 
-                EQServiceProxy.setSound(Constants.cHighFreqSB, 7);
-                EQServiceProxy.setSound(Constants.cMiddleFreqSB, 7);
-                EQServiceProxy.setSound(Constants.cLowFreqSB, 14);
+                EQServiceProxy.setSound(Constants.cHighFreqSB, defGain);
+                EQServiceProxy.setSound(Constants.cMiddleFreqSB, defGain);
+                EQServiceProxy.setSound(Constants.cLowFreqSB, maxGain);
 
                 int increaseValue = this.preferences.getInt("increase_value_key", 2);
                 EQServiceProxy.setSound(Constants.cIncreaseValueCommand, increaseValue);

@@ -104,7 +104,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress"
+                    android:progress="@integer/eq_gain_default"
                     android:visibility="visible" />
             </FrameLayout>
 
@@ -219,7 +219,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress" />
+                    android:progress="@integer/eq_gain_default" />
             </FrameLayout>
 
             <LinearLayout
@@ -366,7 +366,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress" />
+                    android:progress="@integer/eq_gain_default" />
             </FrameLayout>
 
             <LinearLayout
@@ -513,7 +513,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress" />
+                    android:progress="@integer/eq_gain_default" />
             </FrameLayout>
 
             <LinearLayout
@@ -639,7 +639,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:max="@integer/eq_gain_max"
-                    android:progress="@integer/eq_gain_default_progress" />
+                    android:progress="@integer/eq_gain_default" />
             </FrameLayout>
 
             <LinearLayout
