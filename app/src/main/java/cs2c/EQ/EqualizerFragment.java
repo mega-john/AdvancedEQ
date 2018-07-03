@@ -44,6 +44,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             preferences = getSharedPreferences(Constants.EQSettingsFileName, MODE_PRIVATE);
         }
 
+        int maxGain = getResources().getInteger(R.integer.eq_gain_max);
+
         btBalance = (TextView) findViewById(R.id.bt_balance);
         btDefaults = (TextView) findViewById(R.id.bt_defaults);
 //        muteOn = (CheckBox) findViewById(R.id.mute_on);
@@ -190,39 +192,39 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         updateAll();
     }
 
-    private void WriteSettingsToSoundProcessor() {
+    private void WriteAllSettingsToSoundProcessor() {
         int gainValue;
         int maxGain = getResources().getInteger(R.integer.eq_gain_max);
 
         gainValue = (sbBassG.getProgress() > maxGain ? maxGain : sbBassG.getProgress());
-        EQServiceProxy.setSound(Constants.cBassCommand, gainValue);
-        EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
+        EQServiceProxy.setSound(Commands.BassGain, gainValue);
+        EQServiceProxy.setSound(Commands.BassQF, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
         updateChartBass();
 
         gainValue = (sbMiddleG.getProgress() > maxGain ? maxGain : sbMiddleG.getProgress());
-        EQServiceProxy.setSound(Constants.cMiddleCommand, gainValue);
-        EQServiceProxy.setSound(Constants.cMiddleQFCommand, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
+        EQServiceProxy.setSound(Commands.MiddleGain, gainValue);
+        EQServiceProxy.setSound(Commands.MiddleQF, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
         updateChartMiddle();
 
         gainValue = (sbTrebleG.getProgress() > maxGain ? maxGain : sbTrebleG.getProgress());
-        EQServiceProxy.setSound(Constants.cTrebleCommand, gainValue);
-        EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
+        EQServiceProxy.setSound(Commands.TrebleGain, gainValue);
+        EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
         updateChartTreble();
 
-        EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG.getProgress());
+        EQServiceProxy.set_volume(Commands.SubwooferGain, sbLoudG.getProgress());
 
-        EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn.isChecked() ? 1 : 0);
+        EQServiceProxy.set_volume(Commands.LoudOnOff, cbLoudOn.isChecked() ? 1 : 0);
 
-        EQServiceProxy.setSound(Constants.cHighFreqSB, 7);
-        EQServiceProxy.setSound(Constants.cMiddleFreqSB, 7);
-        EQServiceProxy.setSound(Constants.cLowFreqSB, 14);
+        EQServiceProxy.setSound(Commands.HighFreqSB, 7);
+        EQServiceProxy.setSound(Commands.MiddleFreqSB, 7);
+        EQServiceProxy.setSound(Commands.LowFreqSB, 14);
     }
 
     public void updateAll() {
         updateValues();
         updateCharts();
         SetCombosEnabled();
-        WriteSettingsToSoundProcessor();
+        WriteAllSettingsToSoundProcessor();
     }
 
     private void SetCombosEnabled() {
@@ -357,7 +359,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.loud_on:
 //                audioManager.setParameters("av_lud=" + (loudOn.isChecked() ? "on" : "off"));
                 SetCombosEnabled();
-                EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn.isChecked() ? 1 : 0);
+                EQServiceProxy.set_volume(Commands.LoudOnOff, cbLoudOn.isChecked() ? 1 : 0);
                 break;
         }
     }
@@ -389,40 +391,43 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         switch (seekBar.getId()) {
             case R.id.seekBarPreamp:
+                //TODO implement MCU hadler for preamp
 //                audioManager.setParameters(String.format("av_gain=%d", preampG.getProgress()));
                 break;
             case R.id.seekBarBassG:
+                EQServiceProxy.setSound(Commands.BassGain, sbBassG.getProgress());
+                break;
             case R.id.seekBarBassF:
             case R.id.seekBarBassQ:
 //                audioManager.setParameters(String.format("av_eq_bass=%d,%d,%d", bassG.getProgress()-20, bassF.getProgress(), bassQ.getProgress()));
-                gainValue = (sbBassG.getProgress() > 14 ? 14 : sbBassG.getProgress()) - eqGain;
-                EQServiceProxy.setSound(Constants.cBassCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
+                EQServiceProxy.setSound(Commands.BassQF, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
                 updateChartBass();
                 break;
             case R.id.seekBarMiddleG:
+                EQServiceProxy.setSound(Commands.MiddleGain, sbMiddleG.getProgress());
+                break;
             case R.id.seekBarMiddleF:
             case R.id.seekBarMiddleQ:
 //                audioManager.setParameters(String.format("av_eq_middle=%d,%d,%d", middleG.getProgress()-20, middleF.getProgress(), middleQ.getProgress()));
-                gainValue = (sbMiddleG.getProgress() > 14 ? 14 : sbMiddleG.getProgress()) - eqGain;
-                EQServiceProxy.setSound(Constants.cMiddleCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cMiddleQFCommand, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
+                EQServiceProxy.setSound(Commands.MiddleQF, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
                 updateChartMiddle();
                 break;
             case R.id.seekBarTrebleG:
+                EQServiceProxy.setSound(Commands.TrebleGain, sbTrebleG.getProgress());
+                break;
             case R.id.seekBarTrebleF:
             case R.id.seekBarTrebleQ:
 //                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
-                gainValue = (sbTrebleG.getProgress() > 14 ? 14 : sbTrebleG.getProgress()) - eqGain;
-                EQServiceProxy.setSound(Constants.cTrebleCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
+                EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
                 updateChartTreble();
                 break;
             case R.id.seekBarSubG:
+                EQServiceProxy.set_volume(Commands.SubwooferGain, sbLoudG.getProgress());
+                break;
             case R.id.seekBarLoudF:
             case R.id.seekBarLoudHC:
+                //TODO implement MCU hadler for loud Q/F
 //                audioManager.setParameters(String.format("av_loudness=%d,%d,%d", loudG.getProgress(), loudF.getProgress(), loudHC.getProgress()));
-                EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG.getProgress());
 //                EQServiceProxy.set_volume(Constants.cLoudQFCommand, (sbLoudF.getProgress() << 4) + sbLoudHC.getProgress());
                 break;
         }

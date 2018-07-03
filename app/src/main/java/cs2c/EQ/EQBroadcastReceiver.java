@@ -38,27 +38,27 @@ public class EQBroadcastReceiver extends BroadcastReceiver {
 
             try {
                 int gainValue = (sbBassG > maxGain ? maxGain : sbBassG);
-                EQServiceProxy.setSound(Constants.cBassCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cBassQFCommand, sbBassF << 4 + sbBassQ);
+                EQServiceProxy.setSound(Commands.BassGain, gainValue);
+                EQServiceProxy.setSound(Commands.BassQF, sbBassF << 4 + sbBassQ);
 
                 gainValue = (sbMiddleG > maxGain ? maxGain : sbMiddleG);
-                EQServiceProxy.setSound(Constants.cMiddleCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cMiddleQFCommand, sbMiddleF << 4 + sbMiddleQ);
+                EQServiceProxy.setSound(Commands.MiddleGain, gainValue);
+                EQServiceProxy.setSound(Commands.MiddleQF, sbMiddleF << 4 + sbMiddleQ);
 
                 gainValue = (sbTrebleG > maxGain ? maxGain : sbTrebleG);
-                EQServiceProxy.setSound(Constants.cTrebleCommand, gainValue);
-                EQServiceProxy.setSound(Constants.cTrebleQFCommand, sbTrebleF << 4 + sbTrebleQ);
+                EQServiceProxy.setSound(Commands.TrebleGain, gainValue);
+                EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF << 4 + sbTrebleQ);
 
-                EQServiceProxy.set_volume(Constants.cSubwooferGainCommand, sbLoudG);
+                EQServiceProxy.set_volume(Commands.SubwooferGain, sbLoudG);
 
-                EQServiceProxy.set_volume(Constants.cLoudOnOffCommand, cbLoudOn ? 1 : 0);
+                EQServiceProxy.set_volume(Commands.LoudOnOff, cbLoudOn ? 1 : 0);
 
-                EQServiceProxy.setSound(Constants.cHighFreqSB, defGain);
-                EQServiceProxy.setSound(Constants.cMiddleFreqSB, defGain);
-                EQServiceProxy.setSound(Constants.cLowFreqSB, maxGain);
+                EQServiceProxy.setSound(Commands.HighFreqSB, defGain);
+                EQServiceProxy.setSound(Commands.MiddleFreqSB, defGain);
+                EQServiceProxy.setSound(Commands.LowFreqSB, maxGain);
 
                 int increaseValue = this.preferences.getInt("increase_value_key", 2);
-                EQServiceProxy.setSound(Constants.cIncreaseValueCommand, increaseValue);
+                EQServiceProxy.setSound(Commands.IncreaseValue, increaseValue);
             } catch (Exception e) {
                 e.printStackTrace();
             }
