@@ -1,5 +1,35 @@
 package cs2c.EQ;
 
+
+/*
+    AdvancedSwitch = R01;
+    SubwooferSetup = R02;
+    LoudnessFrequency = R03;
+    InputSelector = R05;
+    InputGain = R06;
+    VolumeGain = R20;
+    FaderFrontRight = R28;
+    FaderFrontLeft = R29;
+    FaderRearRight = R2A;
+    FaderRearLeft = R2B;
+    FaderSubwoofer = R2C;
+    MixingGain = R30;
+
+    EqBassSetup = R41;
+    EqMiddleSetup = R44;
+    EqTrebleSetup = R47;
+
+    EqBassGain = R51;
+    EqMiddleGain = R54;
+    EqTrebleGain = R57;
+    LoudnessGainHiCut = R75;
+
+    на данный моммент реализован следующий маппинг(android->mcu):
+    23(0x17)->0x41
+    24(0x18)->0x44
+    25(0x19)->0x47
+ */
+
 public final class Commands {
     /*
      * new EQ commands
