@@ -196,28 +196,30 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         int gainValue;
         int maxGain = getResources().getInteger(R.integer.eq_gain_max);
 
-        gainValue = (sbBassG.getProgress() > maxGain ? maxGain : sbBassG.getProgress());
-        EQServiceProxy.setSound(Commands.BassGain, gainValue);
-        EQServiceProxy.setSound(Commands.BassQF, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
-        updateChartBass();
+        gainValue = (sbTrebleG.getProgress() > maxGain ? maxGain : sbTrebleG.getProgress());
+        EQServiceProxy.setSound(Commands.TrebleGain, gainValue);
+        EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
+        updateChartTreble();
 
         gainValue = (sbMiddleG.getProgress() > maxGain ? maxGain : sbMiddleG.getProgress());
         EQServiceProxy.setSound(Commands.MiddleGain, gainValue);
         EQServiceProxy.setSound(Commands.MiddleQF, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
         updateChartMiddle();
 
-        gainValue = (sbTrebleG.getProgress() > maxGain ? maxGain : sbTrebleG.getProgress());
-        EQServiceProxy.setSound(Commands.TrebleGain, gainValue);
-        EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
-        updateChartTreble();
-
-        EQServiceProxy.set_volume(Commands.SubwooferGain, sbLoudG.getProgress());
-
-        EQServiceProxy.set_volume(Commands.LoudOnOff, cbLoudOn.isChecked() ? 1 : 0);
+        gainValue = (sbBassG.getProgress() > maxGain ? maxGain : sbBassG.getProgress());
+        EQServiceProxy.setSound(Commands.BassGain, gainValue);
+        EQServiceProxy.setSound(Commands.BassQF, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
+        updateChartBass();
 
         EQServiceProxy.setSound(Commands.HighFreqSB, 7);
         EQServiceProxy.setSound(Commands.MiddleFreqSB, 7);
         EQServiceProxy.setSound(Commands.LowFreqSB, 14);
+
+        EQServiceProxy.setSound(Commands.IncreaseValue, 2);
+
+        EQServiceProxy.set_volume(Commands.SubwooferGain, sbLoudG.getProgress());
+
+        EQServiceProxy.set_volume(Commands.LoudOnOff, cbLoudOn.isChecked() ? 1 : 0);
     }
 
     public void updateAll() {
