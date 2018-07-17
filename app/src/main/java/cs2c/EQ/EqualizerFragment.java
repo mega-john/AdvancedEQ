@@ -150,8 +150,6 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
 
         boolean b = this.preferences.getBoolean(Constants.cb_LoudOn, true);
         cbLoudOn.setChecked(b);
-
-        updateAll();
     }
 
     private void saveEQValues() {
@@ -199,17 +197,14 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         gainValue = (sbTrebleG.getProgress() > maxGain ? maxGain : sbTrebleG.getProgress());
         EQServiceProxy.setSound(Commands.TrebleGain, gainValue);
         EQServiceProxy.setSound(Commands.TrebleQF, sbTrebleF.getProgress() << 4 + sbTrebleQ.getProgress());
-        updateChartTreble();
 
         gainValue = (sbMiddleG.getProgress() > maxGain ? maxGain : sbMiddleG.getProgress());
         EQServiceProxy.setSound(Commands.MiddleGain, gainValue);
         EQServiceProxy.setSound(Commands.MiddleQF, sbMiddleF.getProgress() << 4 + sbMiddleQ.getProgress());
-        updateChartMiddle();
 
         gainValue = (sbBassG.getProgress() > maxGain ? maxGain : sbBassG.getProgress());
         EQServiceProxy.setSound(Commands.BassGain, gainValue);
         EQServiceProxy.setSound(Commands.BassQF, sbBassF.getProgress() << 4 + sbBassQ.getProgress());
-        updateChartBass();
 
         EQServiceProxy.setSound(Commands.HighFreqSB, 7);
         EQServiceProxy.setSound(Commands.MiddleFreqSB, 7);
@@ -223,8 +218,8 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     public void updateAll() {
-        updateValues();
-        updateCharts();
+        updateTextValues();
+        updateAllCharts();
         SetCombosEnabled();
         WriteAllSettingsToSoundProcessor();
     }
@@ -233,7 +228,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         sbLoudG.setEnabled(cbLoudOn.isChecked());
     }
 
-    private void updateValues() {
+    private void updateTextValues() {
         preampV.setText(formatGain(sbPreampG.getProgress()));
         bassV.setText(formatGain(sbBassG.getProgress()));
         middleV.setText(formatGain(sbMiddleG.getProgress()));
@@ -241,7 +236,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
         loudV.setText(formatGain(sbLoudG.getProgress()));
     }
 
-    private void updateCharts() {
+    private void updateAllCharts() {
         updateChartBass();
         updateChartMiddle();
         updateChartTreble();
