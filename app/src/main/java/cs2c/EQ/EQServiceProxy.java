@@ -1,12 +1,11 @@
-package cs2c.EQ;
+package cs2c.EQ1;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
-//import android.cs2c.IEQService;
-//import android.os.RemoteException;
+import android.cs2c.IEQService;
 
 public final class EQServiceProxy {
 
@@ -15,44 +14,45 @@ public final class EQServiceProxy {
     @SuppressLint("WrongConstant")
     public static void Initialize(Activity activity) {
         if (mEQService == null) {
-            mEQService = (IEQService) activity.getSystemService(Constants.EQInterfaceName);
+            mEQService = (IEQService) activity.getSystemService(cs2c.EQ1.Constants.EQInterfaceName);
         }
     }
 
     @SuppressLint("WrongConstant")
     public static void Initialize(Context context) {
         if (mEQService == null) {
-            mEQService = (IEQService) context.getSystemService(Constants.EQInterfaceName);
+            mEQService = (IEQService) context.getSystemService(cs2c.EQ1.Constants.EQInterfaceName);
         }
     }
 
-    public static void setSound(int var1, int var2) {
+    //используется хуй пойми для чего...
+    public static void setSound(int register, int value) {
         try {
-            Log.d(Constants.EQInterfaceName, String.format("setSound(%d, %d)", var1, var2));
-            mEQService.setSound(var1, var2);
+            Log.d(cs2c.EQ1.Constants.EQInterfaceName, String.format("setSound(%d, %d)", register, value));
+            mEQService.setSound(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();
-//            Log.e(Constants.EQInterfaceName, String.format("setSound exception:", e.toString()));
         }
     }
 
-    public static void setSurround(int var1, int var2) {
+    //используется для всех настроек баланса
+    public static void setSurround(int register, int value) {
         try {
-            Log.d(Constants.EQInterfaceName, String.format("setSurround(%d, %d)", var1, var2));
-            mEQService.setSurround(var1, var2);
+            Log.d(cs2c.EQ1.Constants.EQInterfaceName, String.format("setSurround(%d, %d)", register, value));
+            mEQService.setSurround(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();
-//            Log.e(Constants.EQInterfaceName, String.format("setSurround exception:", e.toString()));
         }
     }
 
-    public static void set_volume(int var1, int var2) {
+
+    //используется для всех настроек эквалайзера
+    public static void set_volume(int register, int value) {
         try {
-            Log.d(Constants.EQInterfaceName, String.format("set_volume(%d, %d)", var1, var2));
-            mEQService.set_volume(var1, var2);
+            Log.d(cs2c.EQ1.Constants.EQInterfaceName, String.format("set_volume(%d, %d)", register, value));
+            mEQService.set_volume(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();
-//            Log.e(Constants.EQInterfaceName, String.format("set_volume exception:", e.toString()));
         }
     }
 }
@@ -68,9 +68,9 @@ public final class EQServiceProxy {
 //min setSound(3, 0)
 //max setSound(3, 14)
 //при любом изменении этих прогресов, так же вызывается:
-//setSound(13, 7)
-//setSound(12, 7)
-//setSound(11, 14)
+//setSound(13, 0)
+//setSound(12, 1)
+//setSound(11, 1)
 //регулировка сабвуфера
 //sub seek
 //min set_volume(6, 0)

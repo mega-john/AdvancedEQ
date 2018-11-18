@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 19
     defaultConfig {
-        applicationId "cs2c.EQ"
+        applicationId "cs2c.EQ1"
         minSdkVersion 19
         targetSdkVersion 19
         versionCode 1
@@ -21,7 +21,7 @@ android {
         }
         applicationVariants.all { variant ->
             variant.outputs.all { output ->
-                outputFileName = new File("EQ.apk");
+                outputFileName = new File("EQ1.apk");
             }
         }
     }

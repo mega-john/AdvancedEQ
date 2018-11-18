@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ1;
 
 public interface IEQService {
     void setSound(int i, int i1);

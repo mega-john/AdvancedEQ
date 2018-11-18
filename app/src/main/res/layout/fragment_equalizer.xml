@@ -25,7 +25,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_afc_grid_padding" /> <!-- -20..+20 - 90px; -30 .. +30 - 19px -->
-            <cs2c.EQ.Controls.AfcChart
+            <cs2c.EQ1.Controls.AfcChart
                 android:id="@+id/afcChart"
                 android:layout_width="match_parent"
                 android:layout_height="0px"
@@ -97,7 +97,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ.Controls.VerticalSeekBar
+                <cs2c.EQ1.Controls.VerticalSeekBar
                     android:id="@+id/seekBarPreamp"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <cs2c.EQ.Controls.HorizontalSeekBar
+                    <cs2c.EQ1.Controls.HorizontalSeekBar
                         style="@style/seek_bar_h"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <cs2c.EQ.Controls.HorizontalSeekBar
+                    <cs2c.EQ1.Controls.HorizontalSeekBar
                         style="@style/seek_bar_h"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ.Controls.VerticalSeekBar
+                <cs2c.EQ1.Controls.VerticalSeekBar
                     android:id="@+id/seekBarBassG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -255,7 +255,7 @@
                     android:text="@string/eq_bass_f4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarBassF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -295,7 +295,7 @@
                     android:text="@string/eq_bass_q4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarBassQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -359,7 +359,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ.Controls.VerticalSeekBar
+                <cs2c.EQ1.Controls.VerticalSeekBar
                     android:id="@+id/seekBarMiddleG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -402,7 +402,7 @@
                     android:text="@string/eq_middle_f4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarMiddleF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -442,7 +442,7 @@
                     android:text="@string/eq_middle_q4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarMiddleQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -506,7 +506,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ.Controls.VerticalSeekBar
+                <cs2c.EQ1.Controls.VerticalSeekBar
                     android:id="@+id/seekBarTrebleG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -549,7 +549,7 @@
                     android:text="@string/eq_trenle_f4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarTrebleF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -577,7 +577,7 @@
                     android:text="@string/eq_treble_q2" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarTrebleQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -632,7 +632,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ.Controls.VerticalSeekBar
+                <cs2c.EQ1.Controls.VerticalSeekBar
                     android:id="@+id/seekBarSubG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -669,7 +669,7 @@
                     android:text="@string/eq_loud_f3" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarLoudF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -709,7 +709,7 @@
                     android:text="@string/eq_loud_h4" />
             </LinearLayout>
 
-            <cs2c.EQ.Controls.HorizontalSeekBar
+            <cs2c.EQ1.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarLoudHC"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -790,7 +790,24 @@
                 android:shadowRadius="2.0"
                 android:textColor="@drawable/button_font_style"
                 android:textSize="20.0sp"
-                android:text="@string/eq_button_balance" />
+                android:text="@string/button_balance" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp" />
+
+            <TextView
+                android:id="@+id/bt_advanced"
+                android:layout_width="@dimen/balance_button_width"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20px"
+                android:background="@drawable/sound_style_button"
+                android:gravity="center"
+                android:shadowColor="#b0000000"
+                android:shadowRadius="2.0"
+                android:textColor="@drawable/button_font_style"
+                android:textSize="20.0sp"
+                android:text="@string/button_advanced" />
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
@@ -807,7 +824,7 @@
                 android:shadowRadius="2.0"
                 android:textColor="@drawable/button_font_style"
                 android:textSize="20.0sp"
-                android:text="@string/eq_button_defaults" />
+                android:text="@string/button_defaults" />
         </LinearLayout>
         <!-- right controls end -->
 

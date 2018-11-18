@@ -1,4 +1,4 @@
-package cs2c.EQ.Controls;
+package cs2c.EQ1.Controls;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import cs2c.EQ.EQServiceProxy;
-import cs2c.EQ.R;
+import cs2c.EQ1.EQServiceProxy;
+import cs2c.EQ1.R;
 
 public class BalanceCross extends View {
     private OnBalanceChangeListener onBalanceChangeListener;

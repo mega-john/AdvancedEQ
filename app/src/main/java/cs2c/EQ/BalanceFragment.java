@@ -1,28 +1,35 @@
-package cs2c.EQ;
+package cs2c.EQ1;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import cs2c.EQ.Controls.BalanceCross;
+import cs2c.EQ1.Controls.BalanceCross;
 
 public class BalanceFragment extends Activity implements View.OnClickListener, BalanceCross.OnBalanceChangeListener {
 
     private BalanceCross balance;
     private TextView btEqualizer;
+    private TextView btAdvanced;
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-
+        Log.d("EQ","user handle" + android.os.Process.myUserHandle());
         setContentView(R.layout.fragment_balance);
 
         balance = (BalanceCross) findViewById(R.id.balanceCross);
-        btEqualizer = (TextView) findViewById(R.id.bt_equalizer);
-        btEqualizer.setOnClickListener(this);
+//        balance.setOnBalanceChangeListener(this);
+//        btEqualizer = (TextView) findViewById(R.id.bt_equalizer);
+//        btEqualizer.setOnClickListener(this);
+//        btAdvanced = (TextView) findViewById(R.id.bt_advanced);
+//        btAdvanced.setOnClickListener(this);
 
-        balance.setOnBalanceChangeListener(this);
+        findViewById(R.id.bt_equalizer).setOnClickListener(this);
+        findViewById(R.id.bt_advanced).setOnClickListener(this);
+
         findViewById(R.id.balanceReset).setOnClickListener(this);
         findViewById(R.id.balanceFront).setOnClickListener(this);
         findViewById(R.id.balanceLeft).setOnClickListener(this);
@@ -74,9 +81,14 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
                 balance.balanceYup();
                 break;
             case R.id.bt_equalizer:
-                Intent intent = new Intent();
-                intent.setClass(this, EqualizerFragment.class);
-                startActivity(intent);
+                Intent equalizerIntent = new Intent();
+                equalizerIntent.setClass(this, cs2c.EQ1.EqualizerFragment.class);
+                startActivity(equalizerIntent);
+                break;
+            case R.id.bt_advanced:
+                Intent advancedIntent = new Intent();
+                advancedIntent.setClass(this, cs2c.EQ1.AdvancedFragment.class);
+                startActivity(advancedIntent);
                 break;
         }
     }

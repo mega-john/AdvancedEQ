@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ1;
 
 /**
  * Created by john on 05.11.2017.

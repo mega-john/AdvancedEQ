@@ -1,4 +1,4 @@
-package cs2c.EQ.Controls;
+package cs2c.EQ1.Controls;
 
 
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 
-public class VerticalSeekBar extends CorrectedSeekBar {
+public class VerticalSeekBar extends cs2c.EQ1.Controls.CorrectedSeekBar {
 
     public VerticalSeekBar(Context context) {
         super(context);
