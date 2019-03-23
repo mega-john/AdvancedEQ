@@ -3,42 +3,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+
+
+    <TextView
+        android:id="@+id/bt_equalizer"
+        android:layout_width="@dimen/balance_button_width"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/sound_style_button"
+        android:gravity="center"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="@string/button_equalizer"
+        android:textColor="@drawable/button_font_style"
+        android:textSize="20.0sp" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:id="@+id/bt_balance"
+        android:layout_width="@dimen/balance_button_width"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/sound_style_button"
+        android:gravity="center"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="@string/button_balance"
+        android:textColor="@drawable/button_font_style"
+        android:textSize="20.0sp" />
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:text="11" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+    <cs2c.EQ1.Controls.HorizontalSeekBar
+        android:id="@+id/param1"
+        style="@style/seek_bar_h"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:max="40"
+        android:progress="11" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:text="1" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+    <cs2c.EQ1.Controls.HorizontalSeekBar
+        android:id="@+id/param2"
+        style="@style/seek_bar_h"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:max="255"
+        android:progress="1" />
+
+<!---->
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="12dp" />
+
+    <TextView
+        android:id="@+id/bt1"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/sound_style_button"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="setSound"
+        android:textColor="@drawable/button_font_style"
+        android:textSize="20.0sp" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="12dp" />
 
-        <TextView
-            android:id="@+id/bt_equalizer"
-            android:layout_width="@dimen/balance_button_width"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/round_controls_fixed_size"
-            android:background="@drawable/sound_style_button"
-            android:gravity="center"
-            android:shadowColor="#b0000000"
-            android:shadowRadius="2.0"
-            android:textColor="@drawable/button_font_style"
-            android:textSize="20.0sp"
-            android:text="@string/button_equalizer" />
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="12dp" />
+    <TextView
+        android:id="@+id/bt2"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/sound_style_button"
+        android:gravity="center"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="set_volume"
+        android:textColor="@drawable/button_font_style"
+        android:textSize="20.0sp" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
 
-        <TextView
-            android:id="@+id/bt_balance"
-            android:layout_width="@dimen/balance_button_width"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/round_controls_fixed_size"
-            android:background="@drawable/sound_style_button"
-            android:gravity="center"
-            android:shadowColor="#b0000000"
-            android:shadowRadius="2.0"
-            android:textColor="@drawable/button_font_style"
-            android:textSize="20.0sp"
-            android:text="@string/button_balance" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/bt3"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/sound_style_button"
+        android:gravity="center"
+        android:shadowColor="#b0000000"
+        android:shadowRadius="2.0"
+        android:text="setSurround"
+        android:textColor="@drawable/button_font_style"
+        android:textSize="20.0sp" />
+
 
 </LinearLayout>

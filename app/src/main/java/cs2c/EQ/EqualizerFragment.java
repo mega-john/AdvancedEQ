@@ -458,7 +458,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarBassF:
             case R.id.seekBarBassQ:
 //                audioManager.setParameters(String.format("av_eq_bass=%d,%d,%d", bassG.getProgress()-20, bassF.getProgress(), bassQ.getProgress()));
-                cs2c.EQ1.EQServiceProxy.setSound(cs2c.EQ1.Commands.BassQF, (sbBassF.getProgress() << 4) + sbBassQ.getProgress());
+                cs2c.EQ1.EQServiceProxy.set_volume(cs2c.EQ1.Commands.BassQF, (sbBassF.getProgress() << 4) + sbBassQ.getProgress());
                 updateChartBass();
                 break;
             case R.id.seekBarMiddleG:
@@ -467,7 +467,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarMiddleF:
             case R.id.seekBarMiddleQ:
 //                audioManager.setParameters(String.format("av_eq_middle=%d,%d,%d", middleG.getProgress()-20, middleF.getProgress(), middleQ.getProgress()));
-                cs2c.EQ1.EQServiceProxy.setSound(cs2c.EQ1.Commands.MiddleQF, (sbMiddleF.getProgress() << 4) + sbMiddleQ.getProgress());
+                cs2c.EQ1.EQServiceProxy.set_volume(cs2c.EQ1.Commands.MiddleQF, (sbMiddleF.getProgress() << 4) + sbMiddleQ.getProgress());
                 updateChartMiddle();
                 break;
             case R.id.seekBarTrebleG:
@@ -476,7 +476,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
             case R.id.seekBarTrebleF:
             case R.id.seekBarTrebleQ:
 //                audioManager.setParameters(String.format("av_eq_treble=%d,%d,%d", trebleG.getProgress()-20, trebleF.getProgress(), trebleQ.getProgress()));
-                cs2c.EQ1.EQServiceProxy.setSound(cs2c.EQ1.Commands.TrebleQF, (sbTrebleF.getProgress() << 4) + sbTrebleQ.getProgress());
+                cs2c.EQ1.EQServiceProxy.set_volume(cs2c.EQ1.Commands.TrebleQF, (sbTrebleF.getProgress() << 4) + sbTrebleQ.getProgress());
                 updateChartTreble();
                 break;
             case R.id.seekBarSubG:

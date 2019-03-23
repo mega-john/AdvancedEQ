@@ -42,6 +42,7 @@
     <string name="eq_treble_q1" translatable="false">0.75</string>
     <string name="eq_treble_q2" translatable="false">1.25</string>
     <string name="eq_label_loud">Loud</string>
+    <string name="eq_label_subwoofer">Subwoofer</string>
     <string name="eq_loud_f1" translatable="false">250</string>
     <string name="eq_loud_f2" translatable="false">400</string>
     <string name="eq_loud_f3" translatable="false">800</string>

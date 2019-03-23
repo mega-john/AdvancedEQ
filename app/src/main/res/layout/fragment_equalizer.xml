@@ -596,7 +596,7 @@
 
             <TextView
                 style="@style/large_label"
-                android:text="@string/eq_label_loud" />
+                android:text="@string/eq_label_subwoofer" />
 
             <TextView
                 android:id="@+id/loud_v"

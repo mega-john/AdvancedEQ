@@ -34,6 +34,7 @@ package cs2c.EQ1;
 public final class Commands {
     /*
      * new EQ commands
+     * for sending new commands to sound processor must use set_volume
      */
 
     public static int BassQF = 23;      //0x17
@@ -49,17 +50,22 @@ public final class Commands {
     /*
      * original EQ commands
      */
-    public static int BassGain = 1;
-    public static int MiddleGain = 2;
-    public static int TrebleGain = 3;
-    public static int SubwooferGain = 6; //в новом эквалайзере это Loud?
+    public static int BassGain = 1;         //setSound
+    public static int MiddleGain = 2;       //setSound
+    public static int TrebleGain = 3;       //setSound
+    public static int SubwooferGain = 6;    //set_volume
 
-    public static int LowFreqSB = 11;
-    public static int MiddleFreqSB = 12;
-    public static int HighFreqSB = 13;
+    /*
+    this three commands always send to sound processor
+    0x75  "Loudness Gain"
+    0x00 Loudness Gain : 0dB | Loudness HICUT1 |
+     */
+    public static int LowFreqSB = 11;       //setSound
+    public static int MiddleFreqSB = 12;    //setSound
+    public static int HighFreqSB = 13;      //setSound
 
-    public static int LoudOnOff = 22;
-    public static int IncreaseValue = 32;
+    public static int LoudOnOff = 22;       //set_volume
+    public static int IncreaseValue = 32;   //setSound
 }
 
 /*

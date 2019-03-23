@@ -7,7 +7,8 @@
     <application
         android:icon="@drawable/sound"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Wallpaper">
+        android:theme="@style/Theme.Wallpaper"
+        android:hardwareAccelerated="false" >
         <activity
             android:name="cs2c.EQ1.EqualizerFragment"
             android:label="@string/app_name"
