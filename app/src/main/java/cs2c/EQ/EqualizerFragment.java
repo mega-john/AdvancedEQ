@@ -256,7 +256,7 @@ public class EqualizerFragment extends Activity implements View.OnClickListener,
     }
 
     private void updateChartBass() {
-        float eqGain = getResources().getInteger(R.integer.eq_gain_default);
+        int eqGain = getResources().getInteger(R.integer.eq_gain_default);
         chart.bass.setFQG(bassF(sbBassF.getProgress()), bassQ(sbBassQ.getProgress()), sbBassG.getProgress() - eqGain);
     }
 
