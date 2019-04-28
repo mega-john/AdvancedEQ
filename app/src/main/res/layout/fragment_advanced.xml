@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp" />
 
-    <cs2c.EQ1.Controls.HorizontalSeekBar
+    <cs2c.EQ.Controls.HorizontalSeekBar
         android:id="@+id/param1"
         style="@style/seek_bar_h"
 
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp" />
 
-    <cs2c.EQ1.Controls.HorizontalSeekBar
+    <cs2c.EQ.Controls.HorizontalSeekBar
         android:id="@+id/param2"
         style="@style/seek_bar_h"
 
@@ -85,7 +85,7 @@
         android:max="255"
         android:progress="1" />
 
-<!---->
+    <!---->
     <Space
         android:layout_width="wrap_content"
         android:layout_height="12dp" />
@@ -102,6 +102,7 @@
         android:text="setSound"
         android:textColor="@drawable/button_font_style"
         android:textSize="20.0sp" />
+
     <Space
         android:layout_width="wrap_content"
         android:layout_height="12dp" />
@@ -118,6 +119,7 @@
         android:text="set_volume"
         android:textColor="@drawable/button_font_style"
         android:textSize="20.0sp" />
+
     <Space
         android:layout_width="wrap_content"
         android:layout_height="1dp" />

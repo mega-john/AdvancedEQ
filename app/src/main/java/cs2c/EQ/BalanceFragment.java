@@ -1,4 +1,4 @@
-package cs2c.EQ1;
+package cs2c.EQ;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import cs2c.EQ1.Controls.BalanceCross;
+import cs2c.EQ.Controls.BalanceCross;
 
 public class BalanceFragment extends Activity implements View.OnClickListener, BalanceCross.OnBalanceChangeListener {
 
@@ -17,7 +17,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        Log.d("EQ","user handle" + android.os.Process.myUserHandle());
+        Log.d("EQ", "user handle" + android.os.Process.myUserHandle());
         setContentView(R.layout.fragment_balance);
 
         balance = (BalanceCross) findViewById(R.id.balanceCross);
@@ -82,12 +82,12 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
                 break;
             case R.id.bt_equalizer:
                 Intent equalizerIntent = new Intent();
-                equalizerIntent.setClass(this, cs2c.EQ1.EqualizerFragment.class);
+                equalizerIntent.setClass(this, cs2c.EQ.EqualizerFragment.class);
                 startActivity(equalizerIntent);
                 break;
             case R.id.bt_advanced:
                 Intent advancedIntent = new Intent();
-                advancedIntent.setClass(this, cs2c.EQ1.AdvancedFragment.class);
+                advancedIntent.setClass(this, cs2c.EQ.AdvancedFragment.class);
                 startActivity(advancedIntent);
                 break;
         }

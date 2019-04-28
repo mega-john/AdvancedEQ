@@ -1,4 +1,4 @@
-package cs2c.EQ1;
+package cs2c.EQ;
 
 
 /*
@@ -28,44 +28,15 @@ package cs2c.EQ1;
     23(0x17)->0x41
     24(0x18)->0x44
     25(0x19)->0x47
-    26(0x1A)->0x75
+
+    26(0x1A)->0x51
+    27(0x1A)->0x54
+    28(0x1A)->0x57
+    29(0x1A)->0x75
  */
 
 public final class Commands {
-    /*
-     * new EQ commands
-     * for sending new commands to sound processor must use set_volume
-     */
 
-    public static int BassQF = 23;      //0x17
-    public static int MiddleQF = 24;    //0x18
-    public static int TrebleQF = 25;    //0x19
-    public static int LoudQF = 26;      //0x1a
-    public static int Preamp = 27;      //0x1b
-    public static int unk1 = 28;      //0x1c
-    public static int unk2 = 29;      //0x1d
-    public static int unk3 = 30;      //0x1e
-    public static int unk4 = 31;      //0x1f
-
-    /*
-     * original EQ commands
-     */
-    public static int BassGain = 1;         //setSound
-    public static int MiddleGain = 2;       //setSound
-    public static int TrebleGain = 3;       //setSound
-    public static int SubwooferGain = 6;    //set_volume
-
-    /*
-    this three commands always send to sound processor
-    0x75  "Loudness Gain"
-    0x00 Loudness Gain : 0dB | Loudness HICUT1 |
-     */
-    public static int LowFreqSB = 11;       //setSound
-    public static int MiddleFreqSB = 12;    //setSound
-    public static int HighFreqSB = 13;      //setSound
-
-    public static int LoudOnOff = 22;       //set_volume
-    public static int IncreaseValue = 32;   //setSound
 }
 
 /*

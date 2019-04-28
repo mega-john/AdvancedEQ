@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cs2c.EQ1">
+    package="cs2c.EQ">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
+        android:hardwareAccelerated="false"
         android:icon="@drawable/sound"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Wallpaper"
-        android:hardwareAccelerated="false" >
+        android:theme="@style/Theme.Wallpaper">
         <activity
-            android:name="cs2c.EQ1.EqualizerFragment"
+            android:name="cs2c.EQ.EqualizerFragment"
             android:label="@string/app_name"
             android:launchMode="singleTask">
             <intent-filter>
@@ -21,13 +21,13 @@
         </activity>
 
         <activity
-            android:name="cs2c.EQ1.BalanceFragment"
+            android:name="cs2c.EQ.BalanceFragment"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
         <activity
-            android:name="cs2c.EQ1.AdvancedFragment"
+            android:name="cs2c.EQ.AdvancedFragment"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" />
 
-        <receiver android:name="cs2c.EQ1.EQBroadcastReceiver">
+        <receiver android:name="cs2c.EQ.EQBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="cn.com.cs2c.android.vehicle.action.EQ_KEY" />

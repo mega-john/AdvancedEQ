@@ -29,7 +29,7 @@
                 android:src="@drawable/car_interior"
                 tools:ignore="ContentDescription" />
 
-            <cs2c.EQ1.Controls.BalanceCross
+            <cs2c.EQ.Controls.BalanceCross
                 android:id="@+id/balanceCross"
                 android:layout_width="@dimen/balance_cross_size"
                 android:layout_height="@dimen/balance_cross_size"
@@ -54,9 +54,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_defaults"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_defaults" />
+                android:textSize="20.0sp" />
         </FrameLayout>
     </LinearLayout>
     <!--image end-->
@@ -84,9 +84,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/balance_button_front"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/balance_button_front" />
+                android:textSize="20.0sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,9 +105,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/balance_button_left"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/balance_button_left" />
+                android:textSize="20.0sp" />
 
             <TextView
                 android:id="@+id/balanceRight"
@@ -119,9 +119,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/balance_button_right"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/balance_button_right" />
+                android:textSize="20.0sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -140,9 +140,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/balance_button_rear"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/balance_button_rear" />
+                android:textSize="20.0sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,9 +161,10 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_advanced"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_advanced" />
+                android:textSize="20.0sp" />
+
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
@@ -178,9 +179,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_equalizer"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_equalizer" />
+                android:textSize="20.0sp" />
         </LinearLayout>
     </LinearLayout>
 

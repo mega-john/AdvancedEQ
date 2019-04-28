@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EQ1</string>
+    <string name="app_name">EQ</string>
     <string name="balance_button_front">Front</string>
     <string name="balance_button_left">Left</string>
     <string name="balance_button_right">Right</string>
@@ -42,7 +42,7 @@
     <string name="eq_treble_q1" translatable="false">0.75</string>
     <string name="eq_treble_q2" translatable="false">1.25</string>
     <string name="eq_label_loud">Loud</string>
-    <string name="eq_label_subwoofer">Subwoofer</string>
+    <string name="eq_label_subwoofer">Loud gain</string>
     <string name="eq_loud_f1" translatable="false">250</string>
     <string name="eq_loud_f2" translatable="false">400</string>
     <string name="eq_loud_f3" translatable="false">800</string>
@@ -52,8 +52,8 @@
     <string name="eq_loud_h4" translatable="false">4</string>
     <string name="eq_button_loud">Loud</string>
     <string name="button_defaults">Defaults</string>
-    <string name="button_equalizer" >Equalizer</string>
-    <string name="button_balance" >Balance</string>
-    <string name="button_advanced" >Advanced</string>
+    <string name="button_equalizer">Equalizer</string>
+    <string name="button_balance">Balance</string>
+    <string name="button_advanced">Advanced</string>
 
 </resources>

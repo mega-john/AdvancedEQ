@@ -1,4 +1,4 @@
-package cs2c.EQ1.Controls;
+package cs2c.EQ.Controls;
 
 import android.content.Context;
 import android.util.AttributeSet;

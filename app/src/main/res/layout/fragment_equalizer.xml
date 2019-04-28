@@ -25,7 +25,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/top_afc_grid_padding" /> <!-- -20..+20 - 90px; -30 .. +30 - 19px -->
-            <cs2c.EQ1.Controls.AfcChart
+            <cs2c.EQ.Controls.AfcChart
                 android:id="@+id/afcChart"
                 android:layout_width="match_parent"
                 android:layout_height="0px"
@@ -80,8 +80,8 @@
                     android:layout_marginEnd="@dimen/round_controls_fixed_size"
                     android:gravity="center|end"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/eq_gain_db_padding"
-                    android:paddingTop="@dimen/eq_gain_db_padding">
+                    android:paddingTop="@dimen/eq_gain_db_padding"
+                    android:paddingBottom="@dimen/eq_gain_db_padding">
 
                     <TextView
                         style="@style/medium_label"
@@ -97,7 +97,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ1.Controls.VerticalSeekBar
+                <cs2c.EQ.Controls.VerticalSeekBar
                     android:id="@+id/seekBarPreamp"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <cs2c.EQ1.Controls.HorizontalSeekBar
+                    <cs2c.EQ.Controls.HorizontalSeekBar
                         style="@style/seek_bar_h"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <cs2c.EQ1.Controls.HorizontalSeekBar
+                    <cs2c.EQ.Controls.HorizontalSeekBar
                         style="@style/seek_bar_h"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -185,8 +185,8 @@
                     android:layout_marginEnd="@dimen/round_controls_fixed_size"
                     android:gravity="center|end"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/eq_gain_db_padding"
-                    android:paddingTop="@dimen/eq_gain_db_padding">
+                    android:paddingTop="@dimen/eq_gain_db_padding"
+                    android:paddingBottom="@dimen/eq_gain_db_padding">
 
                     <TextView
                         style="@style/medium_label"
@@ -212,7 +212,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ1.Controls.VerticalSeekBar
+                <cs2c.EQ.Controls.VerticalSeekBar
                     android:id="@+id/seekBarBassG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -255,7 +255,7 @@
                     android:text="@string/eq_bass_f4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarBassF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -295,7 +295,7 @@
                     android:text="@string/eq_bass_q4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarBassQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -333,8 +333,8 @@
                     android:layout_marginEnd="@dimen/round_controls_fixed_size"
                     android:gravity="center|end"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/eq_gain_db_padding"
-                    android:paddingTop="@dimen/eq_gain_db_padding">
+                    android:paddingTop="@dimen/eq_gain_db_padding"
+                    android:paddingBottom="@dimen/eq_gain_db_padding">
 
                     <TextView
                         style="@style/medium_label"
@@ -359,7 +359,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ1.Controls.VerticalSeekBar
+                <cs2c.EQ.Controls.VerticalSeekBar
                     android:id="@+id/seekBarMiddleG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -402,7 +402,7 @@
                     android:text="@string/eq_middle_f4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarMiddleF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -442,7 +442,7 @@
                     android:text="@string/eq_middle_q4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarMiddleQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -480,8 +480,8 @@
                     android:layout_marginEnd="@dimen/round_controls_fixed_size"
                     android:gravity="center|end"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/eq_gain_db_padding"
-                    android:paddingTop="@dimen/eq_gain_db_padding">
+                    android:paddingTop="@dimen/eq_gain_db_padding"
+                    android:paddingBottom="@dimen/eq_gain_db_padding">
 
                     <TextView
                         style="@style/medium_label"
@@ -506,7 +506,7 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ1.Controls.VerticalSeekBar
+                <cs2c.EQ.Controls.VerticalSeekBar
                     android:id="@+id/seekBarTrebleG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
@@ -549,7 +549,7 @@
                     android:text="@string/eq_trenle_f4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarTrebleF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -577,7 +577,7 @@
                     android:text="@string/eq_treble_q2" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarTrebleQ"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -615,8 +615,8 @@
                     android:layout_marginEnd="@dimen/round_controls_fixed_size"
                     android:gravity="center|end"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/eq_gain_db_padding"
-                    android:paddingTop="@dimen/eq_gain_db_padding">
+                    android:paddingTop="@dimen/eq_gain_db_padding"
+                    android:paddingBottom="@dimen/eq_gain_db_padding">
 
                     <TextView
                         style="@style/medium_label"
@@ -632,8 +632,8 @@
                         android:text="@string/eq_label_0db" />
                 </LinearLayout>
 
-                <cs2c.EQ1.Controls.VerticalSeekBar
-                    android:id="@+id/seekBarSubG"
+                <cs2c.EQ.Controls.VerticalSeekBar
+                    android:id="@+id/seekBarLoudG"
                     style="@style/seek_bar_v"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -669,7 +669,7 @@
                     android:text="@string/eq_loud_f3" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarLoudF"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -709,7 +709,7 @@
                     android:text="@string/eq_loud_h4" />
             </LinearLayout>
 
-            <cs2c.EQ1.Controls.HorizontalSeekBar
+            <cs2c.EQ.Controls.HorizontalSeekBar
                 android:id="@+id/seekBarLoudHC"
                 style="@style/seek_bar_h"
                 android:layout_width="match_parent"
@@ -727,22 +727,22 @@
             android:orientation="vertical">
 
             <!--<TextView-->
-                <!--style="@style/large_label"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:text="@string/eq_current_input_label"-->
-                <!--android:visibility="invisible"/>-->
+            <!--style="@style/large_label"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:text="@string/eq_current_input_label"-->
+            <!--android:visibility="invisible"/>-->
 
             <!--<TextView-->
-                <!--android:id="@+id/current_input"-->
-                <!--style="@style/large_label"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:text="@string/eq_label_zero"-->
-                <!--android:visibility="invisible"/>-->
+            <!--android:id="@+id/current_input"-->
+            <!--style="@style/large_label"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:text="@string/eq_label_zero"-->
+            <!--android:visibility="invisible"/>-->
 
             <!--<Space-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="0px"-->
-                <!--android:layout_weight="1" />-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="0px"-->
+            <!--android:layout_weight="1" />-->
 
             <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
             <CheckBox
@@ -755,24 +755,24 @@
                 android:text="@string/eq_button_loud" />
 
             <!--<CheckBox-->
-                <!--android:id="@+id/mute_on"-->
-                <!--style="@style/medium_label"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
-                <!--android:button="@null"-->
-                <!--android:drawableTop="@drawable/radiobutton"-->
-                <!--android:text="@string/eq_button_mute"-->
-                <!--android:visibility="invisible"/>-->
+            <!--android:id="@+id/mute_on"-->
+            <!--style="@style/medium_label"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/radiobutton"-->
+            <!--android:text="@string/eq_button_mute"-->
+            <!--android:visibility="invisible"/>-->
 
             <!--<CheckBox-->
-                <!--android:id="@+id/equalizer_on"-->
-                <!--style="@style/medium_label"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
-                <!--android:button="@null"-->
-                <!--android:drawableTop="@drawable/radiobutton"-->
-                <!--android:text="@string/eq_button_equalizer"-->
-                <!--android:visibility="invisible"/>-->
+            <!--android:id="@+id/equalizer_on"-->
+            <!--style="@style/medium_label"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_marginTop="@dimen/checkbox_top_margin"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/radiobutton"-->
+            <!--android:text="@string/eq_button_equalizer"-->
+            <!--android:visibility="invisible"/>-->
 
             <Space
                 android:layout_width="wrap_content"
@@ -788,9 +788,10 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_balance"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_balance" />
+                android:textSize="20.0sp" />
+
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
@@ -805,9 +806,10 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_advanced"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_advanced" />
+                android:textSize="20.0sp" />
+
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="12dp" />
@@ -822,9 +824,9 @@
                 android:gravity="center"
                 android:shadowColor="#b0000000"
                 android:shadowRadius="2.0"
+                android:text="@string/button_defaults"
                 android:textColor="@drawable/button_font_style"
-                android:textSize="20.0sp"
-                android:text="@string/button_defaults" />
+                android:textSize="20.0sp" />
         </LinearLayout>
         <!-- right controls end -->
 

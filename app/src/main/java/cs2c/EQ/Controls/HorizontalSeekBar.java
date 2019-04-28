@@ -1,4 +1,4 @@
-package cs2c.EQ1.Controls;
+package cs2c.EQ.Controls;
 
 /**
  * Created by john on 07.11.2017.
@@ -8,7 +8,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-public class HorizontalSeekBar extends cs2c.EQ1.Controls.CorrectedSeekBar {
+public class HorizontalSeekBar extends cs2c.EQ.Controls.CorrectedSeekBar {
     public HorizontalSeekBar(Context context) {
         super(context);
     }

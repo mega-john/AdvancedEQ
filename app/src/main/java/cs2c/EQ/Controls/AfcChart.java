@@ -1,4 +1,4 @@
-package cs2c.EQ1.Controls;
+package cs2c.EQ.Controls;
 
 
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cs2c.EQ1.R;
+import cs2c.EQ.R;
 
 public class AfcChart extends View {
     public final FilterData bass = new FilterData();
