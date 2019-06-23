@@ -2,11 +2,17 @@ package cs2c.EQ;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import cs2c.EQ.Controls.VerticalSeekBar;
 
 public class AdvancedFragment extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private TextView btEqualizer;
@@ -14,6 +20,7 @@ public class AdvancedFragment extends Activity implements View.OnClickListener, 
     private TextView bt1, bt2, bt3;
     private cs2c.EQ.Controls.HorizontalSeekBar sbParam1, sbParam2;
     private TextView txt1, txt2;
+    private int width = 0;
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
@@ -25,20 +32,74 @@ public class AdvancedFragment extends Activity implements View.OnClickListener, 
         btBalance = (TextView) findViewById(R.id.bt_balance);
         btBalance.setOnClickListener(this);
 
-        bt1 = (TextView) findViewById(R.id.bt1);
-        bt1.setOnClickListener(this);
-        bt2 = (TextView) findViewById(R.id.bt2);
-        bt2.setOnClickListener(this);
-        bt3 = (TextView) findViewById(R.id.bt3);
-        bt3.setOnClickListener(this);
+        LinearLayout lm = (LinearLayout) findViewById(R.id.seekBarsLayout);
 
-        sbParam1 = (cs2c.EQ.Controls.HorizontalSeekBar) findViewById(R.id.param1);
-        sbParam1.setOnSeekBarChangeListener(this);
-        sbParam2 = (cs2c.EQ.Controls.HorizontalSeekBar) findViewById(R.id.param2);
-        sbParam2.setOnSeekBarChangeListener(this);
+        lm.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                // Preventing extra work because method will be called many times.
+                if(width == (right - left))
+                    return;
 
-        txt1 = (TextView) findViewById(R.id.txt1);
-        txt2 = (TextView) findViewById(R.id.txt2);
+                width = (right - left);
+                // do something here...
+                createContols();
+            }
+        });
+
+    }
+
+    private void createContols() {
+        LinearLayout lm = (LinearLayout) findViewById(R.id.seekBarsLayout);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+        Resources r = getResources();
+
+        int w = width / 20;
+        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25.0f, r.getDisplayMetrics());
+//        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, w, r.getDisplayMetrics());
+        params.setMargins(0, 80, 0, 80);
+
+        //Create four
+        for (int j = 0; j < 10; j++) {
+            // Create LinearLayout
+            VerticalSeekBar vsb = new VerticalSeekBar(this);
+            vsb.setId(j);
+            vsb.setLayoutParams(params);
+            vsb.setMax(40);
+            vsb.setProgress(20);
+
+            lm.addView(vsb);
+
+
+            // Create Button
+//            final Button btn = new Button(this);
+//            // Give button an ID
+//            btn.setId(j+1);
+//            btn.setText("Add To Cart");
+//            // set the layoutParams on the button
+////            btn.setLayoutParams(params);
+//
+//            final int index = j;
+//            // Set click listener for button
+//            btn.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//
+//                    Log.i("TAG", "index :" + index);
+//
+//                    Toast.makeText(getApplicationContext(),
+//                            "Clicked Button Index :" + index,
+//                            Toast.LENGTH_LONG).show();
+//
+//                }
+//            });
+//
+//            //Add button to LinearLayout
+//            ll.addView(btn);
+//            //Add button to LinearLayout defined in XML
+//            lm.addView(ll);
+        }
     }
 
     @Override
@@ -56,15 +117,6 @@ public class AdvancedFragment extends Activity implements View.OnClickListener, 
                 startActivity(balanceIntent);
                 Log.i("AdvancedFragment", "bt_balance");
                 break;
-            case R.id.bt1:
-                EQServiceProxy.setSound(sbParam1.getProgress(), sbParam2.getProgress());
-                break;
-            case R.id.bt2:
-                EQServiceProxy.set_volume(sbParam1.getProgress(), sbParam2.getProgress());
-                break;
-            case R.id.bt3:
-                EQServiceProxy.setSurround(sbParam1.getProgress(), sbParam2.getProgress());
-                break;
         }
     }
 
@@ -79,12 +131,12 @@ public class AdvancedFragment extends Activity implements View.OnClickListener, 
         int seekBarId = seekBar.getId();
 
         switch (seekBarId) {
-            case R.id.param1:
-                txt1.setText(String.format("%+d", sbParam1.getProgress()));
-                break;
-            case R.id.param2:
-                txt2.setText(String.format("%+d", sbParam2.getProgress()));
-                break;
+//            case R.id.param1:
+//                txt1.setText(String.format("%+d", sbParam1.getProgress()));
+//                break;
+//            case R.id.param2:
+//                txt2.setText(String.format("%+d", sbParam2.getProgress()));
+//                break;
         }
     }
 

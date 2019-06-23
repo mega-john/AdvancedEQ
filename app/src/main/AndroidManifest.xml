@@ -31,6 +31,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="cn.com.cs2c.android.vehicle.action.EQ_KEY" />
+                <action android:name="cn.com.cs2c.sys.MAIN_VOICE" />
             </intent-filter>
         </receiver>
 

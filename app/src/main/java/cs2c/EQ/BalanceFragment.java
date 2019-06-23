@@ -17,7 +17,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        Log.d("EQ", "user handle" + android.os.Process.myUserHandle());
+        Log.d(Settings.EQInterfaceName, "user handle" + android.os.Process.myUserHandle());
         setContentView(R.layout.fragment_balance);
 
         balance = (BalanceCross) findViewById(R.id.balanceCross);
@@ -59,7 +59,7 @@ public class BalanceFragment extends Activity implements View.OnClickListener, B
     @Override
     public void onBalanceChange(int balanceX, int balanceY, int byUser) {
 //        audioManager.setParameters(String.format("av_balance=%d,%d", balanceX, 28 - balanceY));
-//        Log.d(Constants.EQInterfaceName, String.format("onBalanceChange(%+d,%+d)", balanceX, balanceY));
+//        Log.d(Settings.EQInterfaceName, String.format("onBalanceChange(%+d,%+d)", balanceX, balanceY));
     }
 
     @Override

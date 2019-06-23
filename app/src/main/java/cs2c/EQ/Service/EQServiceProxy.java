@@ -1,10 +1,12 @@
-package cs2c.EQ;
+package cs2c.EQ.Service;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-//import android.cs2c.IEQService;
+import android.cs2c.IEQService;
 import android.util.Log;
+
+import cs2c.EQ.Settings;
 
 public final class EQServiceProxy {
 
@@ -13,20 +15,20 @@ public final class EQServiceProxy {
     @SuppressLint("WrongConstant")
     public static void Initialize(Activity activity) {
         if (mEQService == null) {
-            mEQService = (IEQService) activity.getSystemService(cs2c.EQ.Constants.EQInterfaceName);
+            mEQService = (IEQService) activity.getSystemService(Settings.EQInterfaceName);
         }
     }
 
     @SuppressLint("WrongConstant")
     public static void Initialize(Context context) {
         if (mEQService == null) {
-            mEQService = (IEQService) context.getSystemService(cs2c.EQ.Constants.EQInterfaceName);
+            mEQService = (IEQService) context.getSystemService(Settings.EQInterfaceName);
         }
     }
 
     public static void setSound(int register, int value) {
         try {
-            Log.d(cs2c.EQ.Constants.EQInterfaceName, String.format("setSound(%d, %d)", register, value));
+            Log.d(Settings.EQInterfaceName, String.format("setSound(%d, %d)", register, value));
             mEQService.setSound(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();
@@ -36,7 +38,7 @@ public final class EQServiceProxy {
     //используется для всех настроек баланса
     public static void setSurround(int register, int value) {
         try {
-            Log.d(cs2c.EQ.Constants.EQInterfaceName, String.format("setSurround(%d, %d)", register, value));
+            Log.d(Settings.EQInterfaceName, String.format("setSurround(%d, %d)", register, value));
             mEQService.setSurround(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();
@@ -47,7 +49,7 @@ public final class EQServiceProxy {
     //используется для loud on/off и новых настроек эквалайзера
     public static void set_volume(int register, int value) {
         try {
-            Log.d(cs2c.EQ.Constants.EQInterfaceName, String.format("set_volume(%d, %d)", register, value));
+            Log.d(Settings.EQInterfaceName, String.format("set_volume(%d, %d)", register, value));
             mEQService.set_volume(register, value);
         } catch (Exception e) {
 //            e.printStackTrace();

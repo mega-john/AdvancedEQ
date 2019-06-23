@@ -1,4 +1,4 @@
-package cs2c.EQ;
+package cs2c.EQ.Service;
 
 public final class SetVolumeCommands {
     /*

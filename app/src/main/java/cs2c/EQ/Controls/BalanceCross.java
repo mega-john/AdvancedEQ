@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import cs2c.EQ.EQServiceProxy;
+import cs2c.EQ.Service.EQServiceProxy;
 import cs2c.EQ.R;
 
 public class BalanceCross extends View {

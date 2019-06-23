@@ -1,45 +1,35 @@
-package cs2c.EQ;
+AdvancedSwitch = R01;
+SubwooferSetup = R02;
+LoudnessFrequency = R03;
+InputSelector = R05;
+InputGain = R06;
+VolumeGain = R20;
+FaderFrontRight = R28;
+FaderFrontLeft = R29;
+FaderRearRight = R2A;
+FaderRearLeft = R2B;
+FaderSubwoofer = R2C;
+MixingGain = R30;
 
+EqBassSetup = R41;
+EqMiddleSetup = R44;
+EqTrebleSetup = R47;
 
-/*
-    AdvancedSwitch = R01;
-    SubwooferSetup = R02;
-    LoudnessFrequency = R03;
-    InputSelector = R05;
-    InputGain = R06;
-    VolumeGain = R20;
-    FaderFrontRight = R28;
-    FaderFrontLeft = R29;
-    FaderRearRight = R2A;
-    FaderRearLeft = R2B;
-    FaderSubwoofer = R2C;
-    MixingGain = R30;
+EqBassGain = R51;
+EqMiddleGain = R54;
+EqTrebleGain = R57;
+LoudnessGainHiCut = R75;
 
-    EqBassSetup = R41;
-    EqMiddleSetup = R44;
-    EqTrebleSetup = R47;
+на данный моммент реализован следующий маппинг(android->mcu):
+23(0x17)->0x41
+24(0x18)->0x44
+25(0x19)->0x47
 
-    EqBassGain = R51;
-    EqMiddleGain = R54;
-    EqTrebleGain = R57;
-    LoudnessGainHiCut = R75;
+26(0x1A)->0x51
+27(0x1A)->0x54
+28(0x1A)->0x57
+29(0x1A)->0x75
 
-    на данный моммент реализован следующий маппинг(android->mcu):
-    23(0x17)->0x41
-    24(0x18)->0x44
-    25(0x19)->0x47
-
-    26(0x1A)->0x51
-    27(0x1A)->0x54
-    28(0x1A)->0x57
-    29(0x1A)->0x75
- */
-
-public final class Commands {
-
-}
-
-/*
 регистры используемые в оригинальном hesi_mcu.bin (D:\!ida analyze mcu\decrypted_copy.bin)
 
 Address       Function  Instruction
@@ -83,4 +73,3 @@ IROM:0000FAA3 sub_FA86  MOVW    0x9080, DW0     ; Move Word
 IROM:000122FE sub_12211 MOVW    0x9680, DW0     ; Move Word
 IROM:00011693 sub_114C0 MOVW    0x9680, DW0     ; Move Word
 
- */
